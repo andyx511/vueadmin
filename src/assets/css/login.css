@@ -1,0 +1,233 @@
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.login {
+  width: 100%;
+  height: 100vh;
+  background: #020e21 url('../../assets/images/login-bg.jpg') no-repeat center;
+  /* background-size: cover; */
+}
+
+.login .slogin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -220px;
+  margin-left: -500px;
+  color: #fff;
+}
+
+.login .slogin h1 {
+  font-size: 60px;
+  font-weight: normal;
+  margin: 30px 0;
+}
+
+.login .slogin h2 {
+  color: rgba(255, 255, 255, .9);
+  font-size: 30px;
+  font-weight: normal;
+  margin: 20px 0;
+}
+
+.login .login-box {
+  position: absolute;
+  right: 50%;
+  top: 40%;
+  width: 400px;
+  margin-top: -220px;
+  margin-right: -600px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.login .login-box .logo {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-decoration: none;
+}
+
+.login .login-box .logo img {
+  float: left;
+  width: auto;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.login .login-box .logo small {
+  float: left;
+  margin-left: 8px;
+  padding: 0 7px;
+  color: #fff;
+  font-size: 17px;
+  background-color: rgb(21, 164, 250);
+  border-radius: 10px 10px 10px 0;
+}
+
+.login .login-box .login-title {
+  position: relative;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #666;
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.agreement{
+  font-size: 12px;
+  color: #25a6f7; 
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+/* .login .login-box .login-title:after {
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  content: "";
+  border-bottom: 1px solid #ddd;
+} */
+
+.login .login-box .erro-massage {
+  height: 36px;
+  margin-bottom: 15px;
+  padding: 10px;
+  color: #a94442;
+  line-height: 16px;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  border-radius: 3px;
+}
+
+.login .login-box .form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.login .login-box .form-group label {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  margin: 1px;
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  color: #fff;
+  text-align: center;
+}
+
+.login .login-box a {
+  color: #999;
+}
+
+/*.login .login-box .icon-user,*/
+/*.login .login-box .icon-key {*/
+  /*display: block;*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+  /*background: url(../images/login-icons.svg) 0 0 no-repeat;*/
+  /*background-size: 100%;*/
+/*}*/
+
+/*.login .login-box .icon-key {*/
+  /*background-position: 0 bottom;*/
+/*}*/
+
+.login .login-box .login-btn {
+  width: 100%;
+  height: 42px;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: rgb(21, 164, 250);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.login .login-box .login-more {
+  margin-top: 10px;
+  text-align: center;
+}
+.login .login-box .login-back {
+  display: block;
+  text-align: center;
+}
+
+.login .login-box .login-more .el-button,
+.login .login-box .login-back .el-button {
+  border: none;
+}
+.login .login-box .login-back .el-button--text:hover,
+.login .login-box .login-more .el-button--text:hover,
+.login .login-box .login-back .el-button--text:focus,
+.login .login-box .login-more .el-button--text:focus {
+  background-color: transparent;
+}
+
+.login .login-box label {
+  color: #999;
+  font-weight: normal;
+}
+
+.login .login-box input {
+  width: 100%;
+  height: 42px;
+  padding-left: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.login .login-box input::-moz-placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+.login .login-box input:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.login .login-box input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.login .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #999;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.login .footer small {
+  color: #666;
+  font-size: 12px;
+}
+
+/* elementUI */
+.el-dialog {
+  margin-top: 3vh !important;
+}
+
+.el-dialog .el-dialog__body {
+  max-height: calc(88vh - 100px);
+  padding: 20px;
+  overflow: auto;
+}
