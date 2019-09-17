@@ -44,6 +44,25 @@
             </span>
           </el-form-item>
         </el-tooltip>
+        <el-form-item prop="tCode">
+          <el-col :span="16">
+            <span class="svg-container">
+            <svg-icon icon-class="user" />
+          </span>
+            <el-input
+              ref="tcode"
+              v-model="loginForm.tCode"
+              placeholder="验证吗"
+              name="username"
+              type="text"
+              tabindex="1"
+              autocomplete="on"
+            />
+          </el-col>
+          <el-col :span="8">
+            <img @click="changeCode" width="100%" height="40px" :src="tCode" alt="验证码">
+          </el-col>
+        </el-form-item>
       </el-form>
       <el-button :loading="loading" type="primary" style="width:40%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
       <el-button type="primary" style="width:40%;margin-bottom:30px;" @click="changeCode">忘记密码</el-button>
@@ -56,6 +75,7 @@
 import { validUsername } from '@/utils/validate'
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios'
+import {tCode} from "@/api/user"
 export default {
   name: 'Login',
   data() {
@@ -107,7 +127,10 @@ export default {
   },
   created() {
     // window.addEventListener('storage', this.afterQRScan)
-
+    //this.tCode = tCode+ '?t=' + new Date().getTime();
+    axios.get('http://127.0.0.1:8888/admin/getVerify').then((res) => {
+        this.tCode = 'http://127.0.0.1:8888/admin/getVerify'+ '?t=' + new Date().getTime();
+    })
   },
   mounted() {
     if (this.loginForm.username === '') {
@@ -167,6 +190,10 @@ export default {
         }
         return acc
       }, {})
+    },
+      //切换验证码
+    changeCode() {
+      this.tCode = tCode+ '?t=' + new Date().getTime();
     }
   }
 }
