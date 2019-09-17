@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/terser" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/terser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/terser.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/terser.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/login-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/login-bg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/login/components/SocialSignin.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +90,7 @@
       <workItem from="1568343147722" duration="29063000" />
       <workItem from="1568514952745" duration="3752000" />
       <workItem from="1568644653127" duration="1159000" />
-      <workItem from="1568690772895" duration="14067000" />
+      <workItem from="1568690772895" duration="16853000" />
     </task>
     <servers />
   </component>

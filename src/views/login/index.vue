@@ -44,17 +44,9 @@
             </span>
           </el-form-item>
         </el-tooltip>
-        <el-form-item prop="tCode">
-          <el-col :span="16">
-            <el-input v-model="loginForm.tCode" class="form-control" :maxlength="6" :minlength="6" auto-complete="off" placeholder="验证码" />
-          </el-col>
-          <el-col :span="8" style="margin-top: 3px">
-            <img width="100%" height="40px" :src="tCode" alt="验证码" @click="changeCode">
-          </el-col>
-        </el-form-item>
       </el-form>
-      <el-button :loading="loading" type="primary" style="width:36%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
-      <el-button type="primary" style="width:36%;margin-bottom:30px;" @click="changeCode">忘记密码</el-button>
+      <el-button :loading="loading" type="primary" style="width:40%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
+      <el-button type="primary" style="width:40%;margin-bottom:30px;" @click="changeCode">忘记密码</el-button>
     </div>
   </div>
 </template>
@@ -115,7 +107,7 @@ export default {
   },
   created() {
     // window.addEventListener('storage', this.afterQRScan)
-    this.tCode = 'http://127.0.0.1:8888/admin/getVerify'
+
   },
   mounted() {
     if (this.loginForm.username === '') {
@@ -175,10 +167,6 @@ export default {
         }
         return acc
       }, {})
-    },
-    changeCode() {
-      axios.get('http://127.0.0.1:8888/admin/getVerify').then((res) => {
-      })
     }
   }
 }
@@ -229,9 +217,7 @@ $cursor: #fff;
     color: #454545;
   }
 }
-.el-form-item--medium .el-form-item__content {
-  line-height: 0px;
-}
+
 </style>
 
 <style lang="scss" scoped>

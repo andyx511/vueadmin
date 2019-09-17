@@ -21,4 +21,8 @@ export function logout() {
     method: 'post'
   })
 }
-
+/**
+ * 图片验证码地址
+ * @type {string}
+ */
+/* export const tCode = '127.0.0.1:8888/admin/getVerify';*/
