@@ -47,8 +47,8 @@
         <el-form-item prop="tcode">
           <el-col :span="16">
             <span class="svg-container">
-            <svg-icon icon-class="user" />
-          </span>
+              <svg-icon icon-class="user" />
+            </span>
             <el-input
               ref="tcode"
               v-model="loginForm.tcode"
@@ -60,7 +60,7 @@
             />
           </el-col>
           <el-col :span="8">
-            <img @click="changeCode" width="100%" height="40px" :src="tcode" alt="验证码">
+            <img width="100%" height="40px" :src="tcode" alt="验证码" @click="changeCode">
           </el-col>
         </el-form-item>
       </el-form>
@@ -75,7 +75,7 @@
 import { validUsername } from '@/utils/validate'
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios'
-import {tcode} from "@/api/user"
+import { tcode } from '@/api/user'
 export default {
   name: 'Login',
   data() {
@@ -127,9 +127,9 @@ export default {
   },
   created() {
     // window.addEventListener('storage', this.afterQRScan)
-    //this.tcode = tcode+ '?t=' + new Date().getTime();
-    axios.get('http://127.0.0.1:8888/admin/getVerify').then((res) => {
-        this.tcode = 'http://127.0.0.1:8888/admin/getVerify'+ '?t=' + new Date().getTime();
+    // this.tcode = tcode+ '?t=' + new Date().getTime();
+    axios.get('http://127.0.0.1:8888/admin/getTCode').then((res) => {
+      this.tcode = 'http://127.0.0.1:8888/admin/getTCode' + '?t=' + new Date().getTime()
     })
   },
   mounted() {
@@ -191,9 +191,9 @@ export default {
         return acc
       }, {})
     },
-      //切换验证码
+    // 切换验证码
     changeCode() {
-      this.tcode = tcode+ '?t=' + new Date().getTime();
+      this.tcode = tcode + '?t=' + new Date().getTime()
     }
   }
 }

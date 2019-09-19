@@ -25,4 +25,4 @@ export function logout() {
  * 图片验证码地址
  * @type {string}
  */
-export const tcode = 'http://127.0.0.1:8888/admin/getVerify';
+export const tcode = 'http://127.0.0.1:8888/admin/getTCode'
