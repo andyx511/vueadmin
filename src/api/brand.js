@@ -14,3 +14,10 @@ export function getList(params) {
     params: params
   })
 }
+export function add(data) {
+  return request({
+    url: 'brand/add',
+    method: 'post',
+    data
+  })
+}

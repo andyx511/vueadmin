@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/brand.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/svg/product.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/product/add.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/product/brand.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/product/kind.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/user/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/components/Sidebar/Logo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/Sidebar/Logo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/brand.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/brand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/components/Settings/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/Settings/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/brand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/brand.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
