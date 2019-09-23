@@ -37,7 +37,7 @@
       :visible.sync="dialogVisible"
       width="80%"
       :before-close="handleClose">
-      <brand></brand>
+      <detail></detail>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
@@ -47,32 +47,9 @@
 </template>
 
 <script>
-import detail from "./components/detail";
-import Brand from "./brand";
-export default {
-  name: 'List',
-  comments:{detail,Brand},
-  data() {
-    return {
-      brandList: '',
-      dialogVisible: false
-    }
-  },
-  created() {
-  },
-  methods: {
-    add() {
-      this.dialogVisible = true
-    },
-    handleClose(done) {
-      this.$confirm('确认关闭？')
-        .then(_ => {
-          done();
-        })
-        .catch(_ => {});
-    }
+  export default {
+    name: "detail"
   }
-}
 </script>
 
 <style scoped>

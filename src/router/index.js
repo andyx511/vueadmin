@@ -158,12 +158,6 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'add',
-        component: () => import('@/views/product/add'),
-        name: '添加商品',
-        meta: { title: '添加商品', noCache: true }
-      },
-      {
         path: 'list',
         component: () => import('@/views/product/list'),
         name: '商品列表',
@@ -174,6 +168,12 @@ export const asyncRoutes = [
         component: () => import('@/views/product/brand'),
         name: '商品品牌',
         meta: { title: '商品品牌', noCache: true }
+      },
+      {
+        path: 'kind',
+        component: () => import('@/views/product/kind'),
+        name: "商品种类",
+        meta: { title: '商品种类',noCache: true}
       }
     ]
   },

@@ -25,7 +25,7 @@
           <i class="el-icon-search" />
           <span>筛 选 搜 索</span>
           <el-form-item label="输入搜索">
-            <el-input v-model="listQuery.name" style="width: 150px" placeholder="商品名称" clearable />
+            <el-input v-model="listQuery.brandName" style="width: 150px" placeholder="商品名称" clearable />
           </el-form-item>
           <el-form-item label="商品id">
             <el-input v-model="listQuery.id" style="width: 150px" placeholder="品牌id" clearable />
@@ -57,7 +57,7 @@
         v-load="listLoading"
         :data="list"
         style="width: 100%;"
-        @select-change="handleSelectionChange"
+        @selection-change="handleSelectionChange">
         border>
         <el-table-column type = "selection"  align="center"></el-table-column>
         <el-table-column label="编号"  align="center">
@@ -68,7 +68,7 @@
         </el-table-column>
         <el-table-column label="操作" >
           <template slot-scope="scope">
-            <p><el-button type="primary" @click="edit(scope.$index, scope.row)">编辑</el-button></p>
+            <p><el-button type="primary" @click="edit( scope.row)">编辑</el-button></p>
           </template>
         </el-table-column>
       </el-table>
@@ -78,7 +78,7 @@
     </div>
     <div class="pagination-container">
       <el-button
-        @click=""
+        @click="deleteBatch"
         type="danger">
         批量删除
       </el-button>
@@ -94,13 +94,13 @@
         :total="total">
       </el-pagination>
     </div>
-<!--   对话框-->
+    <!--对话框-->
     <el-dialog
       title="添加品牌"
       :visible.sync="dialogVisible"
       width="30%"
       :before-close="handleClose">
-      <el-form size="mini" :model="brand" ref="form" style="align-content: center">
+      <el-form :model="brand" ref="form" style="align-content: center">
         <el-form-item label="品牌名称"  label-width="100px">
           <el-input v-model="brand.name"  clearable style="width: 200px;"></el-input>
         </el-form-item>
@@ -119,7 +119,7 @@
       :visible.sync="dialogVisibleEdit"
       width="30%"
       :before-close="handleClose">
-      <el-form size="mini" :model="brand" ref="form" style="align-content: center">
+      <el-form  :model="brand" ref="form" style="align-content: center">
         <el-form-item label="品牌名称"  label-width="100px">
           <el-input v-model="brand.name"  clearable style="width: 200px;"></el-input>
         </el-form-item>
@@ -129,22 +129,23 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisibleEdit = false">取 消</el-button>
-        <el-button type="primary" @click="add">确 定</el-button>
+        <el-button type="primary" @click="update">确 定</el-button>
       </span>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { getList ,add} from '../../api/brand'
+import { getList, add, detail, update, deletes} from '../../api/brand'
 
 const query = {
-  name: null,
+  brandName: null,
   id: null,
   pageNum: 1,
   pageSize: 5
 }
 const defaultBrand ={
+  id:  '',
   name: null,
   status: null
 }
@@ -158,8 +159,13 @@ export default {
       list: null,
       dialogVisible: false,
       dialogVisibleEdit: false,
-      brand:Object.assign({},defaultBrand)
+      brand: Object.assign({},defaultBrand),
+      detail: null,
+      // 多选组件
+      multipleSelection: []
     }
+  },
+  watch: {
   },
   created() {
     this.getList();
@@ -202,6 +208,7 @@ export default {
           type: 'success',
           duration:1000
         });
+        this.getList()
       })
     },
     handleClose(done) {
@@ -211,9 +218,61 @@ export default {
         })
         .catch(_ => {});
     },
-    edit(index,row){
-      this.dialogVisibleEdit = true
-
+    edit(row){
+      detail(row.id).then(response =>{
+        this.brand.id = response.data.id
+        this.brand.name = response.data.name
+        this.brand.status = response.data.status
+        this.dialogVisibleEdit = true
+      })
+      this.getList()
+    },
+    update(){
+      update(this.brand).then(response =>{
+        this.brand.id = null
+        this.brand.name = null
+        this.brand.status = null
+        this.brand = Object.assign({},defaultBrand)
+        this.dialogVisibleEdit = false
+        this.$message({
+          message: '修改成功',
+          type: 'success',
+          duration:1000
+        })
+      })
+      this.getList()
+    },
+    deleteBatch(){
+      if (this.multipleSelection==null || this.multipleSelection.length<1){
+        this.$message({
+          message: '请选择要删除的',
+        })
+      }else {
+        this.$confirm('是否要进行该批量删除吗?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          let ids = [];
+          for (let i = 0;i<this.multipleSelection.length;i++){
+            ids.push(this.multipleSelection[i].id);
+          }
+          this.deletes(ids)
+        });
+      }
+    },
+    handleSelectionChange(val) {
+      this.multipleSelection = val
+    },
+    deletes(ids){
+      deletes(ids).then(response =>{
+        this.$message({
+          message: '删除成功',
+          type: 'success',
+          duration:1000
+        })
+        this.getList()
+      })
     }
   }
 }
