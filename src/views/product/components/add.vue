@@ -7,9 +7,9 @@
             <el-input v-model="product.name"></el-input>
           </el-form-item>
           <el-form-item label="品牌" prop="brand">
-            <el-select v-model="value" placeholder="请选择">
+            <el-select v-model="product.brand" placeholder="请选择">
               <el-option
-                v-for="item in options"
+                v-for="item in brand"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value">
@@ -23,21 +23,32 @@
         </el-form>
       </el-col>
     </el-row>
-
+{{brand}}
 
   </div>
 </template>
 
 <script>
-
+import {getList} from '../../../api/brand'
   export default {
     name: "add",
     data() {
       return{
         product: {
           name: '',
-          brand: ''
+          kind: '',
+          brand: '',
+          pic: '',
+          isNew: '',
+          isPublic: '',
+          sort: '',
+          price: '',
+          unit: '',
+          giftGrowth:'',
+          giftPoint:'',
+          status:''
         },
+        brand:[],
         rules: {
           name: [
             { required: true, message: '请输入商品名称', trigger: 'blur' },
@@ -47,20 +58,34 @@
             { required: true, message: '请选择商品品牌', trigger: 'blur'}
           ]
         },
-        brand: [],
+
       }
+    },
+    created() {
+      this.getBrandList();
     },
     methods: {
       submitForm( ) {
         this.$parent.dialogVisible = false
         this.$emit('mm','false')
         this.$message({
-          message:"???"
+          message:"哈哈哈"
         })
         this.resetForm('product')
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      },
+      getBrandList(){
+        getList({pageNum:1,pageSize:100}).then(response =>{
+          let brandList = response.data.list;
+          for (let i = 0;i<brandList.length;i++){
+            this.brand.push({label:brandList[i].name,value:brandList[i].name});
+          }
+          this.$message({
+            message:"123"
+          })
+        })
       }
     }
   }
