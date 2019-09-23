@@ -3,8 +3,15 @@
 </template>
 
 <script>
+
   export default {
-    name: "edit"
+    name: "edit",
+    data() {
+      return{
+
+      }
+    }
+
   }
 </script>
 

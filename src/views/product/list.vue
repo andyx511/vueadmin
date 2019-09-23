@@ -1,5 +1,6 @@
 <template>
   <div class="app-container">
+
     <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-search" />
@@ -35,23 +36,21 @@
     <el-dialog
       title="提示"
       :visible.sync="dialogVisible"
-      width="80%"
+      width="40%"
       :before-close="handleClose">
-      <brand></brand>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-      </span>
+      <add @mm = "dialogVisible = false"></add>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import detail from "./components/detail";
-import Brand from "./brand";
+
+import add from "./components/add";
+import edit from "./components/edit";
 export default {
   name: 'List',
-  comments:{detail,Brand},
+  components: {add,edit},
+
   data() {
     return {
       brandList: '',

@@ -1,25 +1,6 @@
 <template>
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
-      <!--<div>
-        <i class="el-icon-search" />
-        <span>筛选搜索</span>
-        <el-button
-          style="float: right"
-          type="primary"
-          size="small"
-          @click="search"
-        >
-          查询结果
-        </el-button>
-        <el-button
-          style="float: right;margin-right: 15px"
-          size="small"
-          @click="reset"
-        >
-          重置
-        </el-button>
-      </div>-->
       <div style="margin-top: 15px">
         <el-form size="small" label-width="140px" :inline="true" :model="listQuery">
           <i class="el-icon-search" />
@@ -51,20 +32,20 @@
         <el-button type="success" @click="dialogVisible = true" icon="el-icon-edit" >添加</el-button>
       </div>
     </el-card>
-    <div style="margin-top: 20px;">
+    <div style="margin-top: 20px">
       <el-table
         ref="BrandTable"
         v-load="listLoading"
         :data="list"
         style="width: 100%;"
-        @selection-change="handleSelectionChange">
+        @selection-change="handleSelectionChange"
         border>
         <el-table-column type = "selection"  align="center"></el-table-column>
         <el-table-column label="编号"  align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
         <el-table-column label="商品图片"  align="center">
-        <template slot-scope="scope">{{scope.row.name}}</template>
+          <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
         <el-table-column label="操作" >
           <template slot-scope="scope">
@@ -136,146 +117,146 @@
 </template>
 
 <script>
-import { getList, add, detail, update, deletes} from '../../api/brand'
+  import { getList, add, detail, update, deletes} from '../../api/brand'
 
-const query = {
-  brandName: null,
-  id: null,
-  pageNum: 1,
-  pageSize: 5
-}
-const defaultBrand ={
-  id:  '',
-  name: null,
-  status: null
-}
-export default {
-  name: 'Brand',
-  data() {
-    return {
-      listLoading: true,
-      total: null,
-      listQuery: Object.assign({}, query),
-      list: null,
-      dialogVisible: false,
-      dialogVisibleEdit: false,
-      brand: Object.assign({},defaultBrand),
-      detail: null,
-      // 多选组件
-      multipleSelection: []
-    }
-  },
-  watch: {
-  },
-  created() {
-    this.getList();
-  },
-  methods: {
-    getList() {
-      this.listLoading = true;
-      getList(this.listQuery).then(response =>{
-        this.listLoading = false;
-        this.list = response.data.list;
-        this.total = response.data.total;
-      })
-    },
-    // 改变页面
-    handleCurrentChange() {
-      this.listLoading = true;
-      this.getList();
-    },
-    // 改变页面大小
-    handleSizeChange(val) {
-      this.listQuery.pageNum = 1;
-      this.listQuery.pageSize = val;
-      this.getList();
-    },
-    search() {
-      this.listQuery.pageNum = 1;
-      this.getList();
-    },
-    reset() {
-      this.listQuery = Object.assign({},query)
-    },
-    add() {
-      add(this.brand).then(response =>{
-        this.brand.name = null
-        this.brand.status = null
-        this.brand = Object.assign({},defaultBrand)
-        this.dialogVisible = false
-        this.$message({
-          message: '提交成功',
-          type: 'success',
-          duration:1000
-        });
-        this.getList()
-      })
-    },
-    handleClose(done) {
-      this.$confirm('确认关闭？')
-        .then(_ => {
-          done();
-        })
-        .catch(_ => {});
-    },
-    edit(row){
-      detail(row.id).then(response =>{
-        this.brand.id = response.data.id
-        this.brand.name = response.data.name
-        this.brand.status = response.data.status
-        this.dialogVisibleEdit = true
-      })
-      this.getList()
-    },
-    update(){
-      update(this.brand).then(response =>{
-        this.brand.id = null
-        this.brand.name = null
-        this.brand.status = null
-        this.brand = Object.assign({},defaultBrand)
-        this.dialogVisibleEdit = false
-        this.$message({
-          message: '修改成功',
-          type: 'success',
-          duration:1000
-        })
-      })
-      this.getList()
-    },
-    deleteBatch(){
-      if (this.multipleSelection==null || this.multipleSelection.length<1){
-        this.$message({
-          message: '请选择要删除的',
-        })
-      }else {
-        this.$confirm('是否要进行该批量删除吗?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          let ids = [];
-          for (let i = 0;i<this.multipleSelection.length;i++){
-            ids.push(this.multipleSelection[i].id);
-          }
-          this.deletes(ids)
-        });
+  const query = {
+    brandName: null,
+    id: null,
+    pageNum: 1,
+    pageSize: 5
+  }
+  const defaultBrand ={
+    id:  '',
+    name: null,
+    status: null
+  }
+  export default {
+    name: 'Brand',
+    data() {
+      return {
+        listLoading: true,
+        total: null,
+        listQuery: Object.assign({}, query),
+        list: null,
+        dialogVisible: false,
+        dialogVisibleEdit: false,
+        brand: Object.assign({},defaultBrand),
+        detail: null,
+        // 多选组件
+        multipleSelection: []
       }
     },
-    handleSelectionChange(val) {
-      this.multipleSelection = val
+    watch: {
     },
-    deletes(ids){
-      deletes(ids).then(response =>{
-        this.$message({
-          message: '删除成功',
-          type: 'success',
-          duration:1000
+    created() {
+      this.getList();
+    },
+    methods: {
+      getList() {
+        this.listLoading = true;
+        getList(this.listQuery).then(response =>{
+          this.listLoading = false;
+          this.list = response.data.list;
+          this.total = response.data.total;
+        })
+      },
+      // 改变页面
+      handleCurrentChange() {
+        this.listLoading = true;
+        this.getList();
+      },
+      // 改变页面大小
+      handleSizeChange(val) {
+        this.listQuery.pageNum = 1;
+        this.listQuery.pageSize = val;
+        this.getList();
+      },
+      search() {
+        this.listQuery.pageNum = 1;
+        this.getList();
+      },
+      reset() {
+        this.listQuery = Object.assign({},query)
+      },
+      add() {
+        add(this.brand).then(response =>{
+          this.brand.name = null
+          this.brand.status = null
+          this.brand = Object.assign({},defaultBrand)
+          this.dialogVisible = false
+          this.$message({
+            message: '提交成功',
+            type: 'success',
+            duration:1000
+          });
+          this.getList()
+        })
+      },
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+      },
+      edit(row){
+        detail(row.id).then(response =>{
+          this.brand.id = response.data.id
+          this.brand.name = response.data.name
+          this.brand.status = response.data.status
+          this.dialogVisibleEdit = true
         })
         this.getList()
-      })
+      },
+      update(){
+        update(this.brand).then(response =>{
+          this.brand.id = null
+          this.brand.name = null
+          this.brand.status = null
+          this.brand = Object.assign({},defaultBrand)
+          this.dialogVisibleEdit = false
+          this.$message({
+            message: '修改成功',
+            type: 'success',
+            duration:1000
+          })
+        })
+        this.getList()
+      },
+      deleteBatch(){
+        if (this.multipleSelection==null || this.multipleSelection.length<1){
+          this.$message({
+            message: '请选择要删除的',
+          })
+        }else {
+          this.$confirm('是否要进行该批量删除吗?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            let ids = [];
+            for (let i = 0;i<this.multipleSelection.length;i++){
+              ids.push(this.multipleSelection[i].id);
+            }
+            this.deletes(ids)
+          });
+        }
+      },
+      handleSelectionChange(val) {
+        this.multipleSelection = val
+      },
+      deletes(ids){
+        deletes(ids).then(response =>{
+          this.$message({
+            message: '删除成功',
+            type: 'success',
+            duration:1000
+          })
+          this.getList()
+        })
+      }
     }
   }
-}
 </script>
 
 <style scoped>
