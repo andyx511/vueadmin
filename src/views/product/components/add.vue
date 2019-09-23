@@ -46,7 +46,8 @@ import {getList} from '../../../api/brand'
           unit: '',
           giftGrowth:'',
           giftPoint:'',
-          status:''
+          status:'',
+          word:''
         },
         brand:[],
         rules: {
