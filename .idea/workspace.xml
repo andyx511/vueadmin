@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/clipboard/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/pdf/content.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/pdf/download.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/pdf/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/brand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/brand.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/product/components/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/detail.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/kind.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/kind.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -122,7 +114,7 @@
       <workItem from="1568644653127" duration="1159000" />
       <workItem from="1568690772895" duration="16853000" />
       <workItem from="1568722396098" duration="5268000" />
-      <workItem from="1569200718252" duration="11945000" />
+      <workItem from="1569200718252" duration="15155000" />
     </task>
     <servers />
   </component>
