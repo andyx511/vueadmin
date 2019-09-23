@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/add.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
-    </list>
+    <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +111,16 @@
       <workItem from="1568690772895" duration="16853000" />
       <workItem from="1568722396098" duration="5268000" />
       <workItem from="1569200718252" duration="15155000" />
+      <workItem from="1569244699703" duration="335000" />
     </task>
+    <task id="LOCAL-00001" summary="9-23晚">
+      <created>1569244811805</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569244811805</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +138,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="9-23晚" />
+    <option name="LAST_COMMIT_MESSAGE" value="9-23晚" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
