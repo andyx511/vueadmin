@@ -23,8 +23,6 @@
         </el-form>
       </el-col>
     </el-row>
-{{brand}}
-
   </div>
 </template>
 
@@ -50,6 +48,7 @@ import {getList} from '../../../api/brand'
           word:''
         },
         brand:[],
+        kind: [],
         rules: {
           name: [
             { required: true, message: '请输入商品名称', trigger: 'blur' },
@@ -87,7 +86,8 @@ import {getList} from '../../../api/brand'
             message:"123"
           })
         })
-      }
+      },
+      getKindList
     }
   }
 </script>
