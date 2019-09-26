@@ -87,7 +87,6 @@ import {getList} from '../../../api/brand'
           })
         })
       },
-      getKindList
     }
   }
 </script>

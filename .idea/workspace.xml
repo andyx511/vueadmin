@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/kind.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/product/components/singleImgUpload.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/permission/directive.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/permission/directive.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/brand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/brand.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/product/components/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +40,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/icons/svg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views/product/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -49,20 +53,20 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
-    <property name="ts.external.directory.path" value="C:\Users\Dell\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="D:\webstorm\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\File\bysj\vueadmin\src\views\product\components" />
+      <recent name="E:\File\bysj\vueadmin\src\components\Upload" />
+      <recent name="E:\bysj\vueadmin\src\icons\svg" />
+      <recent name="E:\File\bysj\vueadmin" />
+      <recent name="E:\bysj\vueadmin\src\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\bysj\vueadmin\src\views\product\components" />
       <recent name="E:\bysj\vueadmin\src\views\product" />
       <recent name="E:\bysj\vueadmin\src\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\bysj\vueadmin\src\icons\svg" />
-      <recent name="E:\File\bysj\vueadmin" />
-      <recent name="E:\bysj\vueadmin\src\assets" />
-      <recent name="E:\bysj\vueadmin\src\assets\css" />
-      <recent name="E:\VUE\vue-element-admin\src\components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -116,6 +120,8 @@
       <workItem from="1568722396098" duration="5268000" />
       <workItem from="1569200718252" duration="15155000" />
       <workItem from="1569244699703" duration="335000" />
+      <workItem from="1569333458861" duration="1948000" />
+      <workItem from="1569492597722" duration="13016000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>

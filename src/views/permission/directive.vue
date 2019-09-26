@@ -3,12 +3,12 @@
     <switch-roles @change="handleRolesChange" />
     <div :key="key" style="margin-top:30px;">
       <div>
-        <span v-permission="['admin']" class="permission-alert">
+        <span v-permission="['lala']" class="permission-alert">
           Only
           <el-tag class="permission-tag" size="small">admin</el-tag> can see this
         </span>
-        <el-tag v-permission="['admin']" class="permission-sourceCode" type="info">
-          v-permission="['admin']"
+        <el-tag v-permission="['lala']" class="permission-sourceCode" type="info">
+          v-permission="['lala']"
         </el-tag>
       </div>
 
@@ -41,10 +41,10 @@
       </aside>
 
       <el-tabs type="border-card" style="width:550px;">
-        <el-tab-pane v-if="checkPermission(['admin'])" label="Admin">
+        <el-tab-pane v-permission="checkPermission(['lala'])" label="Admin">
           Admin can see this
           <el-tag class="permission-sourceCode" type="info">
-            v-if="checkPermission(['admin'])"
+            v-if="checkPermission(['lala'])"
           </el-tag>
         </el-tab-pane>
 

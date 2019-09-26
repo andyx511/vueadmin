@@ -114,7 +114,7 @@ export const asyncRoutes = [
     meta: {
       title: 'Permission',
       icon: 'lock',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      roles: ['lala', 'editor'] // you can set roles in root nav
     },
     children: [
       {
@@ -173,7 +173,7 @@ export const asyncRoutes = [
         path: 'kind',
         component: () => import('@/views/product/kind'),
         name: "商品种类",
-        meta: { title: '商品种类',noCache: true}
+        meta: { title: '商品种类',noCache: true,roles:['admin']}
       }
     ]
   },

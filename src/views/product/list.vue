@@ -30,15 +30,16 @@
             <el-input style="width: 203px" placeholder="品牌id" />
           </el-form-item>
         </el-form>
-        <el-button type="success" @click="add" icon="el-icon-edit" >添加</el-button>
+        <el-button type="success" @click="add" icon="el-icon-edit" v-permission="['admin']">添加</el-button>
       </div>
     </el-card>
     <el-dialog
       title="提示"
       :visible.sync="dialogVisible"
       width="60%"
-      :before-close="handleClose">
-      <add @mm = "dialogVisible = false"></add>
+      :before-close="handleClose"
+      >
+      <add @mm = "dialogVisible = false" ></add>
     </el-dialog>
   </div>
 </template>
@@ -47,10 +48,12 @@
 
 import add from "./components/add";
 import edit from "./components/edit";
+import checkPermission from '@/utils/permission' // 权限判断函数
+import permission from '@/directive/permission/index.js' // 权限判断指令
 export default {
   name: 'List',
   components: {add,edit},
-
+  directives: { permission },
   data() {
     return {
       brandList: '',
@@ -60,6 +63,7 @@ export default {
   created() {
   },
   methods: {
+    checkPermission,
     add() {
       this.dialogVisible = true
     },

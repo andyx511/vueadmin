@@ -41,11 +41,31 @@
         @selection-change="handleSelectionChange"
         border>
         <el-table-column type = "selection"  align="center"></el-table-column>
-        <el-table-column label="编号"  align="center">
+        <el-table-column label="ID"  align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="商品图片"  align="center">
+        <el-table-column label="品牌名"  align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
+        </el-table-column>
+        <el-table-column label="Logo"  align="center">
+          <template slot-scope="scope">{{scope.row.logo}}</template>
+        </el-table-column>
+        <el-table-column label="是否显示"  align="center">
+          <template slot-scope="scope">
+            <el-switch
+              @change="handleShow(scope.$index, scope.row)"
+              :active-value="1"
+              :inactive-value="0"
+              v-model="scope.row.isShow">
+            </el-switch>
+          </template>
+
+        </el-table-column>
+        <el-table-column label="商品数"  align="center">
+          <template slot-scope="scope">{{scope.row.productNum}}</template>
+        </el-table-column>
+        <el-table-column label="评论数"  align="center">
+          <template slot-scope="scope">{{scope.row.commentNum}}</template>
         </el-table-column>
         <el-table-column label="操作" >
           <template slot-scope="scope">
@@ -74,24 +94,36 @@
         :current-page.sync="listQuery.pageNum"
         :total="total">
       </el-pagination>
+      <SingleImgUpload style="margin: 5px" v-model="url"></SingleImgUpload>
     </div>
     <!--对话框-->
     <el-dialog
       title="添加品牌"
       :visible.sync="dialogVisible"
+      :rules="rules"
       width="30%"
-      :before-close="handleClose">
-      <el-form :model="brand" ref="form" style="align-content: center">
-        <el-form-item label="品牌名称"  label-width="100px">
+      >
+      <el-form :model="brand" :rules="rules"  ref="brand" style="align-content: center">
+        <el-form-item label="品牌名称"  label-width="150px" prop="name">
           <el-input v-model="brand.name"  clearable style="width: 200px;"></el-input>
         </el-form-item>
-        <el-form-item label="品牌status" label-width="100px">
-          <el-input v-model="brand.status"  clearable style="width: 200px;"></el-input>
+        <el-form-item label="品牌首字母" label-width="150px" prop="fLetter">
+          <el-input v-model="brand.fLetter"  clearable style="width: 200px;"></el-input>
+        </el-form-item>
+        <el-form-item label="排序" label-width="150px">
+          <el-input v-model="brand.sort"  clearable style="width: 200px;"></el-input>
+        </el-form-item>
+        <el-form-item label="品牌Logo" label-width="150px"  prop="Logo">
+          <single-img-upload style="margin: 5px" v-model="brand.logo"></single-img-upload>
+        </el-form-item>
+        <el-form-item label="是否显示" label-width="150px" >
+          <el-radio v-model="brand.isShow" label="0">不显示</el-radio>
+          <el-radio v-model="brand.isShow" label="1">显示</el-radio>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="add">确 定</el-button>
+        <el-button type="primary" @click="add('brand')">确 定</el-button>
       </span>
     </el-dialog>
     <!--编辑-->
@@ -104,9 +136,7 @@
         <el-form-item label="品牌名称"  label-width="100px">
           <el-input v-model="brand.name"  clearable style="width: 200px;"></el-input>
         </el-form-item>
-        <el-form-item label="品牌status" label-width="100px">
-          <el-input v-model="brand.status"  clearable style="width: 200px;"></el-input>
-        </el-form-item>
+
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisibleEdit = false">取 消</el-button>
@@ -117,6 +147,7 @@
 </template>
 
 <script>
+  import singleImgUpload from './components/singleImgUpload'
   import { getList, add, detail, update, deletes} from '../../api/brand'
 
   const query = {
@@ -128,12 +159,20 @@
   const defaultBrand ={
     id:  '',
     name: null,
-    status: null
+    status: null,
+    sort: '',
+    logo:'',
+    isShow:'',
+    productNum:'',
+    commentNum:'',
+    fLetter:''
   }
   export default {
     name: 'Brand',
+    components:{singleImgUpload},
     data() {
       return {
+        url:'',
         listLoading: true,
         total: null,
         listQuery: Object.assign({}, query),
@@ -143,7 +182,17 @@
         brand: Object.assign({},defaultBrand),
         detail: null,
         // 多选组件
-        multipleSelection: []
+        multipleSelection: [],
+        rules: {
+          name: [
+            { required: true, message: '请输入商品名称', trigger: 'blur' },
+            // { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          fLetter: [
+            { required: true, message: '请输入商品名称', trigger: 'blur' },
+            // { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+        },
       }
     },
     watch: {
@@ -152,6 +201,20 @@
       this.getList();
     },
     methods: {
+      handleShow(index,row){
+        if (row.isShow===0){
+          row.isShow=0
+        }else{
+          row.isShow=1
+        }
+        this.brand.id = row.id;
+        this.brand.isShow = row.isShow;
+        this.$message({
+          message:row
+        })
+        this.update(this.brand)
+        this.getList()
+      },
       getList() {
         this.listLoading = true;
         getList(this.listQuery).then(response =>{
@@ -178,19 +241,25 @@
       reset() {
         this.listQuery = Object.assign({},query)
       },
-      add() {
-        add(this.brand).then(response =>{
-          this.brand.name = null
-          this.brand.status = null
-          this.brand = Object.assign({},defaultBrand)
-          this.dialogVisible = false
-          this.$message({
-            message: '提交成功',
-            type: 'success',
-            duration:1000
-          });
-          this.getList()
+      add(formName) {
+        this.$refs[formName].validate((valid)=>{
+          if(valid){
+            add(this.brand).then(response =>{
+              this.resetForm(formName)
+              this.brand = Object.assign({},defaultBrand)
+              this.dialogVisible = false
+              this.$message({
+                message: '提交成功',
+                type: 'success',
+                duration:1000
+              });
+              this.getList()
+            })
+          }
         })
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
       },
       handleClose(done) {
         this.$confirm('确认关闭？')
@@ -260,5 +329,31 @@
 </script>
 
 <style scoped>
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
 
 </style>
