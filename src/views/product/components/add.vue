@@ -3,6 +3,9 @@
     <el-row>
       <el-col :span="12" :push="5">
         <el-form :model="product" :rules="rules" ref="product" label-width="100px" class="demo-product">
+          <!--<el-form-item label="商品名称" prop="name">
+            <el-input v-model="product.name"></el-input>
+          </el-form-item>-->
           <el-form-item label="商品名称" prop="name">
             <el-input v-model="product.name"></el-input>
           </el-form-item>
@@ -16,7 +19,7 @@
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="种类" >
+          <el-form-item label="种类"prop="kind" >
             <el-select v-model="product.kind" placeholder="请选择">
               <el-option
                 v-for="item in kind"
@@ -26,29 +29,29 @@
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="图片" prop="brand">
+          <el-form-item label="图片" prop="pic">
             <single-img-upload v-model="product.pic" ></single-img-upload>
           </el-form-item>
-          <el-form-item label="详细图片" prop="brand">
+          <el-form-item label="详细图片" prop="detailPid">
             <image-list-upload v-model="product.detailPic"></image-list-upload>
           </el-form-item>
-          <el-form-item label="是否新品" prop="brand">
+          <el-form-item label="是否新品" prop="isNew">
             <el-radio v-model="product.isNew" label="0">是</el-radio>
             <el-radio v-model="product.isNew" label="1">否</el-radio>
           </el-form-item>
-          <el-form-item label="价格" prop="brand">
+          <el-form-item label="价格" prop="price">
             <el-input v-model="product.price"></el-input> 元
           </el-form-item>
-          <el-form-item label="排序" prop="brand">
+          <el-form-item label="排序" prop="sort">
             <el-input v-model="product.sort" style="width: 200px;"></el-input>
           </el-form-item>
-          <el-form-item label="单位" prop="brand">
+          <el-form-item label="单位" prop="unit">
             <el-input v-model="product.unit" style="width: 200px;"></el-input>
           </el-form-item>
-          <el-form-item label="赠送成长值" prop="brand">
+          <el-form-item label="赠送成长值" prop="giftGrowth">
             <el-input v-model="product.giftGrowth" style="width: 200px;"></el-input>
           </el-form-item>
-          <el-form-item label="赠送积分">
+          <el-form-item label="赠送积分" prop="giftPoint">
             <el-input v-model="product.giftPoint"></el-input>
           </el-form-item>
           <el-form-item>
@@ -96,6 +99,30 @@ export default {
             // { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
           ],
           brand: [
+            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+          ],
+          pic: [
+            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+          ],
+          detailPic: [
+            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+          ],
+          isNew: [
+            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+          ],
+          price: [
+            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+          ],
+          sort: [
+            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+          ],
+          unit: [
+            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+          ],
+          giftGrowth: [
+            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+          ],
+          giftPoint: [
             { required: true, message: '请选择商品品牌', trigger: 'blur'}
           ]
         },
