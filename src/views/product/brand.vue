@@ -45,21 +45,23 @@
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
         <el-table-column label="品牌名"  align="center">
-          <template slot-scope="scope">{{scope.row.name}}</template>
+          <template slot-scope="scope">{{scope.row.name}}
+          </template>
         </el-table-column>
         <el-table-column label="Logo"  align="center">
-          <template slot-scope="scope">{{scope.row.logo}}</template>
+          <template slot-scope="scope">
+            <img :src="scope.row.logo" alt="" style="height: 86px;width: 100px; border-radius: 5px">
+          </template>
         </el-table-column>
         <el-table-column label="是否显示"  align="center">
           <template slot-scope="scope">
             <el-switch
               @change="handleShow(scope.$index, scope.row)"
-              :active-value="1"
-              :inactive-value="0"
-              v-model="scope.row.isShow">
+              :active-value=1
+              :inactive-value=0
+              v-model="scope.row.showStatus">
             </el-switch>
           </template>
-
         </el-table-column>
         <el-table-column label="商品数"  align="center">
           <template slot-scope="scope">{{scope.row.productNum}}</template>
@@ -73,9 +75,6 @@
           </template>
         </el-table-column>
       </el-table>
-    </div>
-    <div>
-
     </div>
     <div class="pagination-container">
       <el-button
@@ -94,7 +93,6 @@
         :current-page.sync="listQuery.pageNum"
         :total="total">
       </el-pagination>
-      <SingleImgUpload style="margin: 5px" v-model="url"></SingleImgUpload>
     </div>
     <!--对话框-->
     <el-dialog
@@ -117,8 +115,8 @@
           <single-img-upload style="margin: 5px" v-model="brand.logo"></single-img-upload>
         </el-form-item>
         <el-form-item label="是否显示" label-width="150px" >
-          <el-radio v-model="brand.isShow" label="0">不显示</el-radio>
-          <el-radio v-model="brand.isShow" label="1">显示</el-radio>
+          <el-radio v-model="brand.showStatus" label="0">不显示</el-radio>
+          <el-radio v-model="brand.showStatus" label="1">显示</el-radio>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -131,12 +129,24 @@
       title="编辑品牌"
       :visible.sync="dialogVisibleEdit"
       width="30%"
-      :before-close="handleClose">
-      <el-form  :model="brand" ref="form" style="align-content: center">
-        <el-form-item label="品牌名称"  label-width="100px">
+     >
+      <el-form :model="brand" :rules="rules"  ref="brand" style="align-content: center">
+        <el-form-item label="品牌名称"  label-width="150px" prop="name">
           <el-input v-model="brand.name"  clearable style="width: 200px;"></el-input>
         </el-form-item>
-
+        <el-form-item label="品牌首字母" label-width="150px" prop="fLetter">
+          <el-input v-model="brand.fLetter"  clearable style="width: 200px;"></el-input>
+        </el-form-item>
+        <el-form-item label="排序" label-width="150px">
+          <el-input v-model="brand.sort"  clearable style="width: 200px;"></el-input>
+        </el-form-item>
+        <el-form-item label="品牌Logo" label-width="150px"  prop="Logo">
+          <single-img-upload style="margin: 5px" v-model="brand.logo"></single-img-upload>
+        </el-form-item>
+        <el-form-item label="是否显示" label-width="150px" >
+          <el-radio v-model="brand.showStatus" label="0">不显示</el-radio>
+          <el-radio v-model="brand.showStatus" label="1">显示</el-radio>
+        </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisibleEdit = false">取 消</el-button>
@@ -148,7 +158,7 @@
 
 <script>
   import singleImgUpload from './components/singleImgUpload'
-  import { getList, add, detail, update, deletes} from '../../api/brand'
+  import { getList, add, detail, update, deletes, updateShow} from '../../api/brand'
 
   const query = {
     brandName: null,
@@ -162,7 +172,7 @@
     status: null,
     sort: '',
     logo:'',
-    isShow:'',
+    showStatus:'',
     productNum:'',
     commentNum:'',
     fLetter:''
@@ -202,18 +212,21 @@
     },
     methods: {
       handleShow(index,row){
-        if (row.isShow===0){
-          row.isShow=0
+        if (row.showStatus===0){
+          row.showStatus=0
         }else{
-          row.isShow=1
+          row.showStatus=1
         }
-        this.brand.id = row.id;
-        this.brand.isShow = row.isShow;
-        this.$message({
-          message:row
+        let params = new URLSearchParams();
+        params.append('id',row.id)
+        params.append('showStatus',row.showStatus)
+        updateShow(params).then(response => {
+          this.$message({
+            message: '修改成功',
+            type: 'success',
+            duration: 1000
+          })
         })
-        this.update(this.brand)
-        this.getList()
       },
       getList() {
         this.listLoading = true;
@@ -273,6 +286,10 @@
           this.brand.id = response.data.id
           this.brand.name = response.data.name
           this.brand.status = response.data.status
+          this.brand.showStatus = response.data.showStatus;
+          this.brand.fLetter = response.data.fLetter
+          this.brand.sort = response.data.sort
+          this.brand.logo = response.data.logo
           this.dialogVisibleEdit = true
         })
         this.getList()
@@ -282,6 +299,10 @@
           this.brand.id = null
           this.brand.name = null
           this.brand.status = null
+          this.brand.showStatus = null
+          this.brand.fLetter = null
+          this.brand.sort = null
+          this.brand.logo = null
           this.brand = Object.assign({},defaultBrand)
           this.dialogVisibleEdit = false
           this.$message({

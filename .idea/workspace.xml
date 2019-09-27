@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/product/components/singleImgUpload.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/product/components/imageListUpload.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/brand.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/brand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/kind.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/kind.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/Navbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/permission/directive.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/permission/directive.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/product/brand.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/brand.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/product/components/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/kind.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/kind.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

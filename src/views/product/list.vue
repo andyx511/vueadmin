@@ -34,9 +34,9 @@
       </div>
     </el-card>
     <el-dialog
-      title="提示"
+      title="添加商品"
       :visible.sync="dialogVisible"
-      width="60%"
+      width="40%"
       :before-close="handleClose"
       >
       <add @mm = "dialogVisible = false" ></add>
@@ -50,9 +50,10 @@ import add from "./components/add";
 import edit from "./components/edit";
 import checkPermission from '@/utils/permission' // 权限判断函数
 import permission from '@/directive/permission/index.js' // 权限判断指令
+import imageListUpload from "./components/imageListUpload";
 export default {
   name: 'List',
-  components: {add,edit},
+  components: {add,edit,imageListUpload},
   directives: { permission },
   data() {
     return {

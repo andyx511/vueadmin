@@ -35,3 +35,10 @@ export function deletes(data) {
     data
   })
 }
+export function updateShow(params) {
+  return request({
+    url: '/brand/updateShow',
+    method: 'post',
+    params:params
+  })
+}
