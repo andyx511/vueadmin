@@ -33,14 +33,14 @@
             <single-img-upload v-model="product.pic" ></single-img-upload>
           </el-form-item>
           <el-form-item label="详细图片" prop="detailPid">
-            <image-list-upload v-model="product.detailPic"></image-list-upload>
+            <image-list-upload v-model="product.detailPic" @picList="getDetailPic"></image-list-upload>
           </el-form-item>
           <el-form-item label="是否新品" prop="isNew">
             <el-radio v-model="product.isNew" label="0">是</el-radio>
             <el-radio v-model="product.isNew" label="1">否</el-radio>
           </el-form-item>
           <el-form-item label="价格" prop="price">
-            <el-input v-model="product.price"></el-input> 元
+            <el-input v-model="product.price" style="width: 200px;"></el-input> 元
           </el-form-item>
           <el-form-item label="排序" prop="sort">
             <el-input v-model="product.sort" style="width: 200px;"></el-input>
@@ -52,7 +52,14 @@
             <el-input v-model="product.giftGrowth" style="width: 200px;"></el-input>
           </el-form-item>
           <el-form-item label="赠送积分" prop="giftPoint">
-            <el-input v-model="product.giftPoint"></el-input>
+            <el-input v-model="product.giftPoint" style="width: 200px;"></el-input>
+          </el-form-item>
+          <el-form-item label="是否打折" >
+            <el-radio v-model="product.isDiscount" label="0">否</el-radio>
+            <el-radio v-model="product.isDiscount" label="1">是</el-radio>
+          </el-form-item>
+          <el-form-item label="打折后的价格" prop="discountPrice" v-if="this.product.isDiscount==1">
+            <el-input v-model="product.discountPrice" style="width: 200px;"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="submitForm('product')">立即创建</el-button>
@@ -71,8 +78,18 @@ import imageListUpload from "./imageListUpload";
 import SingleImgUpload from "./singleImgUpload";
 import {addProduct} from "../../../api/product";
 
+const isNum = (rule, value, callback) => {
+  const age= /^[0-9]*$/
+  if (!age.test(value)) {
+    callback(new Error('请输入数字'))
+  }else{
+    callback()
+  }
+}
+
 export default {
   name: "add",
+  props: "add",
   components:{SingleImgUpload, imageListUpload},
     data() {
       return{
@@ -89,7 +106,9 @@ export default {
           detailPic:'',
           giftGrowth:'',
           giftPoint:'',
-          status:''
+          status:'',
+          isDiscount:'',
+          discountPrice:''
         },
         brand:[],
         kind: [],
@@ -101,29 +120,39 @@ export default {
           brand: [
             { required: true, message: '请选择商品品牌', trigger: 'blur'}
           ],
+          kind: [
+            { required: true, message: '请选择商品种类', trigger: 'blur'}
+          ],
           pic: [
-            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+            { required: true, message: '请选择商品图片', trigger: 'blur'}
           ],
           detailPic: [
-            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+            { required: true, message: '请选择商品详情图片', trigger: 'blur'}
           ],
           isNew: [
-            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+            { required: true, message: '请选择商品是否为新品', trigger: 'blur'}
           ],
           price: [
-            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+            { required: true, message: '请输入商品价格', trigger: 'blur'},
+            { validator: isNum, trigger: 'blur' }
           ],
           sort: [
-            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+            { required: true, message: '请选择商品排序', trigger: 'blur'},
+            { validator: isNum, trigger: 'blur' }
           ],
           unit: [
-            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+            { required: true, message: '请输入商品单位', trigger: 'blur'}
           ],
           giftGrowth: [
-            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+            { required: true, message: '请输入商品购买时赠送的成长值', trigger: 'blur'},
+            { validator: isNum, trigger: 'blur' }
           ],
           giftPoint: [
-            { required: true, message: '请选择商品品牌', trigger: 'blur'}
+            { required: true, message: '请输入商品购买时赠送的积分', trigger: 'blur'},
+            { validator: isNum, trigger: 'blur' }
+          ],
+          discountPrice: [
+            { validator: isNum, trigger: 'blur' }
           ]
         },
 
@@ -135,16 +164,18 @@ export default {
     },
     methods: {
       submitForm(formName) {
-        this.$message({
-          message:this.product
+        this.$refs[formName].validate((valid)=> {
+          if (valid) {
+            addProduct(this.product).then(response => {
+              this.$message({
+                message: '添加成功'
+              })
+              this.resetForm(formName)
+              this.product.detailPic=''
+            })
+            this.$emit('mm', 'false')
+          }
         })
-        addProduct(this.product).then(response =>{
-          this.$message({
-            message: '添加成功'
-          })
-        })
-        this.$emit('mm','false')
-        this.resetForm('product')
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -164,6 +195,9 @@ export default {
             this.kind.push({label:kindList[i].name,value:kindList[i].name});
           }
         })
+      },
+      getDetailPic(data){
+        this.product.detailPic = data.join(';')
       }
     }
   }

@@ -144,8 +144,10 @@
           <single-img-upload style="margin: 5px" v-model="brand.logo"></single-img-upload>
         </el-form-item>
         <el-form-item label="是否显示" label-width="150px" >
-          <el-radio v-model="brand.showStatus" label="0">不显示</el-radio>
-          <el-radio v-model="brand.showStatus" label="1">显示</el-radio>
+          <el-radio-group v-model="brand.showStatus">
+            <el-radio :label="1">显示</el-radio>
+            <el-radio :label="0">不显示</el-radio>
+          </el-radio-group>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">

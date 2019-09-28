@@ -23,8 +23,8 @@
       }
     },
     methods:{
-      emitInput(val) {
-        this.$emit("input", val);
+      emitInput() {
+        this.$emit("picList", this.list);
       },
       handleRemove(file, fileList) {
         console.log(file, fileList);
@@ -35,6 +35,7 @@
         this.$message({
           message:this.list
         })
+        this.emitInput()
       },
       handlePreview(file, fileList) {
         this.$message({
@@ -51,6 +52,7 @@
         this.$message({
           message:this.list
         })
+        this.$emit("picList", this.list)
       }
     }
   }
