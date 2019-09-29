@@ -36,8 +36,8 @@
             <image-list-upload v-model="product.detailPic" @picList="getDetailPic"></image-list-upload>
           </el-form-item>
           <el-form-item label="是否新品" prop="isNew">
-            <el-radio v-model="product.isNew" label="0">是</el-radio>
-            <el-radio v-model="product.isNew" label="1">否</el-radio>
+            <el-radio v-model="product.isNew" label="1">是</el-radio>
+            <el-radio v-model="product.isNew" label="0">否</el-radio>
           </el-form-item>
           <el-form-item label="价格" prop="price">
             <el-input v-model="product.price" style="width: 200px;"></el-input> 元
@@ -171,9 +171,10 @@ export default {
                 message: '添加成功'
               })
               this.resetForm(formName)
-              this.product.detailPic=''
+              this.product.detailPic=null
             })
             this.$emit('mm', 'false')
+            this.$parent.getList();
           }
         })
       },
@@ -197,7 +198,7 @@ export default {
         })
       },
       getDetailPic(data){
-        this.product.detailPic = data.join(';')
+        this.product.detailPic = data.toLocaleString()
       }
     }
   }
