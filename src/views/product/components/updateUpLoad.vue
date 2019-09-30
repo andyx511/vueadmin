@@ -17,7 +17,7 @@
 
 <script>
   export default {
-    name: "imageListUpload",
+    name: "updateUpLoad",
     props: {
       value: Array,
       propClass: {
@@ -33,7 +33,16 @@
       }
     },
     computed:{
-
+      fileList() {
+        let fileList=[];
+        for(let i=0;i<this.value.length;i++){
+          fileList.push({
+            url:this.value[i],
+            name:this.value[i]
+          });
+        }
+        return fileList;
+      }
     },
     methods:{
       emitInput() {

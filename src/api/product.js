@@ -50,4 +50,17 @@ export function updateStatus(params) {
     params: params
   })
 }
+export function productDetail(id) {
+  return request({
+    url: 'product/detail/'+id,
+    method: 'get',
+  })
+}
+export function updateProduct(data) {
+  return request({
+    url: 'product/update',
+    method: 'post',
+    data
+  })
+}
 

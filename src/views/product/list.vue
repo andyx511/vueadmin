@@ -135,7 +135,7 @@
         <el-table-column label="价格" align="center">
           <template slot-scope="scope">
             <p>原价：￥{{scope.row.price}}</p>
-            <p v-if="scope.row.discountPrice !=null">折后价：￥{{scope.row.discountPrice}} </p>
+            <p v-if="scope.row.discountPrice !=0 ">折后价：￥{{scope.row.discountPrice}} </p>
           </template>
         </el-table-column>
 
@@ -202,7 +202,7 @@
         </el-table-column>
         <el-table-column label="操作" align="center">
           <template slot-scope="scope">
-            <el-button>编辑</el-button>
+            <el-button @click="handleProduct(scope.row)">编辑</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -232,7 +232,7 @@
       width="50%"
       :before-close="handleClose"
       >
-      <add @mm = "dialogVisible = false" ref="add"></add>
+      <add @mm = "closeAdd" ref="add"></add>
     </el-dialog>
     <el-dialog
       title="增加库存"
@@ -249,6 +249,13 @@
         </el-form-item>
       </el-form>
     </el-dialog>
+    <el-drawer
+      title="商品编辑"
+      :visible.sync="drawer"
+      width="50%"
+    >
+        <edit :productId="productId" size="40%" @mm = "closeEdit" ref="edit"></edit>
+    </el-drawer>
   </div>
 </template>
 
@@ -283,6 +290,7 @@ export default {
 
   data() {
     return {
+      drawer:false,
       listLoading: false,
       brandList: [],
       dialogVisible: false,
@@ -310,6 +318,14 @@ export default {
       },
       stock:null,
       stockId:null,
+      productId:null
+    }
+  },
+  watch:{
+    dialogVisible(){
+      if (this.dialogVisible==false){
+        this.getList()
+      }
     }
   },
   created() {
@@ -317,11 +333,6 @@ export default {
     this.getKindList();
     this.getBrandList();
   },
-/*  computed:{
-    picArray:function () {
-      return this.
-    }
-  },*/
   methods: {
     checkPermission,
     add() {
@@ -512,6 +523,18 @@ export default {
         })
         this.getList()
       })
+    },
+    handleProduct(row){
+      this.productId = row.id
+      this.drawer= true
+    },
+    closeAdd(){
+      this.dialogVisible = false
+      this.getList()
+    },
+    closeEdit(){
+      this.drawer = false
+      this.getList()
     }
   }
 }

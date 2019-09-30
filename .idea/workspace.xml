@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/product/components/updateUpLoad.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/handlebars" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/handlebars.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/handlebars.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/regexp-tree" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/regexp-tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/regexp-tree.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/regexp-tree.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/terser" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/terser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/terser.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/terser.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/webpack-bundle-analyzer" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/webpack-bundle-analyzer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/webpack-bundle-analyzer.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/webpack-bundle-analyzer.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/webpack-dev-server" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/webpack-dev-server" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/webpack-dev-server.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/webpack-dev-server.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/add.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/add.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/components/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/components/imageListUpload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/imageListUpload.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +122,8 @@
       <workItem from="1569333458861" duration="1948000" />
       <workItem from="1569492597722" duration="13016000" />
       <workItem from="1569651646039" duration="12358000" />
-      <workItem from="1569749987529" duration="1359000" />
+      <workItem from="1569749987529" duration="14308000" />
+      <workItem from="1569820877411" duration="1856000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
