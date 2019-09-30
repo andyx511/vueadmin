@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/product/components/updateUpLoad.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/imageListUpload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/imageListUpload.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/BoxCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/BoxCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +120,7 @@
       <workItem from="1569492597722" duration="13016000" />
       <workItem from="1569651646039" duration="12358000" />
       <workItem from="1569749987529" duration="14308000" />
-      <workItem from="1569820877411" duration="1856000" />
+      <workItem from="1569820877411" duration="17356000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
