@@ -1,84 +1,192 @@
 <template>
-  <el-container>
-    <hello-world></hello-world>
-    <el-header style="height: 120px;padding: 0px 100px">
-      <el-row >
-        <el-col :span="6" >
-          <el-image
-          :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/15-23-41/596-eb1eecc4-1951-4e8b-98fe-33d8ac907492.png'"
-          style="width: 120px; height: 120px;float: right"
-          :fit="contain"
-          >
-          </el-image>
-        </el-col>
-        <el-col :span="9" style="padding: 0px 30px">
-          <el-input style="margin-left: 25px;margin-top: 25px;width: 80%;" placeholder="请输入内容">
-            <i slot="prefix"class="el-input__icon el-icon-search is-clickable" style="margin-right: 5px;" ></i>
-          </el-input>
-          <el-button style="margin-left: -5px;width: 80px;" icon="el-icon-search" type="danger"></el-button>
-        </el-col>
-        <el-col :span="3" style="padding-top: 25px; font-size: 28px;">
-          <el-link :underline="false" style="padding-right: 10%">全部商品</el-link>|
-
-        </el-col>
-        <el-col :span="5" style="padding-top: 35px">
-          <el-link type="info" :underline="false"><i class="el-icon-user" style="font-size: 30px;margin-right: 50px;"></i></el-link>
-          <el-badge :value="12" class="item" >
-            <el-link type="info" :underline="false"><i class="el-icon-shopping-cart-1" style="font-size: 30px;"></i></el-link>
-          </el-badge>
-        </el-col>
-      </el-row>
-    </el-header>
-    <el-main style="padding: 20px 200px">
-      <el-row>
-        <el-col :span="16" :offset="4">
-          <el-carousel indicator-position="outside" >
-            <el-carousel-item v-for="item in 2" :key="item" >
+  <div>
+    <el-container>
+      <sticky :sticky-top="0" :z-index="10">
+        <el-header style="height: 120px;padding: 0px 100px">
+          <el-row >
+            <el-col :span="6" >
               <el-image
-                style="width: 100%; height: 100%"
-                :src="url[item-1]"
-                :fit="fit"></el-image>
-            </el-carousel-item>
-          </el-carousel>
-        </el-col>
-      </el-row>
+                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/15-23-41/596-eb1eecc4-1951-4e8b-98fe-33d8ac907492.png'"
+                style="width: 120px; height: 120px;float: right"
+                :fit="contain"
+              >
+              </el-image>
+            </el-col>
+            <el-col :span="9" style="padding: 0px 30px">
+              <el-input style="margin-left: 25px;margin-top: 25px;width: 60%;" placeholder="请输入内容">
+                <i slot="prefix"class="el-input__icon el-icon-search is-clickable" style="margin-right: 5px;" ></i>
+              </el-input>
+              <el-button style="margin-left: -1%;width: 20%;" icon="el-icon-search" type="danger"></el-button>
+            </el-col>
+            <el-col :span="2" style="padding-top: 25px; font-size: 28px;">
+              <el-link :underline="false" style="padding-right: 10%">全部商品</el-link>|
 
-      <el-row>
-        <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
-          <h4>精品推荐</h4>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="4" :offset="4">
-          <el-card shadow="hover">
-            <el-image
-            :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
+            </el-col>
+            <el-col :span="4" style="padding-top: 35px">
 
-            </el-image>
-            <el-row >
-              <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
-              <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
-            </el-row>
-            <el-row style="margin-top: 5px;">
-              <el-col style="align:right; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
-            </el-row>
-          </el-card>
-        </el-col>
+              <el-badge :value="12" class="item" >
+                <el-link type="info" :underline="false" style="margin-left: 45px;">
+                  <i class="el-icon-shopping-cart-1" style="font-size: 30px"></i>
+                </el-link>
+              </el-badge>
+              <el-link type="info" :underline="false" style="margin-left: 30px;">
+                <el-dropdown @command ="handleCommand">
+                  <i class="el-icon-user" style="font-size: 30px;"></i>
+                  <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
+                    <div style="padding: 5px 10px">
+                      <el-image
+                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+                        :fit="contain"
+                        style="border-radius: 5px">
+                      </el-image>
+                      <div style="text-align:center;">admin</div>
+                    </div>
+                    <el-dropdown-item command="order">我的订单</el-dropdown-item>
+                    <el-dropdown-item command="user">账号资料</el-dropdown-item>
+                    <el-dropdown-item command="address">收货地址</el-dropdown-item>
+                    <el-dropdown-item divided style="text-align:center;">退出</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+              </el-link>
+            </el-col>
+          </el-row>
+        </el-header>
+      </sticky>
 
-      </el-row>
+      <el-main style="padding: 20px 200px">
+        <el-row>
+          <el-col :span="16" :offset="4">
+            <el-carousel indicator-position="outside" >
+              <el-carousel-item v-for="item in 2" :key="item" >
+                <el-image
+                  style="width: 100%; height: 100%"
+                  :src="url[item-1]"
+                  :fit="fit"></el-image>
+              </el-carousel-item>
+            </el-carousel>
+          </el-col>
+        </el-row>
 
+        <el-row>
+          <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
+            <h4>精品推荐</h4>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="4" :offset="4">
+            <el-card shadow="hover">
+              <el-image
+                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
 
-    </el-main>
-    <el-footer>
-      foot
-    </el-footer>
-  </el-container>
+              </el-image>
+              <el-row >
+                <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
+                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
+              </el-row>
+              <el-row style="margin-top: 5px;">
+                <el-col style="text-align:left; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
+              </el-row>
+              <el--row>
+                <el-button type="primary" size="mini">
+                  查看详情
+                </el-button>
+                <el-button type="danger" size="mini">
+                  加入购物车
+                </el-button>
+              </el--row>
+            </el-card>
+          </el-col>
+
+        </el-row>
+        <el-row>
+          <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
+            <h4>精品推荐</h4>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="4" :offset="4">
+            <el-card shadow="hover">
+              <el-image
+                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
+
+              </el-image>
+              <el-row >
+                <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
+                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
+              </el-row>
+              <el-row style="margin-top: 5px;">
+                <el-col style="align:right; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+
+        </el-row>
+        <el-row>
+          <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
+            <h4>精品推荐</h4>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="4" :offset="4">
+            <el-card shadow="hover">
+              <el-image
+                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
+
+              </el-image>
+              <el-row >
+                <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
+                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
+              </el-row>
+              <el-row style="margin-top: 5px;">
+                <el-col style="align:right; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+
+        </el-row>
+        <el-row>
+          <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
+            <h4>精品推荐</h4>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="4" :offset="4">
+            <el-card shadow="hover">
+              <el-image
+                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
+
+              </el-image>
+              <el-row >
+                <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
+                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
+              </el-row>
+              <el-row style="margin-top: 5px;">
+                <el-col style="align:right; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+
+        </el-row>
+
+      </el-main>
+      <el-footer>
+        foot
+      </el-footer>
+    </el-container>
+    <el-tooltip placement="top" content="tooltip">
+      <back-to-top :custom-style="myBackToTopStyle" :visibility-height="300" :back-position="50" transition-name="fade" />
+    </el-tooltip>
+  </div>
+
 </template>
 
 <script>
+  import BackToTop from '@/components/BackToTop'
+  import Sticky from '@/components/Sticky'
   // @ is an alias to /src
   export default {
     name: 'index',
+    components: { Sticky ,BackToTop},
     data () {
       return {
         currentDate: new Date(),
@@ -92,6 +200,9 @@
         this.$message({
           message:"查询中"
         })
+      },
+      handleCommand(command){
+        this.$router.push({path: '/'+command})
       }
     }
   }

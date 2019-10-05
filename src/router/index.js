@@ -59,6 +59,41 @@ export const constantRoutes = [
     path: '/shop',
     component: () => import('@/views/shop/index'),
     hidden: true
+  },{
+    path: '/cart',
+    component: () => import('@/views/shop/cart'),
+    hidden: true
+  },{
+    path: '/address',
+    component: () => import('@/views/shop/address'),
+    hidden: true
+  },
+  {
+    path: '/product',
+    component: () => import('@/views/shop/product'),
+    hidden: true
+  },
+  {
+    path: '/order',
+    component: () => import('@/views/shop/order'),
+    hidden: true
+  },{
+    path: '/demo',
+    component: () => import('@/views/shop/demo'),
+    hidden: true
+  },
+  {
+    path: '/user',
+    component: () => import('@/views/shop/user'),
+    hidden: true
+  },{
+    path: '/addressList',
+    component: () => import('@/views/shop/addressList'),
+    hidden: true
+  },{
+    path: '/memberLogin',
+    component: () => import('@/views/shop/login'),
+    hidden: true
   },
   {
     path: '/auth-redirect',

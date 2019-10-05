@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/cmall.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/cart.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/components/addressAdd.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/product.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/user.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/BoxCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/BoxCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/permission.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/get-page-title.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/get-page-title.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +53,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views/product/components" />
+    <property name="last_opened_file_path" value="E:/cart" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -52,17 +69,17 @@
     <property name="ts.external.directory.path" value="D:\webstorm\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\File\bysj\vueadmin\src\views\product\components" />
-      <recent name="E:\File\bysj\vueadmin\src\components\Upload" />
-      <recent name="E:\bysj\vueadmin\src\icons\svg" />
-      <recent name="E:\File\bysj\vueadmin" />
-      <recent name="E:\bysj\vueadmin\src\assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\bysj\vueadmin\src\views\product\components" />
       <recent name="E:\bysj\vueadmin\src\views\product" />
       <recent name="E:\bysj\vueadmin\src\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\File\bysj\vueadmin\public" />
+      <recent name="E:\File\bysj\vueadmin\src\views\product\components" />
+      <recent name="E:\File\bysj\vueadmin\src\components\Upload" />
+      <recent name="E:\bysj\vueadmin\src\icons\svg" />
+      <recent name="E:\File\bysj\vueadmin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -121,6 +138,13 @@
       <workItem from="1569651646039" duration="12358000" />
       <workItem from="1569749987529" duration="14308000" />
       <workItem from="1569820877411" duration="17356000" />
+      <workItem from="1569892595811" duration="612000" />
+      <workItem from="1569893264984" duration="4902000" />
+      <workItem from="1569998494771" duration="13569000" />
+      <workItem from="1570065824241" duration="12598000" />
+      <workItem from="1570080927659" duration="8720000" />
+      <workItem from="1570150741192" duration="14900000" />
+      <workItem from="1570242741155" duration="6056000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
@@ -159,6 +183,15 @@
           <url>file://$PROJECT_DIR$/src/views/login/index.vue</url>
           <line>3</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/shop/index.vue</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/shop/order.vue</url>
+          <line>73</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
