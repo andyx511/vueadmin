@@ -95,7 +95,7 @@ export const constantRoutes = [
     component: () => import('@/views/shop/login'),
     hidden: true
   },
-  ,{
+  {
     path: '/productDetail',
     component: () => import('@/views/shop/productDetail'),
     hidden: true

@@ -55,11 +55,23 @@
       <el-main style="padding: 20px 400px">
         <el-row>
           <el-col :span="8">
-            lalla
+            <el-image
+            style="width: 350px;height: 350px;"
+            :src="this.product.pic"
+            >
+
+            </el-image>
           </el-col>
           <el-col :span="16">
-            hi
+              产品介绍区
           </el-col>
+        </el-row>
+        <el-row>
+          <el-image
+            v-for="(item,index) in detailPic"
+
+            :src="item"
+          ></el-image>
         </el-row>
       </el-main>
       <el-footer>
@@ -78,22 +90,23 @@
     data(){
       return{
         id:null,
-        product:null
+        product:null,
+        detailPic:[]
       }
     },
     created() {
-      this.id = this.$router.query.id;
+      this.id =  this.$route.query.id;
       this.$message({
         message:this.id
-      });
-      this.getProduct()
+      })
+      productDetail(this.id).then(res=>{
+        this.product = res.data
+        this.detailPic = res.data.detailPic.split(',')
+      })
+
     },
     methods:{
-      getProduct(){
-        productDetail(this.id).then(res =>{
-          this.product=res.data
-        })
-      }
+
     }
   }
 </script>
