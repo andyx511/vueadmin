@@ -294,7 +294,7 @@ export default {
       listLoading: false,
       brandList: [],
       dialogVisible: false,
-      productList: null,
+      productList: '',
       kindList:[],
       dialogVisibleEdit: false,
       stockVisible: false,

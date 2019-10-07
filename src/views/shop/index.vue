@@ -39,12 +39,15 @@
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
-                      <div style="text-align:center;">admin</div>
+                      <div style="text-align:center;" v-if="user.name==''">游客</div>
+                      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
                     </div>
                     <el-dropdown-item command="order">我的订单</el-dropdown-item>
                     <el-dropdown-item command="user">账号资料</el-dropdown-item>
                     <el-dropdown-item command="address">收货地址</el-dropdown-item>
-                    <el-dropdown-item divided style="text-align:center;">退出</el-dropdown-item>
+                    <el-dropdown-item divided style="text-align:center;"
+                                      command="shop"
+                                      @click.native="logout">退出</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
               </el-link>
@@ -53,9 +56,9 @@
         </el-header>
       </sticky>
 
-      <el-main style="padding: 20px 200px">
+      <el-main style="padding: 20px 400px">
         <el-row>
-          <el-col :span="16" :offset="4">
+          <el-col >
             <el-carousel indicator-position="outside" >
               <el-carousel-item v-for="item in 2" :key="item" >
                 <el-image
@@ -67,90 +70,38 @@
           </el-col>
         </el-row>
 
+
         <el-row>
-          <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
+          <el-col :span="24"  style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
             <h4>精品推荐</h4>
           </el-col>
         </el-row>
-        <el-row>
-          <el-col :span="4" :offset="4">
-            <el-card shadow="hover">
+        <el-row style="border-right: 1px solid #dddddd;border-left: 1px solid #dddddd">
+          <el-col :span="6"  v-for="(item,index) in productList ">
+            <div class="card">
               <el-image
-                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
+                :src=item.pic
+                style="width: 230px;height: 230px;">
 
               </el-image>
               <el-row >
-                <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
+                <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price}}.00</el-col>
                 <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
               </el-row>
-              <el-row style="margin-top: 5px;">
-                <el-col style="text-align:left; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
+              <el-row style="margin-top: 5px; text-align: left">
+                <el-col style="align:right; font-size: 12px;">{{item.name}}</el-col>
               </el-row>
-              <el--row>
-                <el-button type="primary" size="mini">
-                  查看详情
-                </el-button>
-                <el-button type="danger" size="mini">
-                  加入购物车
-                </el-button>
-              </el--row>
-            </el-card>
+            </div>
           </el-col>
 
         </el-row>
         <el-row>
-          <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
+          <el-col  style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
             <h4>精品推荐</h4>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="4" :offset="4">
-            <el-card shadow="hover">
-              <el-image
-                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
-
-              </el-image>
-              <el-row >
-                <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
-                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
-              </el-row>
-              <el-row style="margin-top: 5px;">
-                <el-col style="align:right; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
-              </el-row>
-            </el-card>
-          </el-col>
-
-        </el-row>
-        <el-row>
-          <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
-            <h4>精品推荐</h4>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="4" :offset="4">
-            <el-card shadow="hover">
-              <el-image
-                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
-
-              </el-image>
-              <el-row >
-                <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
-                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
-              </el-row>
-              <el-row style="margin-top: 5px;">
-                <el-col style="align:right; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
-              </el-row>
-            </el-card>
-          </el-col>
-
-        </el-row>
-        <el-row>
-          <el-col :span="16" :offset="4" style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
-            <h4>精品推荐</h4>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="4" :offset="4">
+          <el-col >
             <el-card shadow="hover">
               <el-image
                 :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/14-57-53/894-65cbd157-7502-4e75-8f9b-bf7940dafac1.jpg'">
@@ -183,6 +134,8 @@
 <script>
   import BackToTop from '@/components/BackToTop'
   import Sticky from '@/components/Sticky'
+  import {getProductList} from "../../api/product";
+  import {mapGetters} from "vuex";
   // @ is an alias to /src
   export default {
     name: 'index',
@@ -192,8 +145,21 @@
         currentDate: new Date(),
         url: ['https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-42-03/800-0868a1df-588e-4f30-8e53-7915f6f050fd.jpg',
           'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-45-30/185-f95b2efe-24e8-4de1-8a72-db65ffcd0ff6.png',],
-        list: 'null'
+        list: 'null',
+        user:{},
+        productList:null
       }
+    },
+    computed: {
+      ...mapGetters([
+        'name',
+        'avatar',
+        'roles'
+      ])
+    },
+    created(){
+      this.getUser()
+      this.getProductList()
     },
     methods: {
       search(){
@@ -201,8 +167,27 @@
           message:"查询中"
         })
       },
+      getUser() {
+        this.user = {
+          name: this.name,
+          role: this.roles.join(' | '),
+          avatar: this.avatar
+        }
+      },
       handleCommand(command){
         this.$router.push({path: '/'+command})
+      },
+      async logout() {
+        await this.$store.dispatch('user/logout')
+        this.$message({
+          message:'已退出登录'
+        })
+        this.user.name=''
+      },
+      getProductList(){
+        getProductList({pageSize:100,pageNum:1}).then(response=>{
+          this.productList = response.data.list
+        })
       }
     }
   }
@@ -215,6 +200,12 @@
   }
 </style>
 <style>
+  .card{
+    padding: 20px;
+  }
+  .card:hover{
+    -moz-box-shadow:2px 2px 5px #333333; -webkit-box-shadow:2px 2px 5px #333333; box-shadow:2px 2px 5px #dddddd;
+  }
   .time {
     font-size: 13px;
     color: #999;

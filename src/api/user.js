@@ -26,3 +26,25 @@ export function logout() {
  * @type {string}
  */
 export const tcode = 'http://127.0.0.1:8888/admin/getTCode'
+
+export function getVCode(data) {
+  return request({
+    url: '/admin/getVCode',
+    method: 'post',
+    data
+  })
+}
+export function register(data) {
+  return request({
+    url: '/admin/register',
+    method: 'post',
+    data
+  })
+}
+export function reset(data) {
+  return request({
+    url: '/admin/reset',
+    method: 'post',
+    data
+  })
+}

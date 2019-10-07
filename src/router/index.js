@@ -95,6 +95,11 @@ export const constantRoutes = [
     component: () => import('@/views/shop/login'),
     hidden: true
   },
+  ,{
+    path: '/productDetail',
+    component: () => import('@/views/shop/productDetail'),
+    hidden: true
+  },
   {
     path: '/auth-redirect',
     component: () => import('@/views/login/auth-redirect'),

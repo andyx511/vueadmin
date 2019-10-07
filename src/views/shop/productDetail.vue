@@ -52,8 +52,15 @@
           </el-row>
         </el-header>
       </sticky>
-      <el-main>
-
+      <el-main style="padding: 20px 400px">
+        <el-row>
+          <el-col :span="8">
+            lalla
+          </el-col>
+          <el-col :span="16">
+            hi
+          </el-col>
+        </el-row>
       </el-main>
       <el-footer>
 
@@ -63,10 +70,31 @@
 </template>
 
 <script>
+  import {productDetail} from "../../api/product";
   import Sticky from '@/components/Sticky'
   export default {
-    name: "demo",
+    name: "productDetail",
     components: { Sticky },
+    data(){
+      return{
+        id:null,
+        product:null
+      }
+    },
+    created() {
+      this.id = this.$router.query.id;
+      this.$message({
+        message:this.id
+      });
+      this.getProduct()
+    },
+    methods:{
+      getProduct(){
+        productDetail(this.id).then(res =>{
+          this.product=res.data
+        })
+      }
+    }
   }
 </script>
 
