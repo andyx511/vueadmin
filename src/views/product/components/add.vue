@@ -9,6 +9,9 @@
           <el-form-item label="商品名称" prop="name">
             <el-input v-model="product.name"></el-input>
           </el-form-item>
+          <el-form-item label="商品描述" prop="des">
+            <el-input  type="textarea"  v-model="product.des"></el-input>
+          </el-form-item>
           <el-form-item label="品牌" prop="brand">
             <el-select v-model="product.brand" placeholder="请选择">
               <el-option
@@ -95,6 +98,7 @@ export default {
       return{
         product: {
           name: '',
+          des: '',
           kind: '',
           brand: '',
           pic: '',
@@ -116,6 +120,11 @@ export default {
           name: [
             { required: true, message: '请输入商品名称', trigger: 'blur' },
             // { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          des:[
+            {
+              required: true,message: '请输入商品描述',trigger: 'blur'
+            }
           ],
           brand: [
             { required: true, message: '请选择商品品牌', trigger: 'blur'}

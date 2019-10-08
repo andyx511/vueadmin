@@ -63,52 +63,58 @@
             <h3>预购清单</h3>
           </el-col>
         </el-row>
-        <el-row>
-          <el-col :span="16" :offset="4">
+        <el-row >
+          <el-col :span="16" :offset="4" style="brode">
             <el-table
               ref="CartTable"
               v-load="listLoading"
               :data="cartList"
-              style= "width: 100%;"
+              style= "width: 100%;border-left: 1px solid #e7e7e7;border-right: 1px solid #e7e7e7; height: 500px"
               @selection-change="handleSelectionChange"
             >
               <el-table-column type = "selection"  align="center"></el-table-column>
-              <el-table-column label="全选" align="center" width="50px">
+              <el-table-column label="" align="center" >
                 <template slot-scope="scope">{{scope.row.name}}</template>
               </el-table-column>
               <el-table-column label="" align="center" >
-                <template slot-scope="scope">{{scope.row.pic}}</template>
-              </el-table-column>
-              <el-table-column label="" align="center" >
-                <template slot-scope="scope">{{scope.row.pic}}</template>
+                <template slot-scope="scope">
+                  <el-image
+                    style="width: 80px;height: 80px"
+                  :src="scope.row.pic"></el-image>
+                </template>
               </el-table-column>
               <el-table-column label="单价" align="center" >
                 <template slot-scope="scope">{{scope.row.price}}</template>
               </el-table-column>
               <el-table-column label="数量" align="center" >
-                <template slot-scope="scope">{{scope.row.num}}</template>
+                <template slot-scope="scope">
+                  <el-input-number v-model="scope.row.num" :min="1" @change="editCart(scope.row.id,scope.row.num)">
+                  </el-input-number>
+                </template>
               </el-table-column>
               <el-table-column label="小计" align="center" >
-                <template slot-scope="scope">{{scope.row.num*scope.row.price}}</template>
+                <template slot-scope="scope">{{scope.row.totalPrice}}</template>
               </el-table-column>
               <el-table-column label="操作" align="center" >
-                <template slot-scope="scope">{{scope.row.pic}}</template>
+                <template slot-scope="scope">
+                  <el-button @click="deleteSingle(scope.row.id)">删除</el-button>
+                </template>
               </el-table-column>
             </el-table>
             <el-card>
               <el-row>
                 <el-col :span="2">
-                  <el-button>删除所选</el-button>
+                  <el-button @click="deleteBatch">删除所选</el-button>
                 </el-col>
                 <el-col :span="4" :offset="12">
-                  <el-row>共选择5件商品</el-row>
-                  <el-row>共5件商品</el-row>
+                  <el-row>共选择{{multipleSelection.length}}件商品</el-row>
+                  <el-row>共{{cartList.length}}件商品</el-row>
                 </el-col>
                 <el-col :span="3">
-                  应付金额：￥1333
+                  应付金额：￥{{totalPrice}}
                 </el-col>
                 <el-col :span="3">
-                  <el-button type="danger" @click="this.$router.push({path: '/address'})">立即结算</el-button>
+                  <el-button type="danger" @click="" :disabled="multipleSelection.length==0">立即结算</el-button>
                 </el-col>
               </el-row>
 
@@ -127,7 +133,7 @@
 </template>
 
 <script>
-
+  import {getCart,editCart,deleteCart} from "../../api/cart";
   import Sticky from '@/components/Sticky'
   // @ is an alias to /src
   export default {
@@ -135,23 +141,14 @@
     components: { Sticky},
     data () {
       return {
-        cartList:[
-          {
-            name:1,
-            pic:'sadasdsadasdsa',
-            price:153,
-            num:2
-          },
-          {
-            name:2,
-            pic:'sadadqwsasdfvnhbgvcdsd',
-            price:153,
-            num:6
-          }
-
-        ],
+        cartList:null,
         multipleSelection: [],
+        totalPrice:0,
+
       }
+    },
+    created(){
+      this.getCartList()
     },
     methods: {
       search(){
@@ -161,10 +158,67 @@
       },
       handleSelectionChange(val) {
         this.multipleSelection = val
-        this.$message({
-          message:this.multipleSelection
+        let p = 0
+        for (let i=0;i<this.multipleSelection.length;i++){
+          p = p + this.multipleSelection[i].totalPrice
+        }
+        this.totalPrice = p
+      },
+      getCartList(){
+        getCart().then(res =>{
+          this.cartList = res.data
         })
       },
+      editCart(id,num){
+        let data={
+          id:id,
+          num:num
+        }
+        editCart(data).then(res=>{
+          this.getCartList()
+        })
+      },
+      deleteBatch(){
+        if (this.multipleSelection==null || this.multipleSelection.length<1){
+          this.$message({
+            message: '请选择要删除的',
+          })
+        }else {
+          this.$confirm('是否要进行该批量删除吗?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            let ids = [];
+            for (let i = 0;i<this.multipleSelection.length;i++){
+              ids.push(this.multipleSelection[i].id);
+            }
+            this.deletes(ids)
+          });
+        }
+      },
+      deleteSingle(id){
+        let ids= [];
+        ids.push(id)
+        deleteCart(ids).then(response =>{
+          this.$message({
+            message: '删除成功',
+            type: 'success',
+            duration:1000
+          })
+          this.getCartList()
+        })
+      },
+      deletes(ids){
+        deleteCart(ids).then(response =>{
+          this.$message({
+            message: '删除成功',
+            type: 'success',
+            duration:1000
+          })
+          this.getCartList()
+        })
+      }
     }
   }
 </script>

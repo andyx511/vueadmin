@@ -63,15 +63,59 @@
             </el-image>
           </el-col>
           <el-col :span="16">
-              产品介绍区
+            <el-row>
+              <h3>
+                {{product.name}}
+              </h3>
+            </el-row>
+            <el-row>
+              {{product.des}}
+            </el-row>
+            <el-row style="margin-top: 20px;color: red;font-size: 22px" v-if="product.isDiscount==0">
+              <el-col :span="4" >价格</el-col>
+              <el-col :span="4" >¥{{product.price}}</el-col>
+              <el-col :span="4" v-if="product.isDiscount==1" style="font-size: 28px"> {{product.discountPrice}}</el-col>
+            </el-row>
+            <el-row style="margin-top: 10px;color: #000000;font-size: 22px" v-if="product.isDiscount==1">
+              <el-col :span="4" >价格</el-col>
+              <el-col :span="4" style="text-decoration: line-through;">¥{{product.price}}</el-col>
+            </el-row>
+            <el-row style="margin-top: 10px;color: red;font-size: 22px" v-if="product.isDiscount==1">
+              <el-col :span="4" ><b>折后价</b></el-col>
+              <el-col :span="4" style="font-size: 28px"><b> ¥{{product.discountPrice}}</b></el-col>
+            </el-row>
+            <el-row style="border: 1px dotted #c9c9c9; padding: 5px 10px;margin-top: 20px;">
+              <el-col :span="8">
+                销量 {{product.salesVolume}}
+              </el-col>
+              <el-col :span="8">
+                评价 {{product.commentNum}}
+              </el-col>
+              <el-col :span="8">
+                赠送积分 {{product.giftPoint}}
+              </el-col>
+            </el-row>
+            <el-row style="padding-top: 30px">
+              数量 <el-input-number :min="1" v-model="number" @change="handleChange"></el-input-number>
+            </el-row>
+            <el-row style="margin-top: 10px;">
+              <el-button>立即购买</el-button>
+              <el-button type="danger" @click="addCart">加入购物车</el-button>
+            </el-row>
           </el-col>
         </el-row>
-        <el-row>
-          <el-image
-            v-for="(item,index) in detailPic"
-
-            :src="item"
-          ></el-image>
+        <el-row style="padding: 20px 100px;width: 900px;">
+          <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="商品详情" name="first">
+              <el-image
+                v-for="(item,index) in detailPic"
+                :src="item"
+              ></el-image>
+            </el-tab-pane>
+            <el-tab-pane label="累计评论" name="second">
+              累计评论
+            </el-tab-pane>
+          </el-tabs>
         </el-row>
       </el-main>
       <el-footer>
@@ -82,6 +126,7 @@
 </template>
 
 <script>
+  import {addCart} from "../../api/cart";
   import {productDetail} from "../../api/product";
   import Sticky from '@/components/Sticky'
   export default {
@@ -91,7 +136,16 @@
       return{
         id:null,
         product:null,
-        detailPic:[]
+        detailPic:[],
+        number:1,
+        activeName: 'first',
+        cart:{
+          name:null,
+          productId:null,
+          num:null,
+          price:null,
+          pic:null
+        }
       }
     },
     created() {
@@ -106,7 +160,28 @@
 
     },
     methods:{
-
+      addCart(){
+        this.cart.name = this.product.name
+        this.cart.productId=this.id
+        this.cart.num = this.number
+        this.cart.pic= this.product.pic
+        if(this.product.isDiscount==0){
+          this.cart.price=this.product.price
+        }
+        if(this.product.isDiscount==1){
+          this.cart.price = this.product.discountPrice
+        }
+        addCart(this.cart).then(res =>{
+            this.$notify({
+              title:'成功',
+              message:'已成功加入购物车，请前往查看',
+              type:'success'
+            })
+        })
+      },
+      handleChange(value) {
+        console.log(value);
+      }
     }
   }
 </script>

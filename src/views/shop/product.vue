@@ -171,7 +171,8 @@
     minPrice:null,
     maxPrice:null,
     pageNum:1,
-    pageSize:8
+    pageSize:8,
+    status:1
   }
   export default {
     name: "product",

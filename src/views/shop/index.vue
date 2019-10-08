@@ -82,7 +82,6 @@
               <el-image
                 :src=item.pic
                 style="width: 230px;height: 230px;">
-
               </el-image>
               <el-row >
                 <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price}}.00</el-col>
