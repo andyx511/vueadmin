@@ -81,7 +81,7 @@
             <el-row style="padding: 50px;text-align: left">
               <el-row>
                 <el-col :span="2">昵称</el-col>
-                <el-col :span="8" >倪定波</el-col>
+                <el-col :span="8" >{{userInfo.nickname}}</el-col>
                 <el-col :span="4"><el-button icon="el-icon-edit" size="mini">编辑资料</el-button></el-col>
               </el-row>
               <el-row style="margin-top: 20px;">
@@ -90,50 +90,56 @@
                   <el-image
                     style="width: 100px;"
                     :fit="contain"
-                    :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"></el-image>
+                    :src="this.userInfo.icon"></el-image>
                 </el-col>
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">phone</el-col>
                 <el-col :span="8" >
-
+                  {{userInfo.username}}
                 </el-col>
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">邮箱</el-col>
                 <el-col :span="8" >
-
+                  {{userInfo.mail}}
+                  <span v-if="userInfo.mail==null">暂无邮箱</span>
                 </el-col>
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">性别</el-col>
                 <el-col :span="8" >
-
+                  {{userInfo.sex}}
+                  <span v-if="userInfo.sex==null">未知</span>
                 </el-col>
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">成长值</el-col>
                 <el-col :span="8" >
-
+                  {{userInfo.growth}}
                 </el-col>
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">积分</el-col>
                 <el-col :span="8" >
-
+                  {{userInfo.point}}
                 </el-col>
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">等级</el-col>
                 <el-col :span="8" >
-
+                  <span v-if="userInfo.levelId==1">普通会员</span>
+                  <span v-if="userInfo.levelId==2">白银会员</span>
+                  <span v-if="userInfo.levelId==3">黄金会员</span>
+                  <span v-if="userInfo.levelId==4">钻石会员</span>
                 </el-col>
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">余额</el-col>
-                <el-col :span="8" >
-
+                <el-col :span="4" >
+                  {{userInfo.money}}
                 </el-col>
+                <el-col :span="4"><el-button type="mini">充值</el-button></el-col>
               </el-row>
             </el-row>
           </el-col>
@@ -143,14 +149,31 @@
 
       </el-footer>
     </el-container>
+    el-
   </div>
 </template>
 
 <script>
+  import {getMemberInfo} from "../../api/user";
   import Sticky from '@/components/Sticky'
   export default {
     name: "user",
     components: { Sticky },
+    data(){
+      return{
+        userInfo:null
+      }
+    },
+    created() {
+      this.getInfo()
+    },
+    methods:{
+      getInfo(){
+        getMemberInfo().then(res=>{
+          this.userInfo = res.data
+        })
+      }
+    }
   }
 </script>
 

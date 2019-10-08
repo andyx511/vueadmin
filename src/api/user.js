@@ -48,3 +48,9 @@ export function reset(data) {
     data
   })
 }
+export function getMemberInfo(){
+  return request({
+    url:'/member/info',
+    method: 'get'
+  })
+}
