@@ -114,7 +114,7 @@
                   应付金额：￥{{totalPrice}}
                 </el-col>
                 <el-col :span="3">
-                  <el-button type="danger" @click="" :disabled="multipleSelection.length==0">立即结算</el-button>
+                  <el-button type="danger" @click="toAddress" :disabled="multipleSelection.length==0">立即结算</el-button>
                 </el-col>
               </el-row>
 
@@ -134,6 +134,7 @@
 
 <script>
   import {getCart,editCart,deleteCart} from "../../api/cart";
+  import {generateOrder} from "../../api/order";
   import Sticky from '@/components/Sticky'
   // @ is an alias to /src
   export default {
@@ -217,6 +218,15 @@
             duration:1000
           })
           this.getCartList()
+        })
+      },
+      toAddress(){
+        let ids= [];
+        for (let i = 0;i<this.multipleSelection.length;i++){
+          ids.push(this.multipleSelection[i].id);
+        }
+        generateOrder(ids).then(res =>{
+          this.$router.push({path: 'address',query:{id:res.data}})
         })
       }
     }

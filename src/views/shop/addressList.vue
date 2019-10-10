@@ -112,23 +112,26 @@
       width="40%"
       :visible.sync="addDig"
     >
-      <addressAdd></addressAdd>
+      <addressAdd @mm="closeAdd"></addressAdd>
     </el-dialog>
   </div>
 </template>
 
 <script>
   import addressAdd from "./components/addressAdd";
+  import {getAddressList} from "../../api/address";
+
   export default {
     name: "addressList",
     components:{addressAdd},
     data(){
       return {
-        addDig: false
+        addDig: false,
+        addressList:[]
       }
     },
-    created:{
-
+    created(){
+      this.getAddressList()
     },
     methods:{
       toUser(){
@@ -139,6 +142,15 @@
       },
       add(){
         this.addDig = true
+      },
+      getAddressList(){
+        getAddressList().then(res=>{
+          this.addressList = res.data
+        })
+      },
+      closeAdd(){
+        this.addDig=false
+        this.getAddressList()
       }
     }
   }
