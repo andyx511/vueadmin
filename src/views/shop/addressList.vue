@@ -90,11 +90,12 @@
               <el-col :span="5"> 是否为默认地址 </el-col>
               <el-col :span="4">操作</el-col>
             </el-row>
-            <el-row class="row" v-for="item in 15">
-              <el-col :span="5">倪定波</el-col>
-              <el-col :span="5">浙江省杭州市萧山区临浦镇横一村（梅里）49号</el-col>
-              <el-col :span="5">18257198895</el-col>
-              <el-col :span="5"> （默认地址） </el-col>
+            <el-row class="row" v-for="(item,index) in addressList">
+              <el-col :span="5">{{item.receiverName}}</el-col>
+              <el-col :span="5">{{item.province}}{{item.city}}{{item.region}}{{item.detailAddress}}</el-col>
+              <el-col :span="5">{{item.receiverPhone}}</el-col>
+              <el-col :span="5" v-if="item.isDefault=='true'">（默认地址） </el-col>
+              <el-col :span="5" v-if="item.isDefault=='false'"> <el-button >设为默认地址</el-button> </el-col>
               <el-col :span="4">
                 <el-button><i class="el-icon-edit"></i></el-button>
                 <el-button type="danger"><i class="el-icon-delete"></i></el-button>
