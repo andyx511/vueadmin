@@ -101,6 +101,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/pay',
+    component: () => import('@/views/shop/pay'),
+    hidden: true
+  },
+  {
     path: '/auth-redirect',
     component: () => import('@/views/login/auth-redirect'),
     hidden: true

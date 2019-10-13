@@ -79,131 +79,51 @@
             box-shadow: 0 1px 7px rgba(0,0,0,.06);">
               <h3>我的订单</h3>
             </el-row>
-            <div>
+            <div v-for="(item,index) in order">
               <el-row style="background-color:#eee;width: 100%;height: 50px;line-height:50px">
-                <el-col :span="4">2019-10-02 18:21</el-col>
-                <el-col :span="6">订单号： 157001167482755</el-col>
+                <el-col :span="4">{{item.createTime | formatCreateTime}}</el-col>
+                <el-col :span="6">订单号： {{item.id}}</el-col>
                 <el-col :span="3">单价</el-col>
                 <el-col :span="3">数量</el-col>
                 <el-col :span="3">实付款</el-col>
                 <el-col :span="3">订单状态</el-col>
                 <el-col :span="2">操作</el-col>
               </el-row>
-              <el-row >
+              <el-row v-for="(it,index) in item.items">
                 <el-col :span="4" style="padding: 20px;border: 1px">
                   <el-image
                     style="border: 1px solid #ebebeb;width: 100px;"
                     :fit="contain"
-                    :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/10-47-55/620-0ddcb075-13d2-4efa-aeb4-ac18c1b54780.jpg'"></el-image>
+                    :src="it.pic"></el-image>
                 </el-col>
                 <el-col :span="6" style="line-height:50px">
-                  <p>2010-16现代瑞纳扶手箱原装专用北京现代瑞奕中央手扶箱改装配件</p>
+                  <p>{{it.name}}</p>
                 </el-col>
-                <el-col :span="3" style="line-height:144px">153RMB</el-col>
-                <el-col :span="3" style="line-height:144px">1</el-col>
-                <el-col :span="3" style="line-height:144px">153RMB</el-col>
-                <el-col :span="3" style="line-height:144px">待发货</el-col>
-                <el-col :span="2" style="padding: 5px;line-height: 40px">
+                <el-col :span="3" style="line-height:144px">{{it.price}}</el-col>
+                <el-col :span="3" style="line-height:144px">{{it.num}}</el-col>
+                <el-col :span="3" style="line-height:144px" v-if="index==0">{{item.totalPrice}}</el-col>
+                <el-col :span="3" style="line-height:144px" v-if="index==0">
+                  {{item.status | formatStatus}}
+                </el-col>
+                <el-col :span="3" style="line-height:144px" v-if="index!=0"></el-col>
+                <el-col :span="2" style="padding: 5px;line-height: 40px" v-if="index==0">
                   <el-button size="mini" style="margin-left: 10px;">查看详情</el-button>
-                  <el-button size="mini">删除订单</el-button>
-                  <el-button size="mini">评论</el-button>
+                  <el-button size="mini" v-if="item.status!=1 && item.status!=2">删除订单</el-button>
+                  <el-button size="mini" v-if="item.status==3">评论</el-button>
+                  <el-button size="mini" v-if="item.status==0">现在付款</el-button>
+                  <el-button size="mini" >取消订单</el-button>
                 </el-col>
-              </el-row>
-              <el-row>
-                <el-col :span="4" style="padding: 20px;border: 1px">
-                  <el-image
-                    style="border: 1px solid #ebebeb;width: 100px;"
-                    :fit="contain"
-                    :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/10-47-55/620-0ddcb075-13d2-4efa-aeb4-ac18c1b54780.jpg'"></el-image>
-                </el-col>
-                <el-col :span="6" style="line-height:50px">
-                  <p>2010-16现代瑞纳扶手箱原装专用北京现代瑞奕中央手扶箱改装配件</p>
-                </el-col>
-                <el-col :span="3" style="line-height:144px">153RMB</el-col>
-                <el-col :span="3" style="line-height:144px">1</el-col>
-
-              </el-row>
-              <el-row>
-                <el-col :span="4" style="padding: 20px;border: 1px">
-                  <el-image
-                    style="border: 1px solid #ebebeb;width: 100px;"
-                    :fit="contain"
-                    :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/10-47-55/620-0ddcb075-13d2-4efa-aeb4-ac18c1b54780.jpg'"></el-image>
-                </el-col>
-                <el-col :span="6" style="line-height:50px">
-                  <p>2010-16现代瑞纳扶手箱原装专用北京现代瑞奕中央手扶箱改装配件</p>
-                </el-col>
-                <el-col :span="3" style="line-height:144px">153RMB</el-col>
-                <el-col :span="3" style="line-height:144px">1</el-col>
-              </el-row>
-              <el-row>
-                <el-col :span="4" style="padding: 20px;border: 1px">
-                  <el-image
-                    style="border: 1px solid #ebebeb;width: 100px;"
-                    :fit="contain"
-                    :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/10-47-55/620-0ddcb075-13d2-4efa-aeb4-ac18c1b54780.jpg'"></el-image>
-                </el-col>
-                <el-col :span="6" style="line-height:50px">
-                  <p>2010-16现代瑞纳扶手箱原装专用北京现代瑞奕中央手扶箱改装配件</p>
-                </el-col>
-                <el-col :span="3" style="line-height:144px">153RMB</el-col>
-                <el-col :span="3" style="line-height:144px">1</el-col>
               </el-row>
             </div>
-            <div>
-              <el-row style="background-color:#eee;width: 100%;height: 50px;line-height:50px">
-                <el-col :span="4">2019-10-02 18:21</el-col>
-                <el-col :span="6">订单号： 157001167482755</el-col>
-                <el-col :span="3">单价</el-col>
-                <el-col :span="3">数量</el-col>
-                <el-col :span="3">实付款</el-col>
-                <el-col :span="3">订单状态</el-col>
-                <el-col :span="2">操作</el-col>
-              </el-row>
-              <el-row >
-                <el-col :span="4" style="padding: 20px;border: 1px">
-                  <el-image
-                    style="border: 1px solid #ebebeb;width: 100px;"
-                    :fit="contain"
-                    :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/10-47-55/620-0ddcb075-13d2-4efa-aeb4-ac18c1b54780.jpg'"></el-image>
-                </el-col>
-                <el-col :span="6" style="line-height:50px">
-                  <p>2010-16现代瑞纳扶手箱原装专用北京现代瑞奕中央手扶箱改装配件</p>
-                </el-col>
-                <el-col :span="3" style="line-height:144px">153RMB</el-col>
-                <el-col :span="3" style="line-height:144px">1</el-col>
-                <el-col :span="3" style="line-height:144px">153RMB</el-col>
-                <el-col :span="3" style="line-height:144px">待发货</el-col>
-                <el-col :span="2" style="padding: 5px;line-height: 40px">
-                  <el-button size="mini" style="margin-left: 10px;">查看详情</el-button>
-                  <el-button size="mini">删除订单</el-button>
-                  <el-button size="mini">评论</el-button>
-                </el-col>
-              </el-row>
-              <el-row>
-                <el-col :span="4" style="padding: 20px;border: 1px">
-                  <el-image
-                    style="border: 1px solid #ebebeb;width: 100px;"
-                    :fit="contain"
-                    :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-29/10-47-55/620-0ddcb075-13d2-4efa-aeb4-ac18c1b54780.jpg'"></el-image>
-                </el-col>
-                <el-col :span="6" style="line-height:50px">
-                  <p>2010-16现代瑞纳扶手箱原装专用北京现代瑞奕中央手扶箱改装配件</p>
-                </el-col>
-                <el-col :span="3" style="line-height:144px">153RMB</el-col>
-                <el-col :span="3" style="line-height:144px">1</el-col>
 
-              </el-row>
-            </div>
             <div style="border-top: 1px solid #d4d4d4;;">
               <el-pagination
-                @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
-                :current-page="currentPage4"
-                :page-sizes="[100, 200, 300, 400]"
-                :page-size="100"
+                :current-page.sync=pageNum
+                :page-sizes="5"
+                :page-size="5"
                 layout="total, sizes, prev, pager, next, jumper"
-                :total="400">
+                :total=total>
               </el-pagination>
             </div>
           </el-col>
@@ -222,6 +142,8 @@
 <script>
   import BackToTop from '@/components/BackToTop'
   import Sticky from '@/components/Sticky'
+  import {getMemberOrder} from "../../api/order";
+  import {formatDate} from '@/utils/date';
   // @ is an alias to /src
   export default {
     name: 'order',
@@ -233,6 +155,41 @@
           'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-45-30/185-f95b2efe-24e8-4de1-8a72-db65ffcd0ff6.png',],
         list: 'null',
         checkedAddress:null,
+        order:null,
+        total:null,
+        pageNum:1
+      }
+    },
+    created(){
+      this.getList()
+    },
+    filters:{
+      formatCreateTime(time) {
+        let date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd hh:mm:ss')
+      },
+      formatStatus(value){
+        if(value == 0){
+          return '待付款'
+        }
+        if(value == 1){
+          return '待发货'
+        }
+        if(value == 2){
+          return '已发货'
+        }
+        if(value == 3){
+          return '已完成'
+        }
+        if(value == 4){
+          return '已关闭'
+        }
+        if(value == 5){
+          return '无效订单'
+        }
+        if(value == 6){
+          return '已取消'
+        }
       }
     },
     methods: {
@@ -240,6 +197,15 @@
         this.$message({
           message:"查询中"
         })
+      },
+      getList(){
+        getMemberOrder({pageNum:this.pageNum,pageSize:5}).then(res=>{
+          this.order = res.data.list
+          this.total = res.data.total
+        })
+      },
+      handleCurrentChange(){
+        this.getList()
       }
     }
   }

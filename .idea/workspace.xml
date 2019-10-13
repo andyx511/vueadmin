@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utils/date.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/components/addressEdit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/shop/pay.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/address.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/address.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/addressList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/components/addressAdd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/components/addressAdd.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,9 +23,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="XSLT Stylesheet" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -36,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -52,17 +61,17 @@
     <property name="ts.external.directory.path" value="D:\webstorm\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\File\bysj\vueadmin\src\assets\images" />
-      <recent name="E:\File\bysj\vueadmin\public" />
-      <recent name="E:\File\bysj\vueadmin\src\views\product\components" />
-      <recent name="E:\File\bysj\vueadmin\src\components\Upload" />
-      <recent name="E:\bysj\vueadmin\src\icons\svg" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\bysj\vueadmin\src\views\product\components" />
       <recent name="E:\bysj\vueadmin\src\views\product" />
       <recent name="E:\bysj\vueadmin\src\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\File\bysj\vueadmin\src\utils" />
+      <recent name="E:\File\bysj\vueadmin\src\assets\images" />
+      <recent name="E:\File\bysj\vueadmin\public" />
+      <recent name="E:\File\bysj\vueadmin\src\views\product\components" />
+      <recent name="E:\File\bysj\vueadmin\src\components\Upload" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -132,6 +141,8 @@
       <workItem from="1570433172683" duration="12359000" />
       <workItem from="1570536679755" duration="2270000" />
       <workItem from="1570706740841" duration="9118000" />
+      <workItem from="1570799284020" duration="691000" />
+      <workItem from="1570928890208" duration="26926000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>

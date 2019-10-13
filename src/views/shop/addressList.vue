@@ -95,10 +95,10 @@
               <el-col :span="5">{{item.province}}{{item.city}}{{item.region}}{{item.detailAddress}}</el-col>
               <el-col :span="5">{{item.receiverPhone}}</el-col>
               <el-col :span="5" v-if="item.isDefault=='true'">（默认地址） </el-col>
-              <el-col :span="5" v-if="item.isDefault=='false'"> <el-button >设为默认地址</el-button> </el-col>
+              <el-col :span="5" v-if="item.isDefault=='false'"> <el-button @click="chooseDef(item.id)">设为默认地址</el-button> </el-col>
               <el-col :span="4">
-                <el-button><i class="el-icon-edit"></i></el-button>
-                <el-button type="danger"><i class="el-icon-delete"></i></el-button>
+                <el-button @click="editAddress(item)"><i class="el-icon-edit"></i></el-button>
+                <el-button type="danger" @click="deleteAddress(item.id)"><i class="el-icon-delete"></i></el-button>
               </el-col>
             </el-row>
           </el-col>
@@ -115,20 +115,67 @@
     >
       <addressAdd @mm="closeAdd"></addressAdd>
     </el-dialog>
+    <el-dialog
+      title="编辑地址"
+      width="40%"
+      :visible.sync="editDig"
+    >
+      <div>
+        <el-form ref="form" :model="form" label-width="120px" style="width:80%">
+          <el-form-item label="姓名" >
+            <el-input v-model="form.receiverName" ></el-input>
+          </el-form-item>
+          <el-form-item label="地区">
+            <v-distpicker
+              :placeholders="placeholders"
+              :province="form.province"
+              :city="form.city"
+              :area="form.region"
+              @selected="onSelected"></v-distpicker>
+          </el-form-item>
+          <el-form-item label="详细地址">
+            <el-input  v-model="form.detailAddress"></el-input>
+          </el-form-item>
+          <el-form-item label="联系电话">
+            <el-input  v-model="form.receiverPhone"></el-input>
+          </el-form-item>
+          <el-form-item label="默认地址">
+            <el-checkbox-group v-model="form.isDefault">
+              <el-checkbox value="1"></el-checkbox>
+            </el-checkbox-group>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="onSubmit" style="float:right;">修改</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
   import addressAdd from "./components/addressAdd";
-  import {getAddressList} from "../../api/address";
+  import addressEdit from "./components/addressEdit"
+  import {getAddressList,editAddress,detail,deleteAddress} from "../../api/address";
 
   export default {
     name: "addressList",
-    components:{addressAdd},
+    components:{addressEdit, addressAdd},
     data(){
       return {
         addDig: false,
-        addressList:[]
+        editDig: false,
+        addressList:[],
+        addressId:null,
+        form:{
+          receiverName:null,
+          province:null,
+          city:null,
+          region:null,
+          detailAddress:null,
+          receiverPhone:null,
+          isDefault:false
+        }
       }
     },
     created(){
@@ -152,6 +199,39 @@
       closeAdd(){
         this.addDig=false
         this.getAddressList()
+      },
+      chooseDef(id){
+        let address={
+          id:id,
+          isDefault:true
+        }
+        editAddress(address).then(res=>{
+          this.getAddressList()
+        })
+      },
+      editAddress(data){
+        this.editDig = true
+        detail(data.id).then(res=>{
+          this.form = res.data
+        })
+      },
+      onSubmit(){
+        editAddress(this.form).then(res=>{
+          this.editDig=false
+          this.getAddressList();
+        })
+      },
+      deleteAddress(id){
+        this.$confirm('确定删除该地址吗？','提示',{
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(()=>{
+          deleteAddress(id).then(res=>{
+            this.getAddressList()
+          })
+        })
+
       }
     }
   }

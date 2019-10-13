@@ -52,7 +52,7 @@
           </el-row>
         </el-header>
       </sticky>
-      <el-main>
+      <el-main >
         <el-row>
           <el-col :span="16" :offset="4">
             <el-row style="
@@ -60,42 +60,80 @@
             border: 1px solid #d4d4d4;
             border-radius: 8px 8px 0 0;
             box-shadow: 0 1px 7px rgba(0,0,0,.06);">
-              <h3 style="text-align: center">收货地址选择</h3>
+              <h3 style="text-align: center">确认付款</h3>
             </el-row>
             <el-row style="padding: 20px ; border: 1px solid #d4d4d4;">
-              <el-col :span="5" :offset="1" v-for="(item,index) in addressList " >
-                <el-card
-                  @click.native="checkAddress(index,item)"
-                  style="margin-top: 20px;width: 247px;height: 276px"
-                  :class="{'checked':index == checked}">
-                  <h4>{{item.province}}{{item.city}}({{item.receiverName}}）收</h4>
-                  <el-divider></el-divider>
-                  <p>{{item.province}}{{item.city}}{{item.region}}</p>
-                  <p>{{item.detailAddress}}</p>
-                  <p>{{item.receiverPhone}} <!--<a v-show="index==checked" style="color:#ff5d65;font-size: 14px">设为默认地址</a>--></p>
-                  <!--<el-button size="mini"> 修改</el-button>
-                  <el-button size="mini" type="danger"> 删除</el-button>-->
-                </el-card>
-              </el-col>
+             <el-row>
+               <el-col :span="4">
+                  商品信息
+               </el-col>
+               <el-col :span="8">
+                 <div><p></p></div>
+               </el-col>
+               <el-col :span="6">
+                 单价
+               </el-col>
+               <el-col :span="6">
+                 数量
+               </el-col>
+             </el-row>
+             <el-row style="margin-top: 20px;" v-for="(item,index) in order.items">
+               <el-col :span="4">
+                 <el-image
+                   style="border: 1px solid #ebebeb;width: 150px;"
+                   :fit="contain"
+                   :src="item.pic"></el-image>
+               </el-col>
+               <el-col :span="7" >
+                 {{item.name}}
+               </el-col>
+               <el-col :span="6" :offset="1">
+                 {{item.price}}
+               </el-col>
+               <el-col :span="6">
+                 {{item.num}}
+               </el-col>
+             </el-row>
             </el-row>
-          </el-col>
-        </el-row>
-        <el-row >
-          <el-col :span="16" :offset="4" >
-            <el-button type="danger" style="float:right;padding-top: 20px" @click="confirmOrder">确认订单</el-button>
-          </el-col>
-          <!--<el-col :span="16" :offset="4">
+            <el-row style="padding: 20px ; border: 1px solid #d4d4d4;">
+              <el-row style="margin-top: 20px;">
+                <el-col :span="4">
+                  收件人
+                </el-col>
+                <el-col :span="8">
+                  省市区
+                </el-col>
+                <el-col :span="6">
+                  具体地址
+                </el-col>
+                <el-col :span="6">
+                  联系电话
+                </el-col>
+              </el-row>
+              <el-row style="margin-top: 20px;">
+                <el-col :span="4">
+                  {{order.receiverName}}
+                </el-col>
+                <el-col :span="8">
+                  {{order.receiverProvince}}{{order.receiverCity}}{{order.receiverRegion}}
+                </el-col>
+                <el-col :span="6">
+                  {{order.receiverDetailAddress}}
+                </el-col>
+                <el-col :span="6">
+                  {{order.receiverPhone}}
+                </el-col>
+              </el-row>
+            </el-row>
             <el-row style="
-             margin-top: 20px;;
-            background: linear-gradient(#fbfbfb,#ececec);
+            background: linear-gradient(#ffffff,#ffffff);
             border: 1px solid #d4d4d4;
-            border-radius: 8px 8px 0 0;
-            box-shadow: 0 1px 7px rgba(0,0,0,.06);">
-              <h3 style="text-align: center">预购清单</h3>
+            border-radius:0 0 8px 8px ;
+            box-shadow: 0 1px 7px rgba(0,0,0,.06);padding: 30px">
+              <h3 style="text-align: right">总价：{{order.totalPrice}}</h3>
+              <el-button type="danger" style="float: right" @click="pay()">确认付款</el-button>
             </el-row>
-
-
-          </el-col>-->
+          </el-col>
         </el-row>
       </el-main>
       <el-footer>
@@ -106,41 +144,34 @@
 </template>
 
 <script>
-  import {getAddressList} from "../../api/address";
-  import {chooseAddress} from "../../api/order";
-
+  import {detail,pay} from "../../api/order"
+  import Sticky from '@/components/Sticky'
   export default {
-    name: "address",
+    name: "pay",
+    components: { Sticky },
     data(){
       return{
         id:null,
-        checked:0,
-        addressList:[],
-        checkedAddress:null
+        order:null
       }
     },
     created() {
       this.id = this.list = this.$route.query.id;
-      this.getList()
-
+      this.getOrder()
     },
     methods:{
-      checkAddress(index,item){
-        this.checked = index
-        this.checkedAddress = item.id
-      },
-      getList(){
-        getAddressList().then(res=>{
-          this.addressList = res.data
-          this.checkedAddress = res.data[0].id
+      getOrder(){
+        detail(this.id).then(res=>{
+          this.order = res.data
         })
       },
-      confirmOrder(){
-        let address = {
-          addressId:this.checkedAddress
-        }
-        chooseAddress(address,this.id).then(res=>{
-          this.$router.push({path: 'pay',query:{id:this.id}})
+      pay(){
+        pay(this.id).then(res=>{
+          this.$message({
+            message:"支付成功",
+            type:'success'
+          })
+          this.$router.push({path: 'order'})
         })
       }
     }
@@ -148,20 +179,10 @@
 </script>
 
 <style scoped>
-  .checked{
-    border: 1px dashed #d45e49;
-    background-color: #F2F6FC;
-  }
-.address{
-  background-color: #ffa544;
-}
-.address:hover{
-  background-color: #fff;
-}
-.el-header, .el-footer {
-  background-color: #000000;
-  color: #333;
+  .el-header, .el-footer {
+    background-color: #000000;
+    color: #333;
 
-  line-height: 60px;
-}
+    line-height: 60px;
+  }
 </style>

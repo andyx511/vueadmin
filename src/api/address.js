@@ -22,7 +22,13 @@ export function editAddress(data) {
 }
 export function deleteAddress(id) {
   return request({
-    url:'/address/delete'+id,
+    url:'/address/delete/'+id,
     method:'get'
+  })
+}
+export function detail(id) {
+  return request({
+    url: '/address/detail/'+id,
+    method: 'get'
   })
 }

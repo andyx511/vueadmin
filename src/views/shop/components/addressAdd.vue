@@ -25,7 +25,6 @@
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="onSubmit" style="float:right;">立即创建</el-button>
-
     </el-form-item>
   </el-form>
 
