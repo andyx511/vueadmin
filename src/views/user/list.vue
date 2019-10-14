@@ -1,8 +1,10 @@
 <template />
-
+  <div>
+    用户列表
+  </div>
 <script>
 export default {
-  name: 'Index'
+  name: 'list'
 }
 </script>
 

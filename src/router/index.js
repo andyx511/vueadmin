@@ -155,7 +155,7 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-  {
+/*  {
     path: '/permission',
     component: Layout,
     redirect: '/permission/page',
@@ -195,7 +195,7 @@ export const asyncRoutes = [
         }
       }
     ]
-  },
+  },*/
 
   {
     path: '/product',
@@ -225,6 +225,68 @@ export const asyncRoutes = [
         name: "商品种类",
         meta: { title: '商品种类',noCache: true,roles:['admin']}
       }
+    ]
+  },
+
+  {
+    path: '/order',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '商品',
+    meta: {
+      title: '订单',
+      icon: 'product'
+    },
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/order/list'),
+        name: '订单列表',
+        meta: { title: '订单列表', noCache: true }
+      },
+      {
+        path: 'returnList',
+        component: () => import('@/views/order/returnList'),
+        name: '退货申请处理',
+        meta: { title: '退货申请处理', noCache: true }
+      },
+    ]
+  },
+
+  {
+    path: '/user',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '系统管理',
+    meta: {
+      title: '系统管理',
+      icon: 'product'
+    },
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/user/list'),
+        name: '会员管理',
+        meta: { title: '会员管理', noCache: true }
+      },
+      {
+        path: 'admin',
+        component: () => import('@/views/admin/list'),
+        name: '后台用户管理',
+        meta: { title: '后台用户管理', noCache: true }
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/admin/role'),
+        name: '角色管理',
+        meta: { title: '角色管理', noCache: true }
+      },
+      {
+        path: 'menu',
+        component: () => import('@/views/admin/menu'),
+        name: '菜单管理',
+        meta: { title: '菜单管理', noCache: true }
+      },
     ]
   },
 
