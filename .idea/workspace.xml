@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/date.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/shop/components/addressEdit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/shop/pay.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/address.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/address.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/addressList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/components/addressAdd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/components/addressAdd.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,17 +51,17 @@
     <property name="ts.external.directory.path" value="D:\webstorm\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\bysj\vueadmin\src\views\product\components" />
-      <recent name="E:\bysj\vueadmin\src\views\product" />
-      <recent name="E:\bysj\vueadmin\src\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\File\bysj\vueadmin\src\utils" />
       <recent name="E:\File\bysj\vueadmin\src\assets\images" />
       <recent name="E:\File\bysj\vueadmin\public" />
       <recent name="E:\File\bysj\vueadmin\src\views\product\components" />
       <recent name="E:\File\bysj\vueadmin\src\components\Upload" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\bysj\vueadmin\src\views\product\components" />
+      <recent name="E:\bysj\vueadmin\src\views\product" />
+      <recent name="E:\bysj\vueadmin\src\views" />
     </key>
   </component>
   <component name="RunDashboard">
