@@ -99,19 +99,21 @@
                 <el-col :span="6" style="line-height:50px">
                   <p>{{it.name}}</p>
                 </el-col>
-                <el-col :span="3" style="line-height:144px">{{it.price}}</el-col>
+                <el-col :span="3" style="line-height:144px">￥{{it.price}}</el-col>
                 <el-col :span="3" style="line-height:144px">{{it.num}}</el-col>
-                <el-col :span="3" style="line-height:144px" v-if="index==0">{{item.totalPrice}}</el-col>
+                <el-col :span="3" style="line-height:144px" v-if="index==0">￥{{item.totalPrice}}</el-col>
                 <el-col :span="3" style="line-height:144px" v-if="index==0">
                   {{item.status | formatStatus}}
                 </el-col>
                 <el-col :span="3" style="line-height:144px" v-if="index!=0"></el-col>
                 <el-col :span="2" style="padding: 5px;line-height: 40px" v-if="index==0">
-                  <el-button size="mini" style="margin-left: 10px;">查看详情</el-button>
                   <el-button size="mini" v-if="item.status!=1 && item.status!=2">删除订单</el-button>
                   <el-button size="mini" v-if="item.status==3">评论</el-button>
+                  <el-button size="mini" v-if="item.status==3" @click="applyReturn(item.id)">申请退货</el-button>
                   <el-button size="mini" v-if="item.status==0">现在付款</el-button>
-                  <el-button size="mini" >取消订单</el-button>
+                  <el-button size="mini" @click="remind" v-if="item.status==1">催促发货</el-button>
+                  <el-tag type="success" v-if="item.status==2" >已发货</el-tag>
+                  <el-tag type="success" v-if="item.status==2" >请耐心等待</el-tag>
                 </el-col>
               </el-row>
             </div>
@@ -134,6 +136,23 @@
         foot
       </el-footer>
     </el-container>
+    <el-dialog
+      title="申请退款"
+      :visible.sync="dialogVisible"
+      width="50%"
+      :before-close="handleClose"
+      style="padding-top: 150px"
+    >
+      <el-form :model="orderReturn"  ref="product" label-width="100px" class="demo-product">
+        <el-form-item label="退货理由">
+          <el-input v-model="orderReturn.reason" type="textarea" autosize></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('orderReturn')" style="float:right;">立即申请</el-button>
+        </el-form-item>
+      </el-form>
+
+    </el-dialog>
 
   </div>
 
@@ -157,7 +176,12 @@
         checkedAddress:null,
         order:null,
         total:null,
-        pageNum:1
+        pageNum:1,
+        dialogVisible: false,
+        orderReturn:{
+          id:null,
+          reason:null
+        }
       }
     },
     created(){
@@ -206,7 +230,23 @@
       },
       handleCurrentChange(){
         this.getList()
-      }
+      },
+      remind(){
+        this.$message({
+          message:'已提醒商家尽快发货',
+          type: 'success'
+        })
+      },
+      applyReturn(id){
+        this.dialogVisible = true
+
+      },
+      submitForm(formName){
+
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
     }
   }
 </script>

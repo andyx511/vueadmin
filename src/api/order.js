@@ -33,3 +33,23 @@ export function pay(id) {
     method: 'post'
   })
 }
+export function orderList(params) {
+  return request({
+    url:'order/orderList',
+    method:'get',
+    params:params
+  })
+}
+export function delivery(id) {
+  return request({
+    url:'order/delivery/'+id,
+    method:'post'
+  })
+}
+export function applyReturn(data) {
+  return request({
+    url: 'order/applyReturn',
+    method:'post',
+    data
+  })
+}

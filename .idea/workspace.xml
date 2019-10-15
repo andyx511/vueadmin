@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/admin/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/admin/menu.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/admin/role.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/order/list.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/order/returnList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/sell/brandRecommend.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/sell/goodRecommend.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/sell/hotRecommend.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/sell/newRecommend.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/order/orderDetail.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/excel/upload-excel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/excel/upload-excel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/user/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/user/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/components/Hamburger.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/components/Hamburger.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/components/SvgIcon.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/components/SvgIcon.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/order/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/order/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/order/returnList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/order/returnList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +54,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="D:\webstorm\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\Dell\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -199,6 +191,12 @@
           <url>file://$PROJECT_DIR$/src/api/user.js</url>
           <line>55</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/order/orderDetail.vue</url>
+          <line>20</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

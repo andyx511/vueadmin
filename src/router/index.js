@@ -232,7 +232,7 @@ export const asyncRoutes = [
     path: '/order',
     component: Layout,
     redirect: 'noRedirect',
-    name: '商品',
+    name: '订单',
     meta: {
       title: '订单',
       icon: 'product'
@@ -249,6 +249,50 @@ export const asyncRoutes = [
         component: () => import('@/views/order/returnList'),
         name: '退货申请处理',
         meta: { title: '退货申请处理', noCache: true }
+      },
+      {
+        path: 'orderDetail',
+        component: () => import('@/views/order/orderDetail'),
+        name: '订单详情',
+        meta: { title: '订单详情', noCache: true },
+        hidden: true
+      },
+    ]
+  },
+
+  {
+    path: '/sell',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '营销',
+    meta: {
+      title: '营销',
+      icon: 'sell'
+    },
+    children: [
+      {
+        path: 'brandRecommend',
+        component: () => import('@/views/sell/brandRecommend'),
+        name: '品牌推荐',
+        meta: { title: '品牌推荐', noCache: true }
+      },
+      {
+        path: 'brandRecommend',
+        component: () => import('@/views/sell/goodRecommend'),
+        name: '优选推荐',
+        meta: { title: '优选推荐', noCache: true }
+      },
+      {
+        path: 'brandRecommend',
+        component: () => import('@/views/sell/hotRecommend'),
+        name: '热门推荐',
+        meta: { title: '热门推荐', noCache: true }
+      },
+      {
+        path: 'brandRecommend',
+        component: () => import('@/views/sell/newRecommend'),
+        name: '新品推荐',
+        meta: { title: '新品推荐', noCache: true }
       },
     ]
   },

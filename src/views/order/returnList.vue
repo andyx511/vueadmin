@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    萨达萨达
+  </div>
 </template>
 
 <script>
