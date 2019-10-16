@@ -148,7 +148,7 @@
           <el-input v-model="orderReturn.reason" type="textarea" autosize></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('orderReturn')" style="float:right;">立即申请</el-button>
+          <el-button type="primary" @click="submitForm('orderReturn',)" style="float:right;">立即申请</el-button>
         </el-form-item>
       </el-form>
 
@@ -161,7 +161,7 @@
 <script>
   import BackToTop from '@/components/BackToTop'
   import Sticky from '@/components/Sticky'
-  import {getMemberOrder} from "../../api/order";
+  import {getMemberOrder,applyReturn} from "../../api/order";
   import {formatDate} from '@/utils/date';
   // @ is an alias to /src
   export default {
@@ -170,8 +170,6 @@
     data () {
       return {
         currentDate: new Date(),
-        url: ['https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-42-03/800-0868a1df-588e-4f30-8e53-7915f6f050fd.jpg',
-          'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-45-30/185-f95b2efe-24e8-4de1-8a72-db65ffcd0ff6.png',],
         list: 'null',
         checkedAddress:null,
         order:null,
@@ -242,7 +240,14 @@
 
       },
       submitForm(formName){
-
+        applyReturn(this.orderReturn).then(res=>{
+          this.$message({
+            message:'已发申请，等待确认',
+            type:'success'
+          })
+          this.dialogVisible = false
+          this.getList()
+        })
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
