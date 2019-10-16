@@ -114,6 +114,7 @@
                   <el-button size="mini" @click="remind" v-if="item.status==1">催促发货</el-button>
                   <el-tag type="success" v-if="item.status==2" >已发货</el-tag>
                   <el-tag type="success" v-if="item.status==2" >请耐心等待</el-tag>
+                  <el-tag type="danger" v-if="item.status==8" >申请退款中</el-tag>
                 </el-col>
               </el-row>
             </div>
@@ -177,9 +178,9 @@
         pageNum:1,
         dialogVisible: false,
         orderReturn:{
-          id:null,
+          orderId:null,
           reason:null
-        }
+        },
       }
     },
     created(){
@@ -212,6 +213,18 @@
         if(value == 6){
           return '已取消'
         }
+        if(value == 8){
+          return '申请退货中'
+        }
+        if(value == 9){
+          return '退货中'
+        }
+        if(value == 10){
+          return '拒绝退货'
+        }
+        if(value == 11){
+          return '已完成退货'
+        }
       }
     },
     methods: {
@@ -237,7 +250,7 @@
       },
       applyReturn(id){
         this.dialogVisible = true
-
+        this.orderReturn.orderId = id;
       },
       submitForm(formName){
         applyReturn(this.orderReturn).then(res=>{

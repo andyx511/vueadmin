@@ -19,13 +19,12 @@
               <el-button style="margin-left: -1%;width: 20%;" icon="el-icon-search" type="danger"></el-button>
             </el-col>
             <el-col :span="2" style="padding-top: 25px; font-size: 28px;">
-              <el-link :underline="false" style="padding-right: 10%">全部商品</el-link>|
-
+              <el-link :underline="false" style="padding-right: 10%"  @click="toProduct">全部商品</el-link>|
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
 
               <el-badge :value="12" class="item" >
-                <el-link type="info" :underline="false" style="margin-left: 45px;">
+                <el-link type="info" :underline="false" style="margin-left: 45px;" @click="toCart">
                   <i class="el-icon-shopping-cart-1" style="font-size: 30px"></i>
                 </el-link>
               </el-badge>
@@ -135,6 +134,7 @@
   import Sticky from '@/components/Sticky'
   import {getProductList} from "../../api/product";
   import {mapGetters} from "vuex";
+  import {getCount} from "../../api/cart";
   // @ is an alias to /src
   export default {
     name: 'index',
@@ -161,6 +161,9 @@
       this.getProductList()
     },
     methods: {
+      getCount(){
+
+      },
       search(){
         this.$message({
           message:"查询中"
@@ -172,6 +175,12 @@
           role: this.roles.join(' | '),
           avatar: this.avatar
         }
+      },
+      toProduct(){
+        this.$router.push({path: '/product'})
+      },
+      toCart(){
+        this.$router.push({path: '/cart'})
       },
       handleCommand(command){
         this.$router.push({path: '/'+command})
@@ -199,6 +208,10 @@
   }
 </style>
 <style>
+  .all{
+    font-size: 20px;
+    color: #ffffff;
+  }
   .card{
     padding: 20px;
   }

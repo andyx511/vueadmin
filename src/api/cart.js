@@ -26,3 +26,9 @@ export function deleteCart(data) {
     data
   })
 }
+export function getCount() {
+  return request({
+    url:'cart/getCount',
+    method:'get'
+  })
+}

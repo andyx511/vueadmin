@@ -56,8 +56,8 @@
         <div class="searchBar">
           <el-card class="filter-container" shadow="never" style="width: 1097px;height: 231px;">
             <div>
-              <i class="el-icon-search" />
-              <span>筛选搜索</span>
+              <i class="el-icon-search" style="float:left;" />
+              <span style="float:left;">筛选搜索</span>
               <el-button
                 style="float: right"
                 type="primary"
@@ -76,11 +76,12 @@
             </div>
             <div style="margin-top: 15px">
               <el-form size="small" label-width="140px" :inline="true">
-                <el-form-item label="商品名称">
-                  <el-input style="width: 203px" placeholder="商品名称" v-model="query.name" clearable/>
+                <el-row></el-row>
+                <el-form-item label="商品名称" style="float:left;">
+                  <el-input style="width: 203px;float:left;" placeholder="商品名称" v-model="query.name" clearable/>
                 </el-form-item>
-                <el-form-item label="商品品牌">
-                  <el-select v-model="query.brand" placeholder="请选择" clearable>
+                <el-form-item label="商品品牌" style="float:left;width: 40%;">
+                  <el-select v-model="query.brand" placeholder="请选择" clearable style="float:left;">
                     <el-option
                       v-for="item in brandList"
                       :key="item.value"
@@ -89,8 +90,8 @@
                     </el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item label="商品种类">
-                  <el-select v-model="query.kind" placeholder="请选择" clearable>
+                <el-form-item label="商品种类" style="float:left;">
+                  <el-select v-model="query.kind" placeholder="请选择" clearable style="float:left;">
                     <el-option
                       v-for="item in kindList"
                       :key="item.value"
@@ -99,11 +100,11 @@
                     </el-option>
                   </el-select>
                 </el-form-item>
-                <el-form-item label="价格">
+                <el-form-item label="价格" style="float:left;">
                   <div class="block" style="width: 800px">
                     <el-slider
                       v-model="price"
-                      style="width: 80%;"
+                      style="width: 80%;float:left;"
                       range
                       show-input="true"
                       :max="1000"
