@@ -2,66 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/member.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/admin/member.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/order.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/modules/charts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/modules/nested.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/charts/keyboard.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/charts/line.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/charts/mix-chart.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/avatar-upload.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/back-to-top.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/count-to.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/dnd-list.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/drag-dialog.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/drag-kanban.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/drag-select.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/dropzone.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/json-editor.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/markdown.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/mixin.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/split-pane.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/sticky.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/components-demo/tinymce.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/documentation/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/components/ArticleDetail.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/components/Dropdown/Comment.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/components/Dropdown/Platform.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/components/Dropdown/SourceUrl.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/components/Dropdown/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/components/Warning.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/create.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/edit.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/example/list.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/excel/components/AutoWidthOption.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/excel/components/BookTypeOption.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/excel/components/FilenameOption.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/excel/export-excel.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/excel/merge-header.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/excel/select-excel.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/excel/upload-excel.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/guide/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/guide/steps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/element-icons.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/icons/svg-icons.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nested/menu1/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nested/menu1/menu1-1/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nested/menu1/menu1-2/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nested/menu1/menu1-2/menu1-2-1/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nested/menu1/menu1-2/menu1-2-2/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nested/menu1/menu1-3/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/nested/menu2/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/qiniu/upload.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/table/complex-table.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/table/drag-table.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/table/dynamic-table/components/FixedThead.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/table/dynamic-table/components/UnfixedThead.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/table/dynamic-table/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/table/inline-edit-table.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/theme/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/productDetail.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="XSLT Stylesheet" />
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -194,6 +139,7 @@
       <workItem from="1570928890208" duration="26926000" />
       <workItem from="1571209396808" duration="2872000" />
       <workItem from="1571229650639" duration="6040000" />
+      <workItem from="1571316605271" duration="4994000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>

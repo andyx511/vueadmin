@@ -62,43 +62,43 @@
 
             </el-image>
           </el-col>
-          <el-col :span="16">
-            <el-row >
+          <el-col :span="16" >
+            <el-row style="float:left;text-align: left">
               <h3 style="float:left;width: 732px;">
                 {{product.name}}
               </h3>
             </el-row>
-            <el-row style="float:left;">
+            <el-row style="text-align: left">
               {{product.des}}
             </el-row>
             <el-row style="margin-top: 20px;color: red;font-size: 22px" v-if="product.isDiscount==0">
-              <el-col :span="4" style="float:left;" >价格</el-col>
-              <el-col :span="4" style="float:left;" >¥{{product.price}}</el-col>
+              <el-col :span="4" style="text-align: left" >价格</el-col>
+              <el-col :span="4" style="text-align: left" >¥{{product.price}}</el-col>
               <el-col :span="4" v-if="product.isDiscount==1" style="font-size: 28px;float:left;width: 732px;"> {{product.discountPrice}}</el-col>
             </el-row>
             <el-row style="margin-top: 10px;color: #000000;font-size: 22px" v-if="product.isDiscount==1">
-              <el-col :span="4" style="float:left;" >价格</el-col>
-              <el-col :span="4" style="text-decoration: line-through;float:left;">¥{{product.price}}</el-col>
+              <el-col :span="4" style="text-align: left" >价格</el-col>
+              <el-col :span="4" style="text-decoration: line-through;text-align: left">¥{{product.price}}</el-col>
             </el-row>
             <el-row style="margin-top: 10px;color: red;font-size: 22px;float:left;" v-if="product.isDiscount==1">
-              <el-col :span="4" style="float:left;width: 80px;" ><b>折后价</b></el-col>
-              <el-col :span="4" style="font-size: 28px;float:left;width: 652px;"><b> ¥{{product.discountPrice}}</b></el-col>
+              <el-col :span="4" style="text-align: left;width: 80px;" ><b>折后价</b></el-col>
+              <el-col :span="4" style="font-size: 28px;text-align: left;width: 652px;"><b> ¥{{product.discountPrice}}</b></el-col>
             </el-row>
             <el-row style="border: 1px dotted #c9c9c9; padding: 5px 10px;margin-top: 20px;float:left; width: 732px;">
-              <el-col :span="8">
+              <el-col :span="8" style="text-align: left">
                 销量 {{product.salesVolume}}
               </el-col>
-              <el-col :span="8">
+              <el-col :span="8" style="text-align: left">
                 评价 {{product.commentNum}}
               </el-col>
-              <el-col :span="8">
+              <el-col :span="8" style="text-align: left">
                 赠送积分 {{product.giftPoint}}
               </el-col>
             </el-row>
-            <el-row style="padding-top: 120px">
+            <el-row style="padding-top: 100px;text-align: left">
               数量 <el-input-number :min="1" v-model="number" @change="handleChange"></el-input-number>
             </el-row>
-            <el-row style="margin-top: 30px;">
+            <el-row style="margin-top: 30px;text-align: left">
               <el-button>立即购买</el-button>
               <el-button type="danger" @click="addCart">加入购物车</el-button>
             </el-row>
