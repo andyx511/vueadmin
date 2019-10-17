@@ -23,7 +23,7 @@
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
 
-              <el-badge :value="12" class="item" >
+              <el-badge :value="count" class="item" >
                 <el-link type="info" :underline="false" style="margin-left: 45px;" @click="toCart">
                   <i class="el-icon-shopping-cart-1" style="font-size: 30px"></i>
                 </el-link>
@@ -138,7 +138,7 @@
   // @ is an alias to /src
   export default {
     name: 'index',
-    components: { Sticky ,BackToTop},
+    components: { Sticky, BackToTop},
     data () {
       return {
         currentDate: new Date(),
@@ -146,7 +146,8 @@
           'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-45-30/185-f95b2efe-24e8-4de1-8a72-db65ffcd0ff6.png',],
         list: 'null',
         user:{},
-        productList:null
+        productList:null,
+        count:null
       }
     },
     computed: {
@@ -159,10 +160,14 @@
     created(){
       this.getUser()
       this.getProductList()
+      this.getCount()
+
     },
     methods: {
       getCount(){
-
+        getCount().then(res=>{
+          this.count = res.data
+        })
       },
       search(){
         this.$message({
