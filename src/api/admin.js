@@ -1,21 +1,21 @@
 import request from '@/utils/request'
-export function getMemberList(params) {
+export function getList(params) {
   return request({
-    url: 'member/list',
+    url:'admin/list',
+    method:'get',
+    params:params
+  })
+}
+export function jin(params) {
+  return request({
+    url:'admin/jin',
     method: 'get',
     params:params
   })
 }
-export function dong(params) {
+export function qi(params) {
   return request({
-    url:'member/dong',
-    method: 'get',
-    params:params
-  })
-}
-export function jie(params) {
-  return request({
-    url: 'member/jie',
+    url:'admin/qi',
     method:'get',
     params:params
   })

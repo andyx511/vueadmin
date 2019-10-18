@@ -23,12 +23,11 @@
       <div style="margin-top: 15px">
         <el-form size="small" label-width="140px" :inline="true">
           <el-form-item label="会员id">
-            <el-input style="width: 203px" placeholder="订单id" v-model="query.memberId" clearable/>
+            <el-input style="width: 203px" placeholder="会员id" v-model="query.memberId" clearable/>
           </el-form-item>
           <el-form-item label="会员昵称">
-            <el-input style="width: 203px" placeholder="订单id" v-model="query.memberName" clearable/>
+            <el-input style="width: 203px" placeholder="会员昵称" v-model="query.memberName" clearable/>
           </el-form-item>
-
         </el-form>
       </div>
     </el-card>
@@ -66,7 +65,7 @@
         </el-table-column>
         <el-table-column label="操作" align="center" >
           <template slot-scope="scope">
-            <el-button type="primary" size="mini" @click="dong(scope.row.userId)">冻结</el-button>
+            <el-button v-if="scope.row.status==0" type="primary" size="mini" @click="dong(scope.row.userId)">冻结</el-button>
             <el-button v-if="scope.row.status==1" size = "mini" @click="jie(scope.row.userId)">解冻</el-button>
           </template>
         </el-table-column>
@@ -89,7 +88,7 @@
 </template>
 
 <script>
-  import {getMemberList,dong} from "../../api/member";
+  import {getMemberList, dong, jie} from "../../api/member";
   import {formatDate} from '@/utils/date';
 
   const defaultQuery ={
@@ -146,6 +145,13 @@
       this.getList()
     },
     methods:{
+      reSet(){
+        this.query = Object.assign({},defaultQuery)
+      },
+      search(){
+        this.query.pageNum = 1
+        this.getList()
+      },
       // 改变页面
       handleCurrentChange() {
         this.listLoading = true;
@@ -164,8 +170,12 @@
         })
       },
       dong(id){
-
         dong({memberId:id}).then(res=>{
+          this.getList()
+        })
+      },
+      jie(id){
+        jie({memberId:id}).then(res=>{
           this.getList()
         })
       }
