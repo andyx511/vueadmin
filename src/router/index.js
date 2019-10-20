@@ -320,7 +320,7 @@ export const asyncRoutes = [
         name: '后台用户管理',
         meta: { title: '后台用户管理', noCache: true }
       },
-      {
+    /*  {
         path: 'role',
         component: () => import('@/views/admin/role'),
         name: '角色管理',
@@ -331,7 +331,7 @@ export const asyncRoutes = [
         component: () => import('@/views/admin/menu'),
         name: '菜单管理',
         meta: { title: '菜单管理', noCache: true }
-      },
+      },*/
     ]
   },
 

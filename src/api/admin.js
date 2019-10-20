@@ -6,6 +6,13 @@ export function getList(params) {
     params:params
   })
 }
+export function add(data) {
+  return request({
+    url:'admin/add',
+    method:'post',
+    data
+  })
+}
 export function jin(params) {
   return request({
     url:'admin/jin',

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/member.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/admin/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/member.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/member.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,6 +141,7 @@
       <workItem from="1571316605271" duration="4994000" />
       <workItem from="1571382171513" duration="4528000" />
       <workItem from="1571389921268" duration="1859000" />
+      <workItem from="1571486691617" duration="9575000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
