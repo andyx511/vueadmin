@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/svg/order.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/svg/sp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/VisitChart.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/getters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GithubCorner/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GithubCorner/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/PanelGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/PanelGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="XSLT Stylesheet" />
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -37,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/icons/svg" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -53,17 +61,18 @@
     <property name="ts.external.directory.path" value="C:\Users\Dell\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\bysj\vueadmin\src\views\dashboard\admin\components" />
+      <recent name="E:\bysj\vueadmin\src\views\product\components" />
+      <recent name="E:\bysj\vueadmin\src\views\product" />
+      <recent name="E:\bysj\vueadmin\src\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\bysj\vueadmin\src\icons\svg" />
       <recent name="E:\File\bysj\vueadmin\src\utils" />
       <recent name="E:\File\bysj\vueadmin\src\assets\images" />
       <recent name="E:\File\bysj\vueadmin\public" />
       <recent name="E:\File\bysj\vueadmin\src\views\product\components" />
-      <recent name="E:\File\bysj\vueadmin\src\components\Upload" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\bysj\vueadmin\src\views\product\components" />
-      <recent name="E:\bysj\vueadmin\src\views\product" />
-      <recent name="E:\bysj\vueadmin\src\views" />
     </key>
   </component>
   <component name="RunDashboard">

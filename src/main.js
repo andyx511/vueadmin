@@ -30,6 +30,8 @@ Vue.component('v-distpicker', VDistpicker);
  * please remove it before going online! ! !
  */
 import { mockXHR } from '../mock'
+import VCharts from 'v-charts'
+Vue.use(VCharts)
 if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
