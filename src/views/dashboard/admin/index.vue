@@ -5,10 +5,11 @@
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
 
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-      <line-chart :chart-data="lineChartData" />
+      <!--<line-chart :chart-data="lineChartData" />-->
+      <OrderReport />
     </el-row>
 
-    <el-row :gutter="32">
+   <!-- <el-row :gutter="32">
       <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
           <raddar-chart />
@@ -24,11 +25,17 @@
           <bar-chart />
         </div>
       </el-col>
-    </el-row>
+    </el-row>-->
 
     <el-row :gutter="8">
-      <el-col :xs="24" :sm="24" :lg="8">
+      <el-col :xs="24" :sm="24" :lg="12">
         <VisitChart />
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="6">
+        <KindReport />
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="6">
+        <BrandReport />
       </el-col>
     </el-row>
   </div>
@@ -45,6 +52,9 @@ import TransactionTable from './components/TransactionTable'
 import TodoList from './components/TodoList'
 import BoxCard from './components/BoxCard'
 import VisitChart from './components/VisitChart'
+import KindReport from './components/KindReport'
+import BrandReport from './components/BrandReport'
+import OrderReport from './components/OrderReport'
 const lineChartData = {
   newVisitis: {
     expectedData: [100, 120, 161, 134, 105, 160, 165],
@@ -76,7 +86,10 @@ export default {
     TransactionTable,
     TodoList,
     BoxCard,
-    VisitChart
+    VisitChart,
+    KindReport,
+    BrandReport,
+    OrderReport
   },
   data() {
     return {

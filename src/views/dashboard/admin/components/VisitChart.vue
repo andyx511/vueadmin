@@ -1,6 +1,6 @@
 <template>
   <div style="background:#ffffff;">
-    <ve-histogram :title="系统访问次数" :data="chartData" :settings="chartSettings" ></ve-histogram>
+    <ve-histogram  :data="chartData" :settings="chartSettings" :extend="extend"></ve-histogram>
   </div>
 </template>
 
@@ -10,16 +10,30 @@
   export default {
     name: "VisitChart",
     data() {
+
       this.chartSettings = {
         labelMap: {
           count: '访问人数',
-          fDate: '日期'
+          fDate: '日期',
+          userCount: '我的访问次数'
         }
       }
-      return{
+      this.extend = {
+        series: {
+          label: { show: true, position: "top" }
+        },
 
+        series (v) {
+          v.forEach(i => {
+            i.barWidth = 10
+          })
+          return v
+        },
+      }
+      return{
+        title:'你好',
         chartData: {
-          columns: ['fDate','count'],
+          columns: ['fDate','count','userCount'],
           rows: [
           ]
         }

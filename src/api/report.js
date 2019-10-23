@@ -5,3 +5,27 @@ export function getVisit() {
     method:'get'
   })
 }
+export function brand() {
+  return request({
+    url: 'report/brand',
+    method: 'get'
+  })
+}
+export function kind() {
+  return request({
+    url: 'report/kind',
+    method: 'get'
+  })
+}
+export function order() {
+  return request({
+    url: 'report/order',
+    method: 'get'
+  })
+}
+export function stat() {
+  return request({
+    url: 'report/stat',
+    method: 'get'
+  })
+}

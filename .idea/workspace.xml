@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/BrandReport.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/KindReport.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/OrderReport.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/LineChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/LineChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/PanelGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/PanelGroup.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/VisitChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/VisitChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +55,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="C:\Users\Dell\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -142,6 +148,7 @@
       <workItem from="1571382171513" duration="4528000" />
       <workItem from="1571389921268" duration="1859000" />
       <workItem from="1571486691617" duration="9575000" />
+      <workItem from="1571793732346" duration="16205000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
