@@ -1,5 +1,6 @@
 <template>
   <div style="background:#ffffff;">
+    <div style="color: #9aaabf;padding: 350px 350px;position: absolute">系统最近访问量</div>
     <ve-histogram  :data="chartData" :settings="chartSettings" :extend="extend"></ve-histogram>
   </div>
 </template>

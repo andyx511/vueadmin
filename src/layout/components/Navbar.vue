@@ -21,12 +21,35 @@
           <router-link to="/">
             <el-dropdown-item>首页</el-dropdown-item>
           </router-link>
+          <el-dropdown-item >
+            <span style="display:block;" @click="updatePassword">修改密码</span>
+          </el-dropdown-item>
           <el-dropdown-item divided>
             <span style="display:block;" @click="logout">登出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+    <el-dialog
+      title="修改密码"
+      :visible.sync="dialog"
+      width="30%">
+      <el-form :model="user" :rules="rules"  ref="brand" style="align-content: center">
+        <el-form-item label="旧密码"  label-width="150px" prop="name">
+          <el-input v-model="user.oldpasword"  clearable style="width: 200px;"></el-input>
+        </el-form-item>
+        <el-form-item label="新密码"  label-width="150px" prop="name">
+          <el-input v-model="user.newpasswprd"  clearable style="width: 200px;"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码"  label-width="150px" prop="name">
+          <el-input v-model="user.renewpassword"  clearable style="width: 200px;"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+
+        <el-button type="primary" @click="">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -55,6 +78,14 @@ export default {
       'device'
     ])
   },
+  data(){
+    return{
+      dialog:false,
+      user:{
+        oldpassword:''
+      }
+    }
+  },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
@@ -62,6 +93,9 @@ export default {
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+    updatePassword(){
+      this.dialog = true
     }
   }
 }

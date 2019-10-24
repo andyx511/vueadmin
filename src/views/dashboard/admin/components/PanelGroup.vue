@@ -35,7 +35,7 @@
           <div class="card-panel-text">
             今日营业额
           </div>
-          <count-to :start-val="0" :end-val="data.price.totalPrice" :duration="3200" class="card-panel-num" />
+          <count-to :start-val="0" :end-val="data.totalPrice" :duration="3200" class="card-panel-num" />
         </div>
       </div>
     </el-col>

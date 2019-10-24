@@ -29,3 +29,9 @@ export function stat() {
     method: 'get'
   })
 }
+export function memory() {
+  return request({
+    url:'report/memory',
+    method:'get'
+  })
+}

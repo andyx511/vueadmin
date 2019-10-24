@@ -1,5 +1,6 @@
 <template>
   <div style="background:#ffffff;">
+    <div style="color: #9aaabf;padding: 16px 250px;position: absolute">订单销售情况</div>
     <ve-histogram :data="chartData" :title="ndb" :settings="chartSettings" :extend="extend" :data-zoom="dataZoom"></ve-histogram>
   </div>
 </template>

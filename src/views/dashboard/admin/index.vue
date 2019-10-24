@@ -4,9 +4,15 @@
 
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
 
-    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+    <el-row style="margin-bottom:32px;" :gutter="8">
       <!--<line-chart :chart-data="lineChartData" />-->
-      <OrderReport />
+      <el-col :xs="24" :sm="24" :lg="6">
+        <lala />
+      </el-col>
+      <el-col  :xs="24" :sm="24" :lg="18">
+        <OrderReport />
+      </el-col>
+
     </el-row>
 
    <!-- <el-row :gutter="32">
@@ -55,6 +61,7 @@ import VisitChart from './components/VisitChart'
 import KindReport from './components/KindReport'
 import BrandReport from './components/BrandReport'
 import OrderReport from './components/OrderReport'
+import lala from './components/lala'
 const lineChartData = {
   newVisitis: {
     expectedData: [100, 120, 161, 134, 105, 160, 165],
@@ -89,7 +96,8 @@ export default {
     VisitChart,
     KindReport,
     BrandReport,
-    OrderReport
+    OrderReport,
+    lala
   },
   data() {
     return {

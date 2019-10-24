@@ -110,7 +110,7 @@
                   <el-button size="mini" v-if="item.status!=1 && item.status!=2">删除订单</el-button>
                   <el-button size="mini" v-if="item.status==3">评论</el-button>
                   <el-button size="mini" v-if="item.status==3" @click="applyReturn(item.id)">申请退货</el-button>
-                  <el-button size="mini" v-if="item.status==0">现在付款</el-button>
+                  <el-button size="mini" v-if="item.status==0" @click="payNow(item.id)">现在付款</el-button>
                   <el-button size="mini" @click="remind" v-if="item.status==1">催促发货</el-button>
                   <el-tag type="success" v-if="item.status==2" >已发货</el-tag>
                   <el-tag type="success" v-if="item.status==2" >请耐心等待</el-tag>
@@ -149,7 +149,7 @@
           <el-input v-model="orderReturn.reason" type="textarea" autosize></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('orderReturn',)" style="float:right;">立即申请</el-button>
+          <el-button type="primary" @click="submitForm('orderReturn')" style="float:right;">立即申请</el-button>
         </el-form-item>
       </el-form>
 
@@ -265,6 +265,9 @@
       resetForm(formName) {
         this.$refs[formName].resetFields();
       },
+      payNow(id){
+        this.$router.push({path: 'address',query:{id:id}})
+      }
     }
   }
 </script>
