@@ -53,4 +53,10 @@ export function applyReturn(data) {
     data
   })
 }
+export function getp(id) {
+  return request({
+    url: 'order/getp/'+id,
+    method: 'get'
+  })
+}
 

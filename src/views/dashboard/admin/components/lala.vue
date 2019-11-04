@@ -34,11 +34,11 @@
     create(){
       this.getMemory()
     },
-    mounted: function () {
+   /* mounted: function () {
       this.$nextTick(function () {
         setInterval(this.getMemory, 1000);
       })
-    },
+    },*/
     methods:{
       getMemory(){
         memory().then(res=>{

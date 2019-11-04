@@ -114,6 +114,7 @@
                   <el-button size="mini" @click="remind" v-if="item.status==1">催促发货</el-button>
                   <el-tag type="success" v-if="item.status==2" >已发货</el-tag>
                   <el-tag type="success" v-if="item.status==2" >请耐心等待</el-tag>
+                  <el-button size="mini" type="danger" v-if="item.status==2" @click="getp(item.id)">确认收货</el-button>
                   <el-tag type="danger" v-if="item.status==8" >申请退款中</el-tag>
                 </el-col>
               </el-row>
@@ -152,7 +153,6 @@
           <el-button type="primary" @click="submitForm('orderReturn')" style="float:right;">立即申请</el-button>
         </el-form-item>
       </el-form>
-
     </el-dialog>
 
   </div>
@@ -267,6 +267,9 @@
       },
       payNow(id){
         this.$router.push({path: 'address',query:{id:id}})
+      },
+      getp(id){
+
       }
     }
   }

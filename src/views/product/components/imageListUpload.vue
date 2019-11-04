@@ -45,9 +45,7 @@
         for (let i =0;i<fileList.length;i++){
           this.list.push(fileList[i].response.data.host+fileList[i].response.data.path)
         }
-        this.$message({
-          message:this.list
-        })
+
         this.emitInput()
       },
       handlePreview(file, fileList) {
@@ -62,9 +60,7 @@
         for (let i =0;i<fileList.length;i++){
           this.list.push(fileList[i].response.data.host+fileList[i].response.data.path)
         }
-        this.$message({
-          message:this.list
-        })
+
         this.$emit("picList", this.list)
       }
     }
