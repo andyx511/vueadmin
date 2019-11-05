@@ -109,7 +109,7 @@
                 <el-col :span="2" style="padding: 5px;line-height: 40px" v-if="index==0">
                   <el-button size="mini" v-if="item.status!=1 && item.status!=2">删除订单</el-button>
                   <el-button size="mini" v-if="item.status==3">评论</el-button>
-                  <el-button size="mini" v-if="item.status==3" @click="applyReturn(item.id)">申请退货</el-button>
+                  <el-button size="mini" v-if="item.status==3" @click="applyReturn(item.id,item.totalPrice)">申请退货</el-button>
                   <el-button size="mini" v-if="item.status==0" @click="payNow(item.id)">现在付款</el-button>
                   <el-button size="mini" @click="remind" v-if="item.status==1">催促发货</el-button>
                   <el-tag type="success" v-if="item.status==2" >已发货</el-tag>
@@ -162,7 +162,7 @@
 <script>
   import BackToTop from '@/components/BackToTop'
   import Sticky from '@/components/Sticky'
-  import {getMemberOrder,applyReturn} from "../../api/order";
+  import {getMemberOrder,applyReturn,getp} from "../../api/order";
   import {formatDate} from '@/utils/date';
   // @ is an alias to /src
   export default {
@@ -179,6 +179,7 @@
         dialogVisible: false,
         orderReturn:{
           orderId:null,
+          returnMoney:null,
           reason:null
         },
       }
@@ -248,9 +249,10 @@
           type: 'success'
         })
       },
-      applyReturn(id){
+      applyReturn(id,totalPrice){
         this.dialogVisible = true
         this.orderReturn.orderId = id;
+        this.orderReturn.returnMoney = totalPrice
       },
       submitForm(formName){
         applyReturn(this.orderReturn).then(res=>{
@@ -269,7 +271,9 @@
         this.$router.push({path: 'address',query:{id:id}})
       },
       getp(id){
-
+        getp(id).then(res=>{
+          this.getList()
+        })
       }
     }
   }

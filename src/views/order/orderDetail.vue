@@ -6,7 +6,6 @@
         <el-step title="支付订单" ></el-step>
         <el-step title="平台发货" ></el-step>
         <el-step title="确认收货" ></el-step>
-        <el-step title="完成评价" ></el-step>
       </el-steps>
     </div>
     <el-card shadow="never" style="margin-top: 15px">
@@ -185,6 +184,9 @@
         }
         if(value==6){
           return '已取消'
+        }
+        if(value==8){
+          return '已完成'
         }
       },
       formatCompany(value){

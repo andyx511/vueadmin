@@ -156,6 +156,9 @@
         if(value==6){
           return '已取消'
         }
+        if(value==8){
+          return '退货中'
+        }
       },
       formatType(value){
         if (value==null){
