@@ -59,4 +59,22 @@ export function getp(id) {
     method: 'get'
   })
 }
+export function orderReturn(params) {
+  return request({
+    url: 'order/applyReturnList',
+    method: 'get',
+    params:params
+  })
+}
+export function returnDetail(id) {
+  return request({
+    url: 'order/applyReturnDetail/'+id,
+    method: 'get'
+  })
+}
+export function querentui(data) {
+  return request({
+    url:'order/'
+  })
+}
 

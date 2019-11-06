@@ -258,6 +258,13 @@ export const asyncRoutes = [
         meta: { title: '订单详情', noCache: true },
         hidden: true
       },
+      {
+        path: 'returnDetail',
+        component: () => import('@/views/order/returnDetail'),
+        name: '退款订单详情',
+        meta: { title: '退款订单详情', noCache: true },
+        hidden: true
+      },
     ]
   },
 
