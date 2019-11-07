@@ -285,19 +285,19 @@ export const asyncRoutes = [
         meta: { title: '品牌推荐', noCache: true }
       },
       {
-        path: 'brandRecommend',
+        path: 'goodRecommend',
         component: () => import('@/views/sell/goodRecommend'),
         name: '优选推荐',
         meta: { title: '优选推荐', noCache: true }
       },
       {
-        path: 'brandRecommend',
+        path: 'hotRecommend',
         component: () => import('@/views/sell/hotRecommend'),
         name: '热门推荐',
         meta: { title: '热门推荐', noCache: true }
       },
       {
-        path: 'brandRecommend',
+        path: 'newRecommend',
         component: () => import('@/views/sell/newRecommend'),
         name: '新品推荐',
         meta: { title: '新品推荐', noCache: true }
