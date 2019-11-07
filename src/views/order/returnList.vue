@@ -123,6 +123,8 @@
       formatHandleMan(value){
         if (value==null || value==''){
           return '暂无'
+        }else {
+          return value
         }
       },
       formatStatus(value){

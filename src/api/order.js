@@ -74,7 +74,22 @@ export function returnDetail(id) {
 }
 export function querentui(data) {
   return request({
-    url:'order/'
+    url:'order/querentui',
+    method:'post',
+    data
   })
 }
-
+export function jujue(data) {
+  return request({
+    url:'order/jujue',
+    method:'post',
+    data
+  })
+}
+export function querenshou(data) {
+  return request({
+    url:'order/querenshou',
+    method:'post',
+    data
+  })
+}

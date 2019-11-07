@@ -142,7 +142,7 @@
         </el-row>
         <el-row>
           <el-col :span="6" class="table-cell">{{returnOrder.handleMan | formatHandleMan}}</el-col>
-          <el-col :span="6" class="table-cell">{{returnOrder.handleTime | formatHandleMan&&formatCreateTime}}</el-col>
+          <el-col :span="6" class="table-cell">{{returnOrder.handleTime | formatCreateTime}}</el-col>
           <el-col :span="6" class="table-cell">{{returnOrder.handleNote | formatHandleMan}}</el-col>
           <el-col :span="6" class="table-cell">{{returnOrder.applyStatus | formatReturnStatus}}</el-col>
         </el-row>
@@ -173,7 +173,7 @@
 </template>
 
 <script>
-  import {detail,returnDetail} from "../../api/order";
+  import {detail,returnDetail,querentui,jujue,querenshou} from "../../api/order";
   import {formatDate} from '@/utils/date';
   export default {
     name: "returnDetail",
@@ -185,6 +185,8 @@
       formatHandleMan(value){
         if (value=='' || value==null){
           return '暂无'
+        }else {
+          return value
         }
       },
       formatReturnStatus(value){
@@ -248,7 +250,22 @@
         returnDetail(this.id).then(res=>{
           this.returnOrder = res.data
         })
-      }
+      },
+      querentui(){
+        querentui(this.returnOrder).then(res=>{
+          this.getDetail()
+        })
+      },
+      jujue(){
+        jujue(this.returnOrder).then(res=>{
+          this.getDetail()
+        })
+      },
+      querenshou(){
+        querenshou(this.returnOrder).then(res=>{
+          this.getDetail()
+        })
+      },
     }
   }
 </script>
