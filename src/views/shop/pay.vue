@@ -5,12 +5,14 @@
         <el-header style="height: 120px;padding: 0px 100px">
           <el-row >
             <el-col :span="6" >
+              <a @click="toHome">
               <el-image
                 :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/15-23-41/596-eb1eecc4-1951-4e8b-98fe-33d8ac907492.png'"
                 style="width: 120px; height: 120px;float: right"
                 :fit="contain"
               >
               </el-image>
+              </a>
             </el-col>
             <el-col :span="9" style="padding: 0px 30px">
               <el-input style="margin-left: 25px;margin-top: 25px;width: 60%;" placeholder="请输入内容">
@@ -24,29 +26,32 @@
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
 
-              <el-badge :value="12" class="item" >
-                <el-link type="info" :underline="false" style="margin-left: 45px;">
+             <el-badge :value="count" class="item" >
+                <el-link type="info" :underline="false" style="margin-left: 45px;" @click="toCart">
                   <i class="el-icon-shopping-cart-1" style="font-size: 30px"></i>
                 </el-link>
               </el-badge>
               <el-link type="info" :underline="false" style="margin-left: 30px;">
-                <el-dropdown>
-                  <i class="el-icon-user" style="font-size: 30px;"></i>
-                  <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
-                    <div style="padding: 5px 10px">
-                      <el-image
-                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
-                        :fit="contain"
-                        style="border-radius: 5px">
-                      </el-image>
-                      <div style="text-align:center;">admin</div>
-                    </div>
-                    <el-dropdown-item @click="this.$router.push({path: '/order'})">我的订单</el-dropdown-item>
-                    <el-dropdown-item>账号资料</el-dropdown-item>
-                    <el-dropdown-item>收货地址</el-dropdown-item>
-                    <el-dropdown-item divided style="text-align:center;">退出</el-dropdown-item>
-                  </el-dropdown-menu>
-                </el-dropdown>
+                <el-dropdown @command ="handleCommand">
+  <i class="el-icon-user" style="font-size: 30px;"></i>
+  <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
+    <div style="padding: 5px 10px">
+      <el-image
+        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+        :fit="contain"
+        style="border-radius: 5px">
+      </el-image>
+      <div style="text-align:center;" v-if="user.name==''">游客</div>
+      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
+    </div>
+    <el-dropdown-item command="order">我的订单</el-dropdown-item>
+    <el-dropdown-item command="user">账号资料</el-dropdown-item>
+    <el-dropdown-item command="address">收货地址</el-dropdown-item>
+    <el-dropdown-item divided style="text-align:center;"
+                      command="shop"
+                      @click.native="logout">退出</el-dropdown-item>
+  </el-dropdown-menu>
+</el-dropdown>
               </el-link>
             </el-col>
           </el-row>
@@ -146,24 +151,51 @@
 <script>
   import {detail,pay} from "../../api/order"
   import Sticky from '@/components/Sticky'
+  import {getCount} from "../../api/cart";
   export default {
     name: "pay",
     components: { Sticky },
     data(){
       return{
         id:null,
-        order:null
+        order:null,
+        count:null
       }
     },
     created() {
       this.id = this.list = this.$route.query.id;
       this.getOrder()
+      this.getCount()
     },
     methods:{
+      getCount(){
+        getCount().then(res=>{
+          this.count = res.data
+        })
+      },
+      toHome(){
+        this.$router.push({path: 'shop'})
+      },
+      toProduct(){
+        this.$router.push({path: '/product'})
+      },
+      toCart(){
+        this.$router.push({path: '/cart'})
+      },
+      handleCommand(command){
+        this.$router.push({path: '/'+command})
+      },
       getOrder(){
         detail(this.id).then(res=>{
           this.order = res.data
         })
+      },
+      async logout() {
+        await this.$store.dispatch('user/logout')
+        this.$message({
+          message:'已退出登录'
+        })
+        this.user.name=''
       },
       pay(){
         pay(this.id).then(res=>{

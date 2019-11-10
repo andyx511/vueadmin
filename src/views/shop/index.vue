@@ -5,12 +5,14 @@
         <el-header style="height: 120px;padding: 0px 100px">
           <el-row >
             <el-col :span="6" >
+
               <el-image
                 :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/15-23-41/596-eb1eecc4-1951-4e8b-98fe-33d8ac907492.png'"
                 style="width: 120px; height: 120px;float: right"
                 :fit="contain"
               >
               </el-image>
+
             </el-col>
             <el-col :span="9" style="padding: 0px 30px">
               <el-input style="margin-left: 25px;margin-top: 25px;width: 60%;" placeholder="请输入内容">
@@ -69,31 +71,101 @@
           </el-col>
         </el-row>
 
-
         <el-row>
           <el-col :span="24"  style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
-            <h4>精品推荐</h4>
+            <h4>品牌推荐</h4>
           </el-col>
         </el-row>
-        <el-row style="border-right: 1px solid #dddddd;border-left: 1px solid #dddddd">
-          <el-col :span="6"  v-for="(item,index) in productList ">
+        <el-row style="border-right: 1px solid #dddddd;border-left: 1px solid #dddddd;border-bottom: 1px solid #dddddd">
+          <el-col :span="6"  v-for="(item,index) in brandList ">
+            <a @click="chooseBrand(item.brandName)">
+              <div class="card">
+                <el-image
+                  :src=item.url
+                >
+                </el-image>
+                <el-row style="margin-top: 5px; text-align: left">
+                  <el-col style="align:right; font-size: 12px;">{{item.name}}</el-col>
+                </el-row>
+              </div>
+            </a>
+          </el-col>
+        </el-row>
+
+        <el-row>
+          <el-col :span="24"  style="background-color: #f3f3f3 ;padding-left: 5px;margin-top: 15px;" align="left	">
+            <h4>新品推荐</h4>
+          </el-col>
+        </el-row>
+        <el-row style="border-right: 1px solid #dddddd;border-left: 1px solid #dddddd;border-bottom: 1px solid #dddddd">
+          <el-col :span="6"  v-for="(item,index) in newList ">
+            <a @click="productDetail(item.productId)">
+              <div class="card">
+                <el-image
+                  :src=item.url
+                  style="width: 230px;height: 230px;">
+                </el-image>
+                <el-row >
+                  <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price}}.00</el-col>
+                  <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">{{item.salesVolume}}人已购</el-col>
+                </el-row>
+                <el-row style="margin-top: 5px; text-align: left">
+                  <el-col style="align:right; font-size: 12px;">{{item.name}}</el-col>
+                </el-row>
+              </div>
+            </a>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24"  style="background-color: #f3f3f3 ;padding-left: 5px;margin-top: 15px;" align="left	">
+            <h4>热门推荐</h4>
+          </el-col>
+        </el-row>
+        <el-row style="border-right: 1px solid #dddddd;border-left: 1px solid #dddddd;border-bottom: 1px solid #dddddd">
+          <el-col :span="6"  v-for="(item,index) in hotList ">
+            <a @click="productDetail(item.productId)">
             <div class="card">
               <el-image
-                :src=item.pic
+                :src=item.url
                 style="width: 230px;height: 230px;">
               </el-image>
               <el-row >
                 <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price}}.00</el-col>
-                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
+                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">{{item.salesVolume}}人已购</el-col>
               </el-row>
               <el-row style="margin-top: 5px; text-align: left">
                 <el-col style="align:right; font-size: 12px;">{{item.name}}</el-col>
               </el-row>
             </div>
+            </a>
           </el-col>
-
         </el-row>
+
         <el-row>
+          <el-col :span="24"  style="background-color: #f3f3f3 ;padding-left: 5px ;margin-top: 15px;" align="left">
+            <h4>优选推荐</h4>
+          </el-col>
+        </el-row>
+        <el-row style="border-right: 1px solid #dddddd;border-left: 1px solid #dddddd;border-bottom: 1px solid #dddddd">
+          <el-col :span="6"  v-for="(item,index) in goodList ">
+            <a @click="productDetail(item.productId)">
+            <div class="card">
+              <el-image
+                :src=item.url
+                style="width: 230px;height: 230px;">
+              </el-image>
+              <el-row >
+                <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price}}.00</el-col>
+                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">{{item.salesVolume}}人已购</el-col>
+              </el-row>
+              <el-row style="margin-top: 5px; text-align: left">
+                <el-col style="align:right; font-size: 12px;">{{item.name}}</el-col>
+              </el-row>
+            </div>
+            </a>
+          </el-col>
+        </el-row>
+ <!--       <el-row>
           <el-col  style="background-color: #f3f3f3 ;padding-left: 5px" align="left	">
             <h4>精品推荐</h4>
           </el-col>
@@ -107,7 +179,7 @@
               </el-image>
               <el-row >
                 <el-col :span="9" style="font-size: 22px;color: red">¥248.00</el-col>
-                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">17人已购</el-col>
+                <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">{{item.salesVolume}}人已购</el-col>
               </el-row>
               <el-row style="margin-top: 5px;">
                 <el-col style="align:right; font-size: 12px;">博世刹车油DOT4制动液刹车液 BOSCH 汽车离合器油配件通用型1L</el-col>
@@ -115,7 +187,7 @@
             </el-card>
           </el-col>
 
-        </el-row>
+        </el-row>-->
 
       </el-main>
       <el-footer>
@@ -135,6 +207,10 @@
   import {getProductList} from "../../api/product";
   import {mapGetters} from "vuex";
   import {getCount} from "../../api/cart";
+  import {getBrandList} from "../../api/recommend"
+  import {getGoodList} from "../../api/goodRecommend"
+  import {getNewList} from "../../api/newRecommend"
+  import {getHotList} from "../../api/hotRecommend"
   // @ is an alias to /src
   export default {
     name: 'index',
@@ -146,7 +222,10 @@
           'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-45-30/185-f95b2efe-24e8-4de1-8a72-db65ffcd0ff6.png',],
         list: 'null',
         user:{},
-        productList:null,
+        newList:null,
+        hotList:null,
+        goodList:null,
+        brandList:null,
         count:null
       }
     },
@@ -159,11 +238,16 @@
     },
     created(){
       this.getUser()
-      this.getProductList()
       this.getCount()
-
+      this.getList()
     },
     methods: {
+      chooseBrand(brandName){
+        this.$router.push({path: 'product',query:{brand:brandName}})
+      },
+      productDetail(data){
+        this.$router.push({path: 'productDetail',query:{id:data}})
+      },
       getCount(){
         getCount().then(res=>{
           this.count = res.data
@@ -190,17 +274,26 @@
       handleCommand(command){
         this.$router.push({path: '/'+command})
       },
+      getList(){
+        getBrandList().then(res=>{
+          this.brandList = res.data
+        })
+        getHotList().then(res=>{
+          this.hotList = res.data
+        })
+        getNewList().then(res=>{
+          this.newList = res.data
+        })
+        getGoodList().then(res=>{
+          this.goodList = res.data
+        })
+      },
       async logout() {
         await this.$store.dispatch('user/logout')
         this.$message({
           message:'已退出登录'
         })
         this.user.name=''
-      },
-      getProductList(){
-        getProductList({pageSize:100,pageNum:1}).then(response=>{
-          this.productList = response.data.list
-        })
       }
     }
   }

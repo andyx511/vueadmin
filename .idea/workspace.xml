@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/goodRecommend.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/hotRecommend.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/newRecommend.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/recommend.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/sell/brandRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/brandRecommend.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/sell/goodRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/goodRecommend.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/sell/hotRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/hotRecommend.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/sell/newRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/newRecommend.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/addressList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/cart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/demo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/pay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/pay.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/product.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/productDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/user.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +33,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="XSLT Stylesheet" />
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -36,7 +54,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/icons/svg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -49,7 +67,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="C:\Users\Dell\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="D:\webstorm\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -59,11 +77,11 @@
       <recent name="E:\bysj\vueadmin\src\views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\File\bysj\vueadmin\src\api" />
       <recent name="E:\bysj\vueadmin\src\icons\svg" />
       <recent name="E:\File\bysj\vueadmin\src\utils" />
       <recent name="E:\File\bysj\vueadmin\src\assets\images" />
       <recent name="E:\File\bysj\vueadmin\public" />
-      <recent name="E:\File\bysj\vueadmin\src\views\product\components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -144,6 +162,9 @@
       <workItem from="1572515627498" duration="3388000" />
       <workItem from="1572871788115" duration="1565000" />
       <workItem from="1572955357302" duration="3197000" />
+      <workItem from="1573283766395" duration="9272000" />
+      <workItem from="1573308034971" duration="9236000" />
+      <workItem from="1573368218186" duration="10776000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
@@ -189,7 +210,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/views/shop/order.vue</url>
-          <line>73</line>
+          <line>77</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

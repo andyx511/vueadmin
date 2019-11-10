@@ -5,12 +5,14 @@
         <el-header style="height: 120px;padding: 0px 100px">
           <el-row >
             <el-col :span="6" >
+              <a @click="toHome">
               <el-image
                 :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/15-23-41/596-eb1eecc4-1951-4e8b-98fe-33d8ac907492.png'"
                 style="width: 120px; height: 120px;float: right"
                 :fit="contain"
               >
               </el-image>
+              </a>
             </el-col>
             <el-col :span="9" style="padding: 0px 30px">
               <el-input style="margin-left: 25px;margin-top: 25px;width: 60%;" placeholder="请输入内容">
@@ -24,13 +26,13 @@
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
 
-              <el-badge :value="12" class="item" >
-                <el-link type="info" :underline="false" style="margin-left: 45px;">
+             <el-badge :value="count" class="item" >
+                <el-link type="info" :underline="false" style="margin-left: 45px;" @click="toCart">
                   <i class="el-icon-shopping-cart-1" style="font-size: 30px"></i>
                 </el-link>
               </el-badge>
               <el-link type="info" :underline="false" style="margin-left: 30px;">
-                <el-dropdown>
+                <el-dropdown @command ="handleCommand">
                   <i class="el-icon-user" style="font-size: 30px;"></i>
                   <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
                     <div style="padding: 5px 10px">
@@ -41,10 +43,12 @@
                       </el-image>
                       <div style="text-align:center;">admin</div>
                     </div>
-                    <el-dropdown-item @click="this.$router.push({path: '/order'})">我的订单</el-dropdown-item>
-                    <el-dropdown-item>账号资料</el-dropdown-item>
-                    <el-dropdown-item>收货地址</el-dropdown-item>
-                    <el-dropdown-item divided style="text-align:center;">退出</el-dropdown-item>
+                    <el-dropdown-item command="order">我的订单</el-dropdown-item>
+                    <el-dropdown-item command="user">账号资料</el-dropdown-item>
+                    <el-dropdown-item command="addressList">收货地址</el-dropdown-item>
+                    <el-dropdown-item divided style="text-align:center;"
+                                      command="shop"
+                                      @click.native="logout">退出</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
               </el-link>
@@ -130,6 +134,7 @@
   import {addCart} from "../../api/cart";
   import {productDetail} from "../../api/product";
   import Sticky from '@/components/Sticky'
+  import {getCount} from "../../api/cart";
   export default {
     name: "productDetail",
     components: { Sticky },
@@ -138,6 +143,7 @@
         id:null,
         product:null,
         detailPic:[],
+        count:null,
         number:1,
         activeName: 'first',
         cart:{
@@ -151,9 +157,7 @@
     },
     created() {
       this.id =  this.$route.query.id;
-      this.$message({
-        message:this.id
-      })
+      this.getCount()
       productDetail(this.id).then(res=>{
         this.product = res.data
         this.detailPic = res.data.detailPic.split(',')
@@ -161,6 +165,14 @@
 
     },
     methods:{
+      getCount(){
+        getCount().then(res=>{
+          this.count = res.data
+        })
+      },
+      toHome(){
+        this.$router.push({path: 'shop'})
+      },
       addCart(){
         this.cart.name = this.product.name
         this.cart.productId=this.id
@@ -179,6 +191,13 @@
               type:'success'
             })
         })
+      },
+      async logout() {
+        await this.$store.dispatch('user/logout')
+        this.$message({
+          message:'已退出登录'
+        })
+        this.user.name=''
       },
       handleChange(value) {
         console.log(value);

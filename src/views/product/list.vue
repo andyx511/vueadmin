@@ -147,13 +147,13 @@
         </el-table-column>
         <el-table-column label="标签" align="center" width="150px">
           <template slot-scope="scope">
-            是否新品：
+      <!--      是否新品：
             <el-switch
               @change="handleIsNew(scope.$index, scope.row)"
               :active-value=1
               :inactive-value=0
               v-model="scope.row.isNew ">
-            </el-switch>
+            </el-switch>-->
             是否上架：
             <el-switch
               @change="handleIsPublic(scope.$index, scope.row)"
