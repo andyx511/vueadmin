@@ -66,12 +66,12 @@
           </el-col>
         </el-row>
         <el-row >
-          <el-col :span="16" :offset="4" style="brode">
+          <el-col :span="16" :offset="4" style="">
             <el-table
               ref="CartTable"
               v-load="listLoading"
               :data="cartList"
-              style= "width: 100%;border-left: 1px solid #e7e7e7;border-right: 1px solid #e7e7e7; height: 500px"
+              style= "width: 100%;border-left: 1px solid #e7e7e7;border-right: 1px solid #e7e7e7; min-height: 500px"
               @selection-change="handleSelectionChange"
             >
               <el-table-column type = "selection"  align="center"></el-table-column>
@@ -224,6 +224,7 @@
               ids.push(this.multipleSelection[i].id);
             }
             this.deletes(ids)
+            this.getCount()
           });
         }
       },
@@ -237,6 +238,7 @@
             duration:1000
           })
           this.getCartList()
+          this.getCount()
         })
       },
       deletes(ids){

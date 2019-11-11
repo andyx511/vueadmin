@@ -33,25 +33,24 @@
               </el-badge>
               <el-link type="info" :underline="false" style="margin-left: 30px;">
                 <el-dropdown @command ="handleCommand">
-  <i class="el-icon-user" style="font-size: 30px;"></i>
-  <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
-    <div style="padding: 5px 10px">
-      <el-image
-        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
-        :fit="contain"
-        style="border-radius: 5px">
-      </el-image>
-      <div style="text-align:center;" v-if="user.name==''">游客</div>
-      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
-    </div>
-    <el-dropdown-item command="order">我的订单</el-dropdown-item>
-    <el-dropdown-item command="user">账号资料</el-dropdown-item>
-    <el-dropdown-item command="address">收货地址</el-dropdown-item>
-    <el-dropdown-item divided style="text-align:center;"
-                      command="shop"
-                      @click.native="logout">退出</el-dropdown-item>
-  </el-dropdown-menu>
-</el-dropdown>
+                  <i class="el-icon-user" style="font-size: 30px;"></i>
+                  <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
+                    <div style="padding: 5px 10px">
+                      <el-image
+                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+                        :fit="contain"
+                        style="border-radius: 5px">
+                      </el-image>
+                      <div style="text-align:center;">admin</div>
+                    </div>
+                    <el-dropdown-item command="order">我的订单</el-dropdown-item>
+                    <el-dropdown-item command="user">账号资料</el-dropdown-item>
+                    <el-dropdown-item command="addressList">收货地址</el-dropdown-item>
+                    <el-dropdown-item divided style="text-align:center;"
+                                      command="shop"
+                                      @click.native="logout">退出</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
               </el-link>
             </el-col>
           </el-row>

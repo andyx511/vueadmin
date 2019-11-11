@@ -21,8 +21,7 @@
               <el-button style="margin-left: -1%;width: 20%;" icon="el-icon-search" type="danger"></el-button>
             </el-col>
             <el-col :span="2" style="padding-top: 25px; font-size: 28px;">
-              <el-link :underline="false" style="padding-right: 10%">全部商品</el-link>|
-
+              <el-link :underline="false" style="padding-right: 10%" @click="toProduct">全部商品</el-link>|
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
 
@@ -118,15 +117,23 @@
               ></el-image>
             </el-tab-pane>
             <el-tab-pane label="累计评论" name="second">
-              累计评论
+              <el-row style="background-color:#f7f23f;">
+                <p v-for="index in 1">qe </p>
+              </el-row>
             </el-tab-pane>
           </el-tabs>
         </el-row>
+
+
       </el-main>
       <el-footer>
 
       </el-footer>
+
     </el-container>
+    <el-tooltip placement="top" content="tooltip">
+      <back-to-top :custom-style="myBackToTopStyle" :visibility-height="300" :back-position="50" transition-name="fade" />
+    </el-tooltip>
   </div>
 </template>
 
@@ -135,9 +142,10 @@
   import {productDetail} from "../../api/product";
   import Sticky from '@/components/Sticky'
   import {getCount} from "../../api/cart";
+  import BackToTop from '@/components/BackToTop'
   export default {
     name: "productDetail",
-    components: { Sticky },
+    components: { Sticky, BackToTop },
     data(){
       return{
         id:null,
@@ -152,7 +160,8 @@
           num:null,
           price:null,
           pic:null
-        }
+        },
+        comment:''
       }
     },
     created() {
@@ -173,6 +182,12 @@
       toHome(){
         this.$router.push({path: 'shop'})
       },
+      toProduct(){
+        this.$router.push({path: '/product'})
+      },
+      toCart(){
+        this.$router.push({path: '/cart'})
+      },
       addCart(){
         this.cart.name = this.product.name
         this.cart.productId=this.id
@@ -190,6 +205,7 @@
               message:'已成功加入购物车，请前往查看',
               type:'success'
             })
+          this.getCount()
         })
       },
       async logout() {

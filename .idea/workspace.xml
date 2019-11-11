@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/goodRecommend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/hotRecommend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/newRecommend.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/recommend.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/comment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sell/brandRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/brandRecommend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sell/goodRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/goodRecommend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sell/hotRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/hotRecommend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sell/newRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/newRecommend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/addressList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/cart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/demo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/pay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/pay.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/product.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/productDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/user.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +81,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="build:prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build:prod" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -110,6 +105,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.build:prod" />
       </list>
     </recent_temporary>
   </component>
@@ -165,6 +161,9 @@
       <workItem from="1573283766395" duration="9272000" />
       <workItem from="1573308034971" duration="9236000" />
       <workItem from="1573368218186" duration="10776000" />
+      <workItem from="1573438772195" duration="1394000" />
+      <workItem from="1573457125036" duration="1593000" />
+      <workItem from="1573464385865" duration="3101000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
@@ -210,7 +209,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/views/shop/order.vue</url>
-          <line>77</line>
+          <line>81</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
