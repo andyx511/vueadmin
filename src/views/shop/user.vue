@@ -37,7 +37,7 @@
                   <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
                     <div style="padding: 5px 10px">
                       <el-image
-                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+                        :src="user.avatar"
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
@@ -86,7 +86,7 @@
               <el-row>
                 <el-col :span="2">昵称</el-col>
                 <el-col :span="8" >{{userInfo.nickname}}</el-col>
-                <el-col :span="4"><el-button icon="el-icon-edit" size="mini">编辑资料</el-button></el-col>
+               <!-- <el-col :span="4"><el-button icon="el-icon-edit" size="mini">编辑资料</el-button></el-col>-->
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">头像</el-col>
@@ -143,38 +143,62 @@
                 <el-col :span="4" >
                   {{userInfo.money}}
                 </el-col>
-                <el-col :span="4"><el-button type="mini">充值</el-button></el-col>
+                <el-col :span="4">
+                  <el-button type="mini" @click="getMoney">充值</el-button>
+                </el-col>
               </el-row>
             </el-row>
           </el-col>
         </el-row>
       </el-main>
-      <el-footer>
+      <el-footer style="">
 
       </el-footer>
     </el-container>
-    el-
+
   </div>
 </template>
 
 <script>
   import {getMemberInfo} from "../../api/user";
   import Sticky from '@/components/Sticky'
-  import {getCount} from "../../api/cart";
+  import {getCount} from "../../api/cart";  import {mapGetters} from "vuex";
   export default {
     name: "user",
     components: { Sticky },
     data(){
       return{
         userInfo:null,
+        user:{},
         count:null
       }
     },
+    computed: {
+      ...mapGetters([
+        'name',
+        'avatar',
+        'roles'
+      ])
+    },
     created() {
+      this.getUser()
       this.getInfo()
       this.getCount()
     },
     methods:{
+      getMoney(){
+        this.$message({
+          message:"哪来的钱？",
+          type: 'warning'
+        })
+      },
+      getUser() {
+        this.user = {
+          name: this.name,
+          role: this.roles.join(' | '),
+          avatar: this.avatar
+        }
+      },
       getCount(){
         getCount().then(res=>{
           this.count = res.data

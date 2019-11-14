@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/svg/dingdan.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/svg/shangpin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/svg/xitong.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/svg/yingxiao.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/components/Sidebar/Logo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/Sidebar/Logo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/addressList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/cart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/demo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/pay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/pay.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/product.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/productDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/user.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +51,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/icons/svg" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -55,18 +67,18 @@
     <property name="ts.external.directory.path" value="D:\webstorm\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\bysj\vueadmin\src\icons\svg" />
+      <recent name="E:\File\bysj\vueadmin\src\api" />
+      <recent name="E:\File\bysj\vueadmin\src\utils" />
+      <recent name="E:\File\bysj\vueadmin\src\assets\images" />
+      <recent name="E:\File\bysj\vueadmin\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\bysj\vueadmin\src\views\dashboard\admin\components" />
       <recent name="E:\bysj\vueadmin\src\views\product\components" />
       <recent name="E:\bysj\vueadmin\src\views\product" />
       <recent name="E:\bysj\vueadmin\src\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\File\bysj\vueadmin\src\api" />
-      <recent name="E:\bysj\vueadmin\src\icons\svg" />
-      <recent name="E:\File\bysj\vueadmin\src\utils" />
-      <recent name="E:\File\bysj\vueadmin\src\assets\images" />
-      <recent name="E:\File\bysj\vueadmin\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -163,7 +175,8 @@
       <workItem from="1573368218186" duration="10776000" />
       <workItem from="1573438772195" duration="1394000" />
       <workItem from="1573457125036" duration="1593000" />
-      <workItem from="1573464385865" duration="3101000" />
+      <workItem from="1573464385865" duration="3767000" />
+      <workItem from="1573699609217" duration="15101000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>

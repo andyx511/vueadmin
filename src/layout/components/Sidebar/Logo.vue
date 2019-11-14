@@ -24,8 +24,8 @@ export default {
   },
   data() {
     return {
-      title: 'Hello World',
-      logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
+      title: 'CMall',
+      logo: 'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/15-23-41/596-eb1eecc4-1951-4e8b-98fe-33d8ac907492.png'
     }
   }
 }
@@ -55,10 +55,10 @@ export default {
     width: 100%;
 
     & .sidebar-logo {
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
       vertical-align: middle;
-      margin-right: 12px;
+      margin-right: 15px;
     }
 
     & .sidebar-title {
@@ -67,7 +67,7 @@ export default {
       color: #fff;
       font-weight: 600;
       line-height: 50px;
-      font-size: 14px;
+      font-size: 28px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }

@@ -37,7 +37,7 @@
                   <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
                     <div style="padding: 5px 10px">
                       <el-image
-                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+                        :src="user.avatar"
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
@@ -168,7 +168,7 @@
   import Sticky from '@/components/Sticky'
   import {getMemberOrder,applyReturn,getp} from "../../api/order";
   import {formatDate} from '@/utils/date';
-  import {getCount} from "../../api/cart";
+  import {getCount} from "../../api/cart";  import {mapGetters} from "vuex";
   // @ is an alias to /src
   export default {
     name: 'order',
@@ -188,11 +188,20 @@
           returnMoney:null,
           reason:null
         },
+        user:{},
       }
+    },
+    computed: {
+      ...mapGetters([
+        'name',
+        'avatar',
+        'roles'
+      ])
     },
     created(){
       this.getList()
       this.getCount()
+      this.getUser()
     },
     filters:{
       formatCreateTime(time) {
@@ -236,6 +245,13 @@
       }
     },
     methods: {
+      getUser() {
+        this.user = {
+          name: this.name,
+          role: this.roles.join(' | '),
+          avatar: this.avatar
+        }
+      },
       getCount(){
         getCount().then(res=>{
           this.count = res.data

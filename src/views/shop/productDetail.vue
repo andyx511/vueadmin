@@ -36,7 +36,7 @@
                   <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
                     <div style="padding: 5px 10px">
                       <el-image
-                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+                        :src="user.avatar"
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
@@ -117,14 +117,65 @@
               ></el-image>
             </el-tab-pane>
             <el-tab-pane label="累计评论" name="second">
-              <el-row style="background-color:#f7f23f;">
-                <p v-for="index in 1">qe </p>
+              <el-row style="border-bottom: 1px solid #e3e3e3;padding: 5px" v-if="list.length==0" >暂无评论</el-row>
+              <el-row style="border-bottom: 1px solid #e3e3e3;padding: 5px" v-for=" item in list">
+                <el-col :span="2">
+                  <div>
+                    <el-avatar :src="item.productName"></el-avatar>
+                  </div>
+                </el-col>
+                <el-col :span="22">
+                  <el-row style="font-size: 8px;color:#909399">
+                    <el-col :span="3" style="float:left;">{{item.userName}}</el-col>
+                    <el-col :span="5" style="float:left;">{{item.createTime | formatCreateTime}}</el-col>
+                    <el-col :span="16">
+                      <el-rate
+                        v-model="item.star"
+                        disabled
+                        show-score
+                        text-color="#ff9900"
+                        :colors="colors"
+                        >
+                      </el-rate>
+                    </el-col>
+                  </el-row>
+                  <el-row style="float:left;">
+                    {{item.content}}
+                  </el-row>
+                </el-col>
+              </el-row >
+              <el-row>
+                <el-pagination
+                  style="float:right;"
+                  :page-size="5"
+                  layout="prev, pager, next"
+                  :total=total
+                  :current-page.sync="query.pageNum"
+                  @current-change="handleCurrentChange">
+                </el-pagination>
+              </el-row>
+              <el-row style="margin-top: 5px;">
+                <el-col :span="2">
+                  <div>
+                    <el-avatar :src="user.avatar"></el-avatar>
+                  </div>
+                </el-col>
+                <el-col :span="22">
+                  <el-row style="background-color:#ffffff;">
+                    <el-input type="textarea" v-model="comment.content"></el-input>
+                    <el-rate
+                      v-model="comment.star"
+                      :colors="colors"
+                      style="float:left;"
+                    >
+                    </el-rate>
+                    <el-button type="danger" size="mini" style="float:right;" @click="add">提交</el-button>
+                  </el-row>
+                </el-col>
               </el-row>
             </el-tab-pane>
           </el-tabs>
         </el-row>
-
-
       </el-main>
       <el-footer>
 
@@ -139,15 +190,23 @@
 
 <script>
   import {addCart} from "../../api/cart";
+  import {add,geiList} from "../../api/comment";
   import {productDetail} from "../../api/product";
   import Sticky from '@/components/Sticky'
   import {getCount} from "../../api/cart";
-  import BackToTop from '@/components/BackToTop'
+  import BackToTop from '@/components/BackToTop';  import {mapGetters} from "vuex";
+  import {formatDate} from '@/utils/date';
+  const defaultQuery ={
+    pageNum:1,
+    pageSize:5,
+    productId:''
+  }
   export default {
     name: "productDetail",
     components: { Sticky, BackToTop },
     data(){
       return{
+        value:3,
         id:null,
         product:null,
         detailPic:[],
@@ -161,23 +220,73 @@
           price:null,
           pic:null
         },
-        comment:''
+        comment:{
+          content:'',
+          productId:'',
+          star:''
+        },
+        list:'',
+        total:'',
+        rate:'',
+        user:{},
+        query: Object.assign({},defaultQuery),
+        colors: ['#99A9BF', '#F7BA2A', '#FF9900']
       }
     },
+    computed: {
+      ...mapGetters([
+        'name',
+        'avatar',
+        'roles'
+      ])
+    },
+    filters: {
+      formatCreateTime(time) {
+        let date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd hh:mm:ss')
+      },
+    },
     created() {
+      this.getUser()
       this.id =  this.$route.query.id;
       this.getCount()
       productDetail(this.id).then(res=>{
         this.product = res.data
         this.detailPic = res.data.detailPic.split(',')
       })
-
+      this.getList()
     },
     methods:{
+      add(){
+        this.comment.productId= this.id
+        add(this.comment).then(res=>{
+          this.comment.star=''
+          this.comment.content = ''
+          this.getList()
+        })
+      },
+      getList(){
+        this.query.productId = this.id
+        geiList(this.query).then(res=>{
+          this.total = res.data.total
+          this.list = res.data.list
+        })
+      },
+      getUser() {
+        this.user = {
+          name: this.name,
+          role: this.roles.join(' | '),
+          avatar: this.avatar
+        }
+      },
       getCount(){
         getCount().then(res=>{
           this.count = res.data
         })
+      },
+      handleCurrentChange() {
+        this.listLoading = true;
+        this.getList();
       },
       toHome(){
         this.$router.push({path: 'shop'})

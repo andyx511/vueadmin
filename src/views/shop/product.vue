@@ -37,7 +37,7 @@
                   <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
                     <div style="padding: 5px 10px">
                       <el-image
-                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+                        :src="user.avatar"
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
@@ -168,7 +168,7 @@
   import {getList} from "../../api/brand"
   import  {getKindList} from "../../api/kind";
   import Sticky from '@/components/Sticky'
-  import {getCount} from "../../api/cart";
+  import {getCount} from "../../api/cart";  import {mapGetters} from "vuex";
 
   const defaultQuery ={
     kind:null,
@@ -205,7 +205,15 @@
         price:[0,1000],
         productList: '',
         total:'',
+        user:{}
       }
+    },
+    computed: {
+      ...mapGetters([
+        'name',
+        'avatar',
+        'roles'
+      ])
     },
     created() {
       this.query.brand =  this.$route.query.brand;
@@ -213,8 +221,16 @@
       this.getKindList();
       this.getBrandList();
       this.getCount()
+      this.getUser()
     },
     methods:{
+      getUser() {
+        this.user = {
+          name: this.name,
+          role: this.roles.join(' | '),
+          avatar: this.avatar
+        }
+      },
       getCount(){
         getCount().then(res=>{
           this.count = res.data

@@ -37,7 +37,7 @@
                   <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
                     <div style="padding: 5px 10px">
                       <el-image
-                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+                        :src="user.avatar"
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
@@ -162,6 +162,7 @@
   import addressEdit from "./components/addressEdit"
   import {getAddressList,editAddress,detail,deleteAddress} from "../../api/address";
   import {getCount} from "../../api/cart";
+  import {mapGetters} from "vuex";
 
   export default {
     name: "addressList",
@@ -181,14 +182,30 @@
           detailAddress:null,
           receiverPhone:null,
           isDefault:false
-        }
+        },
+        user:{},
       }
+    },
+    computed: {
+      ...mapGetters([
+        'name',
+        'avatar',
+        'roles'
+      ])
     },
     created(){
       this.getAddressList()
       this.getCount()
+      this.getUser()
     },
     methods:{
+      getUser() {
+        this.user = {
+          name: this.name,
+          role: this.roles.join(' | '),
+          avatar: this.avatar
+        }
+      },
       async logout() {
         await this.$store.dispatch('user/logout')
         this.$message({

@@ -205,7 +205,7 @@ export const asyncRoutes = [
     name: '商品',
     meta: {
       title: '商品',
-      icon: 'product'
+      icon: 'shangpin'
     },
     children: [
       {
@@ -236,7 +236,7 @@ export const asyncRoutes = [
     name: '订单',
     meta: {
       title: '订单',
-      icon: 'product'
+      icon: 'dingdan'
     },
     children: [
       {
@@ -275,7 +275,7 @@ export const asyncRoutes = [
     name: '营销',
     meta: {
       title: '营销',
-      icon: 'sell'
+      icon: 'yingxiao'
     },
     children: [
       {
@@ -312,7 +312,7 @@ export const asyncRoutes = [
     name: '系统管理',
     meta: {
       title: '系统管理',
-      icon: 'product'
+      icon: 'xitong'
     },
     children: [
       {

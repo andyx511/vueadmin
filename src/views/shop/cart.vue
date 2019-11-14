@@ -35,7 +35,7 @@
                   <el-dropdown-menu slot="dropdown" style="margin-top: -10px;width: 100px;">
                     <div style="padding: 5px 10px">
                       <el-image
-                        :src="'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'"
+                        :src="user.avatar"
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
@@ -139,6 +139,7 @@
   import {generateOrder} from "../../api/order";
   import Sticky from '@/components/Sticky'
   import {getCount} from "../../api/cart";
+  import {mapGetters} from "vuex";
   // @ is an alias to /src
   export default {
     name: 'cart',
@@ -149,14 +150,29 @@
         cartList:null,
         multipleSelection: [],
         totalPrice:0,
-
+        user:{},
       }
+    },
+    computed: {
+      ...mapGetters([
+        'name',
+        'avatar',
+        'roles'
+      ])
     },
     created(){
       this.getCartList()
       this.getCount()
+      this.getUser()
     },
     methods: {
+      getUser() {
+        this.user = {
+          name: this.name,
+          role: this.roles.join(' | '),
+          avatar: this.avatar
+        }
+      },
       async logout() {
         await this.$store.dispatch('user/logout')
         this.$message({
