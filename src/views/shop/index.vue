@@ -190,8 +190,47 @@
         </el-row>-->
 
       </el-main>
-      <el-footer>
-        foot
+      <el-footer style="height: 160px;">
+        <el-row>
+          <div class="p">关于我们</div>
+          <div class="p">法律声明</div>
+          <div class="p">技术选型</div>
+          <div class="h">自助服务</div>
+          <div class="h">服务支持</div>
+          <div class="h">自助服务</div>
+        </el-row>
+        <el-row>
+          <div class="p1">联系我们</div>
+          <div class="h">法律声明</div>
+          <div class="p1">Spring Cloud Eureka</div>
+          <div class="p1">Spring Boot</div>
+          <div class="p1">Spring Task</div>
+          <div class="p1">OSS</div>
+        </el-row>
+        <el-row>
+          <div class="h">关于我们</div>
+          <div class="h">法律声明</div>
+          <div class="p1">Elasticsearch</div>
+          <div class="p1">Spring Cloud</div>
+          <div class="p1">Spring Security</div>
+          <div class="h">自助服务</div>
+        </el-row>
+        <el-row>
+          <div class="h">关于我们</div>
+          <div class="h">法律声明</div>
+          <div class="p1">MyBatis</div>
+          <div class="p1">Vue</div>
+          <div class="p1">Redis</div>
+          <div class="h">自助服务</div>
+        </el-row>
+        <el-row>
+          <div class="h">关于我们</div>
+          <div class="h">法律声明</div>
+          <div class="p1">Spring Cloud Config</div>
+          <div class="h">自助服务</div>
+          <div class="h">服务支持</div>
+          <div class="h">自助服务</div>
+        </el-row>
       </el-footer>
     </el-container>
     <el-tooltip placement="top" content="tooltip">
@@ -218,8 +257,10 @@
     data () {
       return {
         currentDate: new Date(),
-        url: ['https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-42-03/800-0868a1df-588e-4f30-8e53-7915f6f050fd.jpg',
-          'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/14-45-30/185-f95b2efe-24e8-4de1-8a72-db65ffcd0ff6.png',],
+        url: ['https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-11-15/16-49-16/501-d30f5496-9a90-4bc8-93c9-d0bac8ff141d.jpg',
+          'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-11-15/16-49-09/141-37f03d55-5017-4be7-b159-e9288dcff3cd.jpg',
+          'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-11-15/16-49-11/611-d8801017-44a5-459b-a209-f87dc99c3c0f.jpg',
+          'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-11-15/16-49-14/257-fbea1774-aad7-4353-b09e-2106e84dd99c.jpg'],
         list: 'null',
         user:{},
         newList:null,
@@ -306,6 +347,29 @@
   }
 </style>
 <style>
+  .p{
+    width: 150px;
+    float: left;
+    margin-left: 20px;
+    font-size: 12px;
+    padding-bottom: 2px;
+  }
+  .p1{
+    width: 150px;
+    margin-top: 15px;
+    float: left;
+    margin-left: 20px;
+    font-size: 12px;
+    color: #9aaabf;
+  }
+  .h{
+    width: 150px;
+    float: left;
+    margin-left: 20px;
+    font-size: 12px;
+    padding-bottom: 2px;
+    color: #000000;
+  }
   .all{
     font-size: 20px;
     color: #ffffff;
@@ -336,11 +400,19 @@
     display: block;
   }
 
-  .el-header, .el-footer {
+  .el-header{
     background-color: #000000;
     color: #333;
-
     line-height: 60px;
+  }
+  .el-footer {
+    padding-top: 30px;
+    background-color: #000000;
+    color: #333;
+    padding-left: 22%;
+    padding-right: 22% ;
+    color: #ffffff;
+    height: 160px;
   }
 
   .el-aside {

@@ -63,4 +63,16 @@ export function updateProduct(data) {
     data
   })
 }
-
+export function exported() {
+  return request({
+    url:'product/export',
+    method:'get'
+  })
+}
+export function listuser(params) {
+  return request({
+    url:'product/listuser',
+    method:'get',
+    params:params
+  })
+}

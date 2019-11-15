@@ -102,7 +102,6 @@
               数量 <el-input-number :min="1" v-model="number" @change="handleChange"></el-input-number>
             </el-row>
             <el-row style="margin-top: 30px;text-align: left">
-              <el-button>立即购买</el-button>
               <el-button type="danger" @click="addCart">加入购物车</el-button>
             </el-row>
           </el-col>

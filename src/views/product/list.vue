@@ -20,8 +20,18 @@
         >
           重置
         </el-button>
+        <a href="http://localhost:8888/product/export">
+          <el-button
+            style="float: right;margin-right: 10px"
+            size="small"
+            type="warning"
+          >
+            导出数据
+          </el-button>
+        </a>
+
       </div>
-      <div style="margin-top: 15px">
+      <div style="margin-top: 20px">
         <el-form size="small" label-width="140px" :inline="true">
           <el-form-item label="商品名称">
             <el-input style="width: 203px" placeholder="商品名称" v-model="query.name" clearable/>
@@ -269,7 +279,7 @@ import imageListUpload from "./components/imageListUpload";
 import {getProductList} from "../../api/product";
 import {getList} from "../../api/brand"
 import  {getKindList} from "../../api/kind";
-import {deleteProdcuts,updateIsNew,updateIsPublic,updateStock,updateStatus} from "../../api/product";
+import {deleteProdcuts,updateIsNew,updateIsPublic,updateStock,updateStatus,exported} from "../../api/product";
 
 const defaultQuery ={
   kind:null,
@@ -337,6 +347,9 @@ export default {
     checkPermission,
     add() {
       this.dialogVisible = true
+    },
+    exported(){
+      exported()
     },
     getList(){
       this.listLoading = true

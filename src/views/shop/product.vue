@@ -164,7 +164,7 @@
 </template>
 
 <script>
-  import {getProductList} from "../../api/product";
+  import {listuser} from "../../api/product";
   import {getList} from "../../api/brand"
   import  {getKindList} from "../../api/kind";
   import Sticky from '@/components/Sticky'
@@ -274,7 +274,7 @@
       },
       getList(){
         this.listLoading = true
-        getProductList(this.query).then(response =>{
+        listuser(this.query).then(response =>{
           this.listLoading = false;
           this.productList = response.data.list;
           this.total = response.data.total;

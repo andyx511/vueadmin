@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/icons/svg/dingdan.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/svg/shangpin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/svg/xitong.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/svg/yingxiao.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/components/Sidebar/Logo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/components/Sidebar/Logo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/addressList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/cart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/demo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/demo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/pay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/pay.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/product.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/shop/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/productDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/user.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +165,8 @@
       <workItem from="1573438772195" duration="1394000" />
       <workItem from="1573457125036" duration="1593000" />
       <workItem from="1573464385865" duration="3767000" />
-      <workItem from="1573699609217" duration="15101000" />
+      <workItem from="1573699609217" duration="16453000" />
+      <workItem from="1573788454752" duration="8355000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
