@@ -176,7 +176,7 @@
           </el-tabs>
         </el-row>
       </el-main>
-      <el-footer>
+      <el-footer style="height: 160px;">
 
       </el-footer>
 

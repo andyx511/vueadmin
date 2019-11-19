@@ -108,8 +108,47 @@
           </el-col>
         </el-row>
       </el-main>
-      <el-footer>
-
+      <el-footer style="height: 160px;">
+        <el-row>
+          <div class="p">关于我们</div>
+          <div class="p">法律声明</div>
+          <div class="p">技术选型</div>
+          <div class="h">自助服务</div>
+          <div class="h">服务支持</div>
+          <div class="h">自助服务</div>
+        </el-row>
+        <el-row>
+          <div class="p1">联系我们</div>
+          <div class="p1">啦啦啦</div>
+          <div class="p1">IDEA </div>
+          <div class="p1">Spring Boot</div>
+          <div class="p1">Spring Task</div>
+          <div class="p1">OSS</div>
+        </el-row>
+        <el-row>
+          <div class="h">关于我们</div>
+          <div class="h">啦啦啦</div>
+          <div class="p1">MySQL </div>
+          <div class="p1">Spring Cloud</div>
+          <div class="p1">Spring Security</div>
+          <div class="h">自助服务</div>
+        </el-row>
+        <el-row>
+          <div class="h">关于我们</div>
+          <div class="h">法律声明</div>
+          <div class="p1">MyBatis</div>
+          <div class="p1">Vue</div>
+          <div class="p1">Redis</div>
+          <div class="h">自助服务</div>
+        </el-row>
+        <el-row>
+          <div class="h">关于我们</div>
+          <div class="h">法律声明</div>
+          <div class="p1"> </div>
+          <div class="h">自助服务</div>
+          <div class="h">服务支持</div>
+          <div class="h">自助服务</div>
+        </el-row>
       </el-footer>
     </el-container>
     <el-dialog
@@ -286,12 +325,45 @@
 </script>
 
 <style scoped>
-  .el-header, .el-footer {
+  .p{
+    width: 150px;
+    float: left;
+    margin-left: 20px;
+    font-size: 12px;
+    padding-bottom: 2px;
+  }
+  .p1{
+    width: 150px;
+    margin-top: 15px;
+    float: left;
+    margin-left: 20px;
+    font-size: 12px;
+    color: #9aaabf;
+  }
+  .h{
+    width: 150px;
+    float: left;
+    margin-left: 20px;
+    font-size: 12px;
+    padding-bottom: 2px;
+    color: #000000;
+  }
+  .el-header{
     background-color: #000000;
     color: #333;
-
     line-height: 60px;
   }
+  .el-footer {
+    padding-top: 30px;
+    background-color: #000000;
+    color: #333;
+    padding-left: 22%;
+    padding-right: 22% ;
+    color: #ffffff;
+    height: 200px;
+    margin-top: 800px;
+  }
+
   .la li{
     position: relative;
     height: 48px;

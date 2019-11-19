@@ -201,16 +201,16 @@
         </el-row>
         <el-row>
           <div class="p1">联系我们</div>
-          <div class="h">法律声明</div>
-          <div class="p1">Spring Cloud Eureka</div>
+          <div class="p1">啦啦啦</div>
+          <div class="p1">IDEA </div>
           <div class="p1">Spring Boot</div>
           <div class="p1">Spring Task</div>
           <div class="p1">OSS</div>
         </el-row>
         <el-row>
           <div class="h">关于我们</div>
-          <div class="h">法律声明</div>
-          <div class="p1">Elasticsearch</div>
+          <div class="h">啦啦啦</div>
+          <div class="p1">MySQL </div>
           <div class="p1">Spring Cloud</div>
           <div class="p1">Spring Security</div>
           <div class="h">自助服务</div>
@@ -226,7 +226,7 @@
         <el-row>
           <div class="h">关于我们</div>
           <div class="h">法律声明</div>
-          <div class="p1">Spring Cloud Config</div>
+          <div class="p1"> </div>
           <div class="h">自助服务</div>
           <div class="h">服务支持</div>
           <div class="h">自助服务</div>
@@ -412,7 +412,7 @@
     padding-left: 22%;
     padding-right: 22% ;
     color: #ffffff;
-    height: 160px;
+    height: 200px;
   }
 
   .el-aside {
