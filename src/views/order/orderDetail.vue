@@ -116,7 +116,7 @@
         <el-row>
           <el-col :span="6" class="table-cell">￥{{order.totalPrice}}</el-col>
           <el-col :span="6" class="table-cell">￥0</el-col>
-          <el-col :span="6" class="table-cell">8折</el-col>
+          <el-col :span="6" class="table-cell">7折</el-col>
           <el-col :span="6" class="table-cell">￥100</el-col>
         </el-row>
         <el-row>
@@ -124,7 +124,7 @@
           <el-col :span="6" class="table-cell-title">应付款金额</el-col>
         </el-row>
         <el-row>
-          <el-col :span="6" class="table-cell">￥{{order.totalPrice}}</el-col>
+          <el-col :span="6" class="table-cell">￥{{total}}</el-col>
           <el-col :span="6" class="table-cell">￥{{order.totalPrice}}</el-col>
         </el-row>
       </div>
@@ -142,7 +142,8 @@
     data(){
       return{
         id:null,
-        order:null
+        order:null,
+        total:null
       }
     },
     created(){
@@ -201,6 +202,11 @@
       getDetail(){
         detail(this.id).then(res=>{
           this.order = res.data
+          let t= 0
+          for (let i=0;i<this.order.items.length;i++){
+            t = t+this.order.items[i].price
+          }
+          this.total = t
         })
       }
     }

@@ -44,25 +44,25 @@
             </span>
           </el-form-item>
         </el-tooltip>
-        <el-form-item prop="tcode">
-          <el-col :span="16">
-            <span class="svg-container">
-              <svg-icon icon-class="user" />
-            </span>
-            <el-input
-              ref="tcode"
-              v-model="loginForm.tcode"
-              placeholder="验证吗"
-              name="username"
-              type="text"
-              tabindex="1"
-              autocomplete="on"
-            />
-          </el-col>
-          <el-col :span="8">
-            <img width="100%" height="40px" :src="tcode" alt="验证码" @click="changeCode">
-          </el-col>
-        </el-form-item>
+<!--        <el-form-item prop="tcode">-->
+<!--          <el-col :span="16">-->
+<!--            <span class="svg-container">-->
+<!--              <svg-icon icon-class="user" />-->
+<!--            </span>-->
+<!--            <el-input-->
+<!--              ref="tcode"-->
+<!--              v-model="loginForm.tcode"-->
+<!--              placeholder="验证吗"-->
+<!--              name="username"-->
+<!--              type="text"-->
+<!--              tabindex="1"-->
+<!--              autocomplete="on"-->
+<!--            />-->
+<!--          </el-col>-->
+<!--          <el-col :span="8">-->
+<!--            <img width="100%" height="40px" :src="tcode" alt="验证码" @click="changeCode">-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
       </el-form>
       <el-button :loading="loading" type="primary" style="width:40%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
       <el-button type="primary" style="width:40%;margin-bottom:30px;" @click="changeCode">忘记密码</el-button>
@@ -125,6 +125,7 @@ export default {
       immediate: true
     }
   },
+
   created() {
     // window.addEventListener('storage', this.afterQRScan)
     // this.tcode = tcode+ '?t=' + new Date().getTime();

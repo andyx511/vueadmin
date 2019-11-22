@@ -20,3 +20,9 @@ export function jie(params) {
     params:params
   })
 }
+export function info() {
+  return request({
+    url: 'member/info',
+    method: 'get'
+  })
+}

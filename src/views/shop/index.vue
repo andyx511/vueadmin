@@ -106,7 +106,7 @@
                   style="width: 230px;height: 230px;">
                 </el-image>
                 <el-row >
-                  <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price}}.00</el-col>
+                  <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price|numFilter}}</el-col>
                   <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">{{item.salesVolume}}人已购</el-col>
                 </el-row>
                 <el-row style="margin-top: 5px; text-align: left">
@@ -130,7 +130,7 @@
                 style="width: 230px;height: 230px;">
               </el-image>
               <el-row >
-                <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price}}.00</el-col>
+                <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price|numFilter}}</el-col>
                 <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">{{item.salesVolume}}人已购</el-col>
               </el-row>
               <el-row style="margin-top: 5px; text-align: left">
@@ -155,7 +155,7 @@
                 style="width: 230px;height: 230px;">
               </el-image>
               <el-row >
-                <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price}}.00</el-col>
+                <el-col :span="9" style="font-size: 22px;color: red">￥{{item.price|numFilter}}</el-col>
                 <el-col :span="8" :offset="7" style="font-size: 14px;color: #888">{{item.salesVolume}}人已购</el-col>
               </el-row>
               <el-row style="margin-top: 5px; text-align: left">
@@ -281,6 +281,18 @@
       this.getUser()
       this.getCount()
       this.getList()
+    },
+    filters:{
+      numFilter (value) {
+        let realVal = ''
+        if (value) {
+          // 截取当前数据到小数点后两位
+          realVal = parseFloat(value).toFixed(2)
+        } else {
+          realVal = '--'
+        }
+        return realVal
+      }
     },
     methods: {
       chooseBrand(brandName){

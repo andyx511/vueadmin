@@ -40,7 +40,8 @@
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
-                      <div style="text-align:center;">admin</div>
+                      <div style="text-align:center;" v-if="user.name==''">游客</div>
+                      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
                     </div>
                     <el-dropdown-item command="order">我的订单</el-dropdown-item>
                     <el-dropdown-item command="user">账号资料</el-dropdown-item>
@@ -76,16 +77,16 @@
             </el-row>
             <el-row style="margin-top: 20px;color: red;font-size: 22px" v-if="product.isDiscount==0">
               <el-col :span="4" style="text-align: left" >价格</el-col>
-              <el-col :span="4" style="text-align: left" >¥{{product.price}}</el-col>
-              <el-col :span="4" v-if="product.isDiscount==1" style="font-size: 28px;float:left;width: 732px;"> {{product.discountPrice}}</el-col>
+              <el-col :span="4" style="text-align: left" >¥{{product.price|numFilter}}</el-col>
+              <el-col :span="4" v-if="product.isDiscount==1" style="font-size: 28px;float:left;width: 732px;"> {{product.discountPrice |numFilter}}</el-col>
             </el-row>
             <el-row style="margin-top: 10px;color: #000000;font-size: 22px" v-if="product.isDiscount==1">
               <el-col :span="4" style="text-align: left" >价格</el-col>
-              <el-col :span="4" style="text-decoration: line-through;text-align: left">¥{{product.price}}</el-col>
+              <el-col :span="4" style="text-decoration: line-through;text-align: left">¥{{product.price|numFilter}}</el-col>
             </el-row>
             <el-row style="margin-top: 10px;color: red;font-size: 22px;float:left;" v-if="product.isDiscount==1">
               <el-col :span="4" style="text-align: left;width: 80px;" ><b>折后价</b></el-col>
-              <el-col :span="4" style="font-size: 28px;text-align: left;width: 652px;"><b> ¥{{product.discountPrice}}</b></el-col>
+              <el-col :span="4" style="font-size: 28px;text-align: left;width: 652px;"><b> ¥{{product.discountPrice|numFilter}}</b></el-col>
             </el-row>
             <el-row style="border: 1px dotted #c9c9c9; padding: 5px 10px;margin-top: 20px;float:left; width: 732px;">
               <el-col :span="8" style="text-align: left">
@@ -244,6 +245,16 @@
         let date = new Date(time);
         return formatDate(date, 'yyyy-MM-dd hh:mm:ss')
       },
+      numFilter (value) {
+        let realVal = ''
+        if (value) {
+          // 截取当前数据到小数点后两位
+          realVal = parseFloat(value).toFixed(2)
+        } else {
+          realVal = '--'
+        }
+        return realVal
+      }
     },
     created() {
       this.getUser()
@@ -262,6 +273,10 @@
           this.comment.star=''
           this.comment.content = ''
           this.getList()
+          productDetail(this.id).then(res=>{
+            this.product = res.data
+            this.detailPic = res.data.detailPic.split(',')
+          })
         })
       },
       getList(){

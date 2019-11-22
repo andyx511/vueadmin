@@ -27,10 +27,11 @@ export function detail(id) {
     method:'get'
   })
 }
-export function pay(id) {
+export function pay(id,params) {
   return request({
     url: 'order/payForOrder/'+id,
-    method: 'post'
+    method: 'post',
+    params:params
   })
 }
 export function orderList(params) {

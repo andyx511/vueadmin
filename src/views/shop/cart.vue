@@ -39,7 +39,8 @@
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
-                      <div style="text-align:center;">admin</div>
+                      <div style="text-align:center;" v-if="user.name==''">游客</div>
+                      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
                     </div>
                     <el-dropdown-item command="order">我的订单</el-dropdown-item>
                     <el-dropdown-item command="user">账号资料</el-dropdown-item>
@@ -86,7 +87,7 @@
                 </template>
               </el-table-column>
               <el-table-column label="单价" align="center" >
-                <template slot-scope="scope">{{scope.row.price}}</template>
+                <template slot-scope="scope">{{scope.row.price|numFilter}}</template>
               </el-table-column>
               <el-table-column label="数量" align="center" >
                 <template slot-scope="scope">
@@ -95,7 +96,7 @@
                 </template>
               </el-table-column>
               <el-table-column label="小计" align="center" >
-                <template slot-scope="scope">{{scope.row.totalPrice}}</template>
+                <template slot-scope="scope">{{scope.row.totalPrice|numFilter}}</template>
               </el-table-column>
               <el-table-column label="操作" align="center" >
                 <template slot-scope="scope">
@@ -159,6 +160,18 @@
         'avatar',
         'roles'
       ])
+    },
+    filters:{
+      numFilter (value) {
+        let realVal = ''
+        if (value) {
+          // 截取当前数据到小数点后两位
+          realVal = parseFloat(value).toFixed(2)
+        } else {
+          realVal = '--'
+        }
+        return realVal
+      }
     },
     created(){
       this.getCartList()

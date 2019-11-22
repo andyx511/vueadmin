@@ -41,7 +41,8 @@
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
-                      <div style="text-align:center;">admin</div>
+                      <div style="text-align:center;" v-if="user.name==''">游客</div>
+                      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
                     </div>
                     <el-dropdown-item command="order">我的订单</el-dropdown-item>
                     <el-dropdown-item command="user">账号资料</el-dropdown-item>
@@ -92,7 +93,7 @@
                  {{item.name}}
                </el-col>
                <el-col :span="6" :offset="1">
-                 {{item.price}}
+                 {{item.price |numFilter}}
                </el-col>
                <el-col :span="6">
                  {{item.num}}
@@ -134,7 +135,11 @@
             border: 1px solid #d4d4d4;
             border-radius:0 0 8px 8px ;
             box-shadow: 0 1px 7px rgba(0,0,0,.06);padding: 30px">
-              <h3 style="text-align: right">总价：{{order.totalPrice}}</h3>
+              <div style="float:left;">当前会员等级：{{member.growth | formatMember}}</div>
+              <el-checkbox v-model="checked" v-if="member.point > 1000 && Math.floor(order.totalPrice*discount*100)/100>100" @click="userPoint" style="float:left;margin-left: 50px;">使用积分</el-checkbox>
+              <div style="float:left;margin-left: 20px;">当前会员积分：{{member.point}}<span v-if="checked==true">-1000, 可抵扣100元</span></div>
+              <h3 style="text-align: right">实付价：<span v-if="checked==true">{{Math.round(order.totalPrice*discount*100-10000)/100}}</span>
+                <span v-if="checked==false">{{Math.round(order.totalPrice*discount*100)/100}}</span></h3>
               <el-button type="danger" style="float: right" @click="pay()">确认付款</el-button>
             </el-row>
           </el-col>
@@ -150,7 +155,9 @@
 <script>
   import {detail,pay} from "../../api/order"
   import Sticky from '@/components/Sticky'
-  import {getCount} from "../../api/cart";  import {mapGetters} from "vuex";
+  import {getCount} from "../../api/cart";
+  import {mapGetters} from "vuex";
+  import {info} from "../../api/member"
   export default {
     name: "pay",
     components: { Sticky },
@@ -159,7 +166,37 @@
         id:null,
         order:null,
         count:null,
-        user:{}
+        user:{},
+        member:'',
+        checked:false,
+        actualPrice:null,
+        discount:null
+      }
+    },
+    filters:{
+      formatMember(value){
+        if (value<10000){
+          return '普通会员'
+        }
+        if(value>=10000&&value<50000){
+          return '白银会员,可享受9折'
+        }
+        if(value>=50000&&value<100000){
+          return '黄金会员，可享受8折'
+        }
+        if(value>=100000){
+          return '钻石会员，可享受7折'
+        }
+      },
+      numFilter (value) {
+        let realVal = ''
+        if (value) {
+          // 截取当前数据到小数点后两位
+          realVal = parseFloat(value).toFixed(2)
+        } else {
+          realVal = '--'
+        }
+        return realVal
       }
     },
     created() {
@@ -167,6 +204,7 @@
       this.getOrder()
       this.getCount()
       this.getUser()
+      this.getMember()
     },
     computed: {
       ...mapGetters([
@@ -175,7 +213,34 @@
         'roles'
       ])
     },
+    // watch:{
+    //   actualPrice:function (newValue,oldValue) {
+    //     var discount =
+    //   }
+    // },
     methods:{
+      // userPoint(){
+      //   if (this.checked==true){
+      //     this.member.
+      //   }
+      // },
+      getMember(){
+        info().then(res=>{
+          this.member = res.data
+          if (this.member.growth<10000){
+            this.discount = 1
+          }
+          if (this.member.growth>=10000 && this.member.growth<50000){
+            this.discount = 0.9
+          }
+          if (this.member.growth>=50000 && this.member.growth<100000){
+            this.discount = 0.8
+          }
+          if (this.member.growth>=100000){
+            this.discount = 0.7
+          }
+        })
+      },
       getUser() {
         this.user = {
           name: this.name,
@@ -213,7 +278,7 @@
         this.user.name=''
       },
       pay(){
-        pay(this.id).then(res=>{
+        pay(this.id,{isUsePoint:this.checked}).then(res=>{
           this.$message({
             message:"支付成功",
             type:'success'

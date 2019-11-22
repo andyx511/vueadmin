@@ -21,7 +21,7 @@
               <el-button style="margin-left: -1%;width: 20%;" icon="el-icon-search" type="danger"></el-button>
             </el-col>
             <el-col :span="2" style="padding-top: 25px; font-size: 28px;">
-              <el-link :underline="false" style="padding-right: 10%">全部商品</el-link>|
+              <el-link :underline="false" style="padding-right: 10%"  @click="toProduct">全部商品</el-link>|
 
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
@@ -41,7 +41,8 @@
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
-                      <div style="text-align:center;">admin</div>
+                      <div style="text-align:center;" v-if="user.name==''">游客</div>
+                      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
                     </div>
                     <el-dropdown-item command="order">我的订单</el-dropdown-item>
                     <el-dropdown-item command="user">账号资料</el-dropdown-item>
@@ -103,9 +104,9 @@
                 <el-col :span="6" style="line-height:50px">
                   <p>{{it.name}}</p>
                 </el-col>
-                <el-col :span="3" style="line-height:144px">￥{{it.price}}</el-col>
+                <el-col :span="3" style="line-height:144px">￥{{it.price|numFilter}}</el-col>
                 <el-col :span="3" style="line-height:144px">{{it.num}}</el-col>
-                <el-col :span="3" style="line-height:144px" v-if="index==0">￥{{item.totalPrice}}</el-col>
+                <el-col :span="3" style="line-height:144px" v-if="index==0">￥{{item.totalPrice|numFilter}}</el-col>
                 <el-col :span="3" style="line-height:144px" v-if="index==0">
                   {{item.status | formatStatus}}
                 </el-col>
@@ -189,6 +190,7 @@
           reason:null
         },
         user:{},
+        member:''
       }
     },
     computed: {
@@ -202,11 +204,22 @@
       this.getList()
       this.getCount()
       this.getUser()
+
     },
     filters:{
       formatCreateTime(time) {
         let date = new Date(time);
         return formatDate(date, 'yyyy-MM-dd hh:mm:ss')
+      },
+      numFilter (value) {
+        let realVal = ''
+        if (value) {
+          // 截取当前数据到小数点后两位
+          realVal = parseFloat(value).toFixed(2)
+        } else {
+          realVal = '--'
+        }
+        return realVal
       },
       formatStatus(value){
         if(value == 0){
@@ -245,6 +258,7 @@
       }
     },
     methods: {
+
       getUser() {
         this.user = {
           name: this.name,
@@ -274,6 +288,9 @@
           this.order = res.data.list
           this.total = res.data.total
         })
+      },
+      toProduct(){
+        this.$router.push({path: '/product'})
       },
       handleCurrentChange(){
         this.getList()

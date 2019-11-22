@@ -42,7 +42,8 @@
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
-                      <div style="text-align:center;">admin</div>
+                      <div style="text-align:center;" v-if="user.name==''">游客</div>
+                      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
                     </div>
                     <el-dropdown-item command="order">我的订单</el-dropdown-item>
                     <el-dropdown-item command="user">账号资料</el-dropdown-item>
@@ -68,6 +69,11 @@
               <h3 style="text-align: center">收货地址选择</h3>
             </el-row>
             <el-row style="padding: 20px ; border: 1px solid #d4d4d4;">
+
+              <div v-if="addressList.length==0">请先添加一个收货地址吧</div>
+
+
+
               <el-col :span="5" :offset="1" v-for="(item,index) in addressList " >
                 <el-card
                   @click.native="checkAddress(index,item)"
@@ -87,7 +93,8 @@
         </el-row>
         <el-row >
           <el-col :span="16" :offset="4" >
-            <el-button type="danger" style="float:right;padding-top: 20px" @click="confirmOrder">确认订单</el-button>
+            <el-button type="danger" style="float:right;padding-top: 20px" @click="confirmOrder" v-if="addressList.length>0">确认订单</el-button>
+            <el-button type="danger" disabled style="float:right;padding-top: 20px" @click="confirmOrder" v-if="addressList.length==0">确认订单</el-button>
           </el-col>
           <!--<el-col :span="16" :offset="4">
             <el-row style="

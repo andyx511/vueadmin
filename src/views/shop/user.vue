@@ -21,7 +21,7 @@
               <el-button style="margin-left: -1%;width: 20%;" icon="el-icon-search" type="danger"></el-button>
             </el-col>
             <el-col :span="2" style="padding-top: 25px; font-size: 28px;">
-              <el-link :underline="false" style="padding-right: 10%">全部商品</el-link>|
+              <el-link :underline="false" style="padding-right: 10%" @click="toProduct">全部商品</el-link>|
 
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
@@ -41,7 +41,8 @@
                         :fit="contain"
                         style="border-radius: 5px">
                       </el-image>
-                      <div style="text-align:center;">admin</div>
+                      <div style="text-align:center;" v-if="user.name==''">游客</div>
+                      <div style="text-align:center;" v-if="user.name!=''">{{user.name}}</div>
                     </div>
                     <el-dropdown-item command="order">我的订单</el-dropdown-item>
                     <el-dropdown-item command="user">账号资料</el-dropdown-item>
@@ -56,7 +57,7 @@
           </el-row>
         </el-header>
       </sticky>
-      <el-main style="padding: 20px 200px">
+      <el-main style="padding: 20px 200px;min-height:800px ">
         <el-row>
           <el-col :span="4" :offset="2">
             <div style="width: 80%;border-radius: 6px ;display: block" >
@@ -191,6 +192,12 @@
           message:"哪来的钱？",
           type: 'warning'
         })
+      },
+      toProduct(){
+        this.$router.push({path: '/product'})
+      },
+      toCart(){
+        this.$router.push({path: '/cart'})
       },
       getUser() {
         this.user = {

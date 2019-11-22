@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="" />
+    <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/member.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/order/orderDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/order/orderDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/addressList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/cart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/pay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/pay.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/product.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/productDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/shop/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/user.vue" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +175,8 @@
       <workItem from="1573464385865" duration="3767000" />
       <workItem from="1573699609217" duration="16453000" />
       <workItem from="1573788454752" duration="8355000" />
-      <workItem from="1574041287635" duration="2298000" />
+      <workItem from="1574041287635" duration="3496000" />
+      <workItem from="1574386922658" duration="12307000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
@@ -206,7 +222,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/views/shop/order.vue</url>
-          <line>81</line>
+          <line>82</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -218,6 +234,12 @@
           <url>file://$PROJECT_DIR$/src/views/order/orderDetail.vue</url>
           <line>19</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/order/orderDetail.vue</url>
+          <line>205</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
