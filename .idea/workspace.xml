@@ -2,40 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b75ed34-bb8b-474b-9c78-e4eb4890aca2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/la.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/BrandReport.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/BrandReport.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/KindReport.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/KindReport.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/VisitChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/VisitChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/components/lala.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/components/lala.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/admin/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/editor/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/editor/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/order/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/order/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/imageListUpload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/imageListUpload.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/singleImgUpload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/singleImgUpload.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/components/updateUpLoad.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/components/updateUpLoad.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sell/brandRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/brandRecommend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sell/goodRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/goodRecommend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sell/hotRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/hotRecommend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sell/newRecommend.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sell/newRecommend.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/address.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/addressList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/addressList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/cart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/components/addressAdd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/components/addressAdd.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/order.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/product.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/productDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/shop/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/shop/user.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -204,6 +172,7 @@
       <workItem from="1574515403888" duration="711000" />
       <workItem from="1574564373235" duration="363000" />
       <workItem from="1574574035778" duration="1864000" />
+      <workItem from="1574588158733" duration="2233000" />
     </task>
     <task id="LOCAL-00001" summary="9-23晚">
       <created>1569244811805</created>
