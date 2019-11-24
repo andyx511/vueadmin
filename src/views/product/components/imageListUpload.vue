@@ -3,7 +3,7 @@
     <el-upload
 
       :class="propClass"
-      action="http://localhost:8888/cos/upload"
+      action="http://114.55.94.250:8888/cos/upload"
       :on-preview="handlePreview"
       :on-remove="handleRemove"
       :file-list="fileList"

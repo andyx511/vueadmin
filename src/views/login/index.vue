@@ -129,8 +129,8 @@ export default {
   created() {
     // window.addEventListener('storage', this.afterQRScan)
     // this.tcode = tcode+ '?t=' + new Date().getTime();
-    axios.get('http://127.0.0.1:8888/admin/getTCode').then((res) => {
-      this.tcode = 'http://127.0.0.1:8888/admin/getTCode' + '?t=' + new Date().getTime()
+    axios.get('http://114.55.94.250:8888/admin/getTCode').then((res) => {
+      this.tcode = 'http://114.55.94.250:8888/admin/getTCode' + '?t=' + new Date().getTime()
     })
   },
   mounted() {
@@ -254,11 +254,10 @@ $dark_gray:#889aa4;
 $light_gray:#eee;
 
 .login-container {
-  min-height: 100%;
   width: 100%;
-  background-color: $bg;
+  height: 100vh;
   overflow: hidden;
-  background-image: url(../../assets/3.jpeg);
+  background: #020e21 url('../../assets/la.jpg') no-repeat center ;
   .login-form {
     position: relative;
     width: 520px;

@@ -89,9 +89,9 @@
               <el-table-column label="单价" align="center" >
                 <template slot-scope="scope">{{scope.row.price|numFilter}}</template>
               </el-table-column>
-              <el-table-column label="数量" align="center" >
+              <el-table-column label="数量" align="center" style="width: 200px;">
                 <template slot-scope="scope">
-                  <el-input-number v-model="scope.row.num" :min="1" @change="editCart(scope.row.id,scope.row.num)">
+                  <el-input-number v-model="scope.row.num" :min="1" :max="5" @change="editCart(scope.row.id,scope.row.num)" size="mini">
                   </el-input-number>
                 </template>
               </el-table-column>

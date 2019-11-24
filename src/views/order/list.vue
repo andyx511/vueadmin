@@ -92,8 +92,8 @@
         </el-table-column>
         <el-table-column label="操作" align="center" >
           <template slot-scope="scope">
-            <el-button type="primary" size="mini" @click="detail(scope.row.id)">订单详情</el-button>
-            <el-button v-if="scope.row.status==1" size = "mini" @click="delivery(scope.row.id)">订单发货</el-button>
+            <el-button type="primary" size="mini" @click="detail(scope.row.id)" style="margin-top: 2px;">订单详情</el-button>
+            <el-button v-if="scope.row.status==1" size = "mini" @click="delivery(scope.row.id)" style="margin-top: 2px;margin-left: -1px;">订单发货</el-button>
           </template>
         </el-table-column>
       </el-table>

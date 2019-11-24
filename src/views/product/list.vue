@@ -20,7 +20,7 @@
         >
           重置
         </el-button>
-        <a href="http://localhost:8888/product/export">
+        <a href="http://114.55.94.250:8888/product/export">
           <el-button
             style="float: right;margin-right: 10px"
             size="small"
@@ -108,7 +108,7 @@
             </div>
           </el-form-item>
         </el-form>
-        <el-button type="success" @click="add" icon="el-icon-edit" v-permission="['admin']">添加</el-button>
+        <el-button type="success" @click="add" icon="el-icon-edit" >添加</el-button>
       </div>
     </el-card>
     <div style="margin-top: 20px;">
@@ -124,12 +124,12 @@
         <el-table-column label="ID" align="center" width="50px">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="图片" align="center">
+        <el-table-column label="图片" align="center" style="width: 72px;">
           <template slot-scope="scope">
-            <img :src="scope.row.pic" alt="" style="height: 86px;width: 100px; border-radius: 5px">
+            <img :src="scope.row.pic" alt="" style="height: 68px;width: 80px; border-radius: 5px">
           </template>
         </el-table-column>
-        <el-table-column label="商品名" align="center" width="450px">
+        <el-table-column label="商品名" align="center" width="300px">
           <template slot-scope="scope">
             <p>{{scope.row.name}}</p>
             <p>品牌: {{scope.row.brand}}</p>
@@ -142,20 +142,20 @@
         <el-table-column label="种类">
           <template slot-scope="scope">{{scope.row.kind}}</template>
         </el-table-column>-->
-        <el-table-column label="价格" align="center">
+        <el-table-column label="价格" align="center" style="width: 130px;">
           <template slot-scope="scope">
             <p>原价：￥{{scope.row.price}}</p>
             <p v-if="scope.row.discountPrice !=0 ">折后价：￥{{scope.row.discountPrice}} </p>
           </template>
         </el-table-column>
 
-        <el-table-column label="库存" align="center">
+        <el-table-column label="库存" align="center" width="95px">
           <template slot-scope="scope">
             {{scope.row.stock}}
-            <el-button @click="stockDetail(scope.row)">更新库存</el-button>
+            <el-button @click="stockDetail(scope.row)" size="mini">更新库存</el-button>
           </template>
         </el-table-column>
-        <el-table-column label="标签" align="center" width="150px">
+        <el-table-column label="标签" align="center" width="120px">
           <template slot-scope="scope">
       <!--      是否新品：
             <el-switch
@@ -194,13 +194,13 @@
             </el-tooltip>
           </template>
         </el-table-column>
-        <el-table-column label="审核状态" align="center" width="128px">
+        <el-table-column label="审核状态" align="center">
           <template slot-scope="scope">
             <div v-if="scope.row.status==0">
               <el-tag >待审核</el-tag>
               <br>
-              <el-button icon="el-icon-close" style="margin-top: 5px;" type="danger" size="mini" @click="refuseStatus(scope.row)"></el-button>
-              <el-button icon="el-icon-check" type="success" size="mini" @click="passStatus(scope.row)"></el-button>
+              <el-button icon="el-icon-close" style="margin-top: 5px;" type="danger" size="mini" @click="refuseStatus(scope.row)" v-permission="['admin']"></el-button>
+              <el-button icon="el-icon-check" type="success" size="mini" @click="passStatus(scope.row)" style="margin-top: 1px;margin-left: -1px;" v-permission="['admin']"></el-button>
             </div>
             <div v-if="scope.row.status==1">
               <el-tag type="success">审核通过</el-tag>
@@ -212,7 +212,7 @@
         </el-table-column>
         <el-table-column label="操作" align="center">
           <template slot-scope="scope">
-            <el-button @click="handleProduct(scope.row)">编辑</el-button>
+            <el-button @click="handleProduct(scope.row)" size="mini">编辑</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -259,13 +259,13 @@
         </el-form-item>
       </el-form>
     </el-dialog>
-    <el-drawer
+    <el-dialog
       title="商品编辑"
       :visible.sync="drawer"
       width="50%"
     >
         <edit :productId="productId" size="40%" @mm = "closeEdit" ref="edit"></edit>
-    </el-drawer>
+    </el-dialog>
   </div>
 </template>
 

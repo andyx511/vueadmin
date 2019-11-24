@@ -18,7 +18,7 @@
         <el-table-column label="ID" align="center" width="50px">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="商品名" align="center" width="800px">
+        <el-table-column label="商品名" align="center" width="400px">
           <template slot-scope="scope">
             <p>{{scope.row.newName}}</p>
           </template>
@@ -80,7 +80,7 @@
         </el-pagination>
       </div>
       <div>
-         <span slot="footer" style="margin-left: 80%;">
+         <span slot="footer" style="margin-left: 70%;">
           <el-button @click="dialogVisible = false">取 消</el-button>
           <el-button type="primary" @click="addRecommend">确 定</el-button>
         </span>

@@ -56,7 +56,7 @@
           </el-row>
         </el-header>
       </sticky>
-      <el-main style="padding: 20px 400px">
+      <el-main style="padding: 20px 200px">
         <el-row>
           <el-col :span="8">
             <el-image
@@ -68,12 +68,12 @@
           </el-col>
           <el-col :span="16" >
             <el-row style="float:left;text-align: left">
-              <h3 style="float:left;width: 732px;">
+              <h3 style="float:left;width: 1000px;">
                 {{product.name}}
               </h3>
             </el-row>
-            <el-row style="text-align: left">
-              {{product.des}}
+            <el-row style="text-align: left;display:block;;">
+              <div>{{product.des}}</div>
             </el-row>
             <el-row style="margin-top: 20px;color: red;font-size: 22px" v-if="product.isDiscount==0">
               <el-col :span="4" style="text-align: left" >价格</el-col>
@@ -100,7 +100,7 @@
               </el-col>
             </el-row>
             <el-row style="padding-top: 100px;text-align: left">
-              数量 <el-input-number :min="1" v-model="number" @change="handleChange"></el-input-number>
+              数量 <el-input-number :min="1" v-model="number" @change="handleChange" :max="5"></el-input-number>
             </el-row>
             <el-row style="margin-top: 30px;text-align: left">
               <el-button type="danger" @click="addCart">加入购物车</el-button>
@@ -278,6 +278,9 @@
             this.detailPic = res.data.detailPic.split(',')
           })
         })
+      },
+      handleCommand(command){
+        this.$router.push({path: '/'+command})
       },
       getList(){
         this.query.productId = this.id

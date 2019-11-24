@@ -205,7 +205,8 @@ export const asyncRoutes = [
     name: '商品',
     meta: {
       title: '商品',
-      icon: 'shangpin'
+      icon: 'shangpin',
+      roles:['admin','shoper']
     },
     children: [
       {
@@ -224,7 +225,7 @@ export const asyncRoutes = [
         path: 'kind',
         component: () => import('@/views/product/kind'),
         name: "商品种类",
-        meta: { title: '商品种类',noCache: true,roles:['admin']}
+        meta: { title: '商品种类',noCache: true}
       }
     ]
   },
@@ -236,7 +237,8 @@ export const asyncRoutes = [
     name: '订单',
     meta: {
       title: '订单',
-      icon: 'dingdan'
+      icon: 'dingdan',
+      roles:['admin','shoper']
     },
     children: [
       {
@@ -275,7 +277,8 @@ export const asyncRoutes = [
     name: '营销',
     meta: {
       title: '营销',
-      icon: 'yingxiao'
+      icon: 'yingxiao',
+      roles:['admin']
     },
     children: [
       {
@@ -312,20 +315,21 @@ export const asyncRoutes = [
     name: '系统管理',
     meta: {
       title: '系统管理',
-      icon: 'xitong'
+      icon: 'xitong',
+      roles:['admin']
     },
     children: [
       {
         path: 'list',
         component: () => import('@/views/admin/member'),
         name: '会员管理',
-        meta: { title: '会员管理', noCache: true }
+        meta: { title: '会员管理', noCache: true , roles:['admin']}
       },
       {
         path: 'admin',
         component: () => import('@/views/admin/list'),
         name: '后台用户管理',
-        meta: { title: '后台用户管理', noCache: true }
+        meta: { title: '后台用户管理', noCache: true, roles:['admin'] }
       },
     /*  {
         path: 'role',

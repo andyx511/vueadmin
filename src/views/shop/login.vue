@@ -252,15 +252,15 @@
     },
     created(){
       /*this.tCodeUrl = ImgCodeUrl + '?t=' + new Date().getTime();*/
-      axios.get('http://127.0.0.1:8888/admin/getTCode').then((res) => {
-        this.tCodeUrl = 'http://127.0.0.1:8888/admin/getTCode' + '?t=' + new Date().getTime()
+      axios.get('http://114.55.94.250:8888/admin/getTCode').then((res) => {
+        this.tCodeUrl = 'http://114.55.94.250:8888/admin/getTCode' + '?t=' + new Date().getTime()
       })
     },
     methods: {
       // 切换验证码
       changeTime(){
-        axios.get('http://127.0.0.1:8888/admin/getTCode').then((res) => {
-          this.tCodeUrl = 'http://127.0.0.1:8888/admin/getTCode' + '?t=' + new Date().getTime()
+        axios.get('http://114.55.94.250:8888/admin/getTCode').then((res) => {
+          this.tCodeUrl = 'http://114.55.94.250:8888/admin/getTCode' + '?t=' + new Date().getTime()
         })
       },
 

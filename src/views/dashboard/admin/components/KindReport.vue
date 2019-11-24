@@ -1,6 +1,6 @@
 <template>
   <div style="background:#ffffff;">
-    <div style="color: #9aaabf;padding: 330px 140px;position: absolute">种类占比</div>
+    <div style="color: #9aaabf;padding: 330px 100px;position: absolute">种类占比</div>
     <ve-ring :data="chartData" :settings="chartSettings" :extend="extend"></ve-ring>
   </div>
 </template>

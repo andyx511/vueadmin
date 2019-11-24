@@ -76,7 +76,7 @@
               </el-card>
             </div>
           </el-col>
-          <el-col :span="16" style="border: 1px solid #d4d4d4;" >
+          <el-col :span="17" style="border: 1px solid #d4d4d4;" >
             <el-row style="
             background: linear-gradient(#fbfbfb,#ececec);
             border-bottom: 1px solid #d4d4d4;
@@ -84,6 +84,9 @@
             box-shadow: 0 1px 7px rgba(0,0,0,.06);">
               <h3>我的订单</h3>
             </el-row>
+            <div v-if="order.length==0">
+              暂无订单
+            </div>
             <div v-for="(item,index) in order">
               <el-row style="background-color:#eee;width: 100%;height: 50px;line-height:50px">
                 <el-col :span="4">{{item.createTime | formatCreateTime}}</el-col>
@@ -140,7 +143,6 @@
       </el-main>
 
       <el-footer>
-        foot
       </el-footer>
     </el-container>
     <el-dialog
@@ -376,11 +378,17 @@
     display: block;
   }
 
-  .el-header, .el-footer {
+  .el-header{
     background-color: #000000;
     color: #333;
-
     line-height: 60px;
+  }
+  .el-footer {
+    background-color: #000000;
+    color: #333;
+    min-height: 50px;
+    line-height: 60px;
+    margin-top: 300px;
   }
 
   .el-aside {

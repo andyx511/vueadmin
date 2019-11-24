@@ -57,7 +57,7 @@
           </el-row>
         </el-header>
       </sticky>
-      <el-main style="padding: 20px 400px">
+      <el-main style="padding: 20px 200px">
         <div class="searchBar">
           <el-card class="filter-container" shadow="never" style="width: 1097px;height: 231px;">
             <div>

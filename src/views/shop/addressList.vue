@@ -21,7 +21,7 @@
               <el-button style="margin-left: -1%;width: 20%;" icon="el-icon-search" type="danger"></el-button>
             </el-col>
             <el-col :span="2" style="padding-top: 25px; font-size: 28px;">
-              <el-link :underline="false" style="padding-right: 10%">全部商品</el-link>|
+              <el-link :underline="false" style="padding-right: 10%" @click="toProduct">全部商品</el-link>|
 
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
@@ -110,46 +110,7 @@
         </el-row>
       </el-main>
       <el-footer style="height: 160px;">
-        <el-row>
-          <div class="p">关于我们</div>
-          <div class="p">法律声明</div>
-          <div class="p">技术选型</div>
-          <div class="h">自助服务</div>
-          <div class="h">服务支持</div>
-          <div class="h">自助服务</div>
-        </el-row>
-        <el-row>
-          <div class="p1">联系我们</div>
-          <div class="p1">啦啦啦</div>
-          <div class="p1">IDEA </div>
-          <div class="p1">Spring Boot</div>
-          <div class="p1">Spring Task</div>
-          <div class="p1">OSS</div>
-        </el-row>
-        <el-row>
-          <div class="h">关于我们</div>
-          <div class="h">啦啦啦</div>
-          <div class="p1">MySQL </div>
-          <div class="p1">Spring Cloud</div>
-          <div class="p1">Spring Security</div>
-          <div class="h">自助服务</div>
-        </el-row>
-        <el-row>
-          <div class="h">关于我们</div>
-          <div class="h">法律声明</div>
-          <div class="p1">MyBatis</div>
-          <div class="p1">Vue</div>
-          <div class="p1">Redis</div>
-          <div class="h">自助服务</div>
-        </el-row>
-        <el-row>
-          <div class="h">关于我们</div>
-          <div class="h">法律声明</div>
-          <div class="p1"> </div>
-          <div class="h">自助服务</div>
-          <div class="h">服务支持</div>
-          <div class="h">自助服务</div>
-        </el-row>
+
       </el-footer>
     </el-container>
     <el-dialog
@@ -362,7 +323,7 @@
     padding-right: 22% ;
     color: #ffffff;
     height: 200px;
-    margin-top: 800px;
+    margin-top: 400px;
   }
 
   .la li{

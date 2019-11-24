@@ -6,12 +6,12 @@
           <el-row >
             <el-col :span="6" >
               <a @click="toHome">
-              <el-image
-                :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/15-23-41/596-eb1eecc4-1951-4e8b-98fe-33d8ac907492.png'"
-                style="width: 120px; height: 120px;float: right"
-                :fit="contain"
-              >
-              </el-image>
+                <el-image
+                  :src="'https://alex-1300169762.cos.ap-chengdu.myqcloud.com/MALL/2019-09-30/15-23-41/596-eb1eecc4-1951-4e8b-98fe-33d8ac907492.png'"
+                  style="width: 120px; height: 120px;float: right"
+                  :fit="contain"
+                >
+                </el-image>
               </a>
             </el-col>
             <el-col :span="9" style="padding: 0px 30px">
@@ -59,7 +59,7 @@
       </sticky>
       <el-main style="padding: 20px 200px;min-height:800px ">
         <el-row>
-          <el-col :span="4" :offset="2">
+          <el-col :span="6" :offset="2">
             <div style="width: 80%;border-radius: 6px ;display: block" >
               <el-card :body-style="{ padding: '0px' }">
                 <el-image

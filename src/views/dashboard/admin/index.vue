@@ -35,13 +35,19 @@
 
     <el-row :gutter="8">
       <el-col :xs="24" :sm="24" :lg="12">
-        <VisitChart />
+        <div style="padding: 10px">
+          <VisitChart />
+        </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="6">
+        <div style="padding: 10px">
         <KindReport />
+        </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="6">
+        <div style="padding: 10px">
         <BrandReport />
+        </div>
       </el-col>
     </el-row>
   </div>

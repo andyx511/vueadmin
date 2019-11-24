@@ -57,11 +57,11 @@
         </el-header>
       </sticky>
 
-      <el-main style="padding: 20px 400px">
+      <el-main style="padding: 20px 250px">
         <el-row>
           <el-col >
             <el-carousel indicator-position="outside" >
-              <el-carousel-item v-for="item in 2" :key="item" >
+              <el-carousel-item v-for="item in 4" :key="item" >
                 <el-image
                   style="width: 100%; height: 100%"
                   :src="url[item-1]"
@@ -190,17 +190,17 @@
         </el-row>-->
 
       </el-main>
-      <el-footer style="height: 160px;">
-        <el-row>
+      <el-footer style="height: 200px;">
+      <!--  <el-row>
           <div class="p">关于我们</div>
           <div class="p">法律声明</div>
           <div class="p">技术选型</div>
-          <div class="h">自助服务</div>
+          <div class="p"></div>
           <div class="h">服务支持</div>
           <div class="h">自助服务</div>
         </el-row>
         <el-row>
-          <div class="p1">联系我们</div>
+          <div class="p1">特别感谢钱牛提供的技术支持</div>
           <div class="p1">啦啦啦</div>
           <div class="p1">IDEA </div>
           <div class="p1">Spring Boot</div>
@@ -213,7 +213,7 @@
           <div class="p1">MySQL </div>
           <div class="p1">Spring Cloud</div>
           <div class="p1">Spring Security</div>
-          <div class="h">自助服务</div>
+          <div class="p1">Nginx</div>
         </el-row>
         <el-row>
           <div class="h">关于我们</div>
@@ -227,10 +227,10 @@
           <div class="h">关于我们</div>
           <div class="h">法律声明</div>
           <div class="p1"> </div>
-          <div class="h">自助服务</div>
+          <div class="h">Nginx</div>
           <div class="h">服务支持</div>
           <div class="h">自助服务</div>
-        </el-row>
+        </el-row>-->
       </el-footer>
     </el-container>
     <el-tooltip placement="top" content="tooltip">
@@ -360,14 +360,14 @@
 </style>
 <style>
   .p{
-    width: 150px;
+    width: 100px;
     float: left;
     margin-left: 20px;
     font-size: 12px;
     padding-bottom: 2px;
   }
   .p1{
-    width: 150px;
+    width: 100px;
     margin-top: 15px;
     float: left;
     margin-left: 20px;
@@ -375,7 +375,7 @@
     color: #9aaabf;
   }
   .h{
-    width: 150px;
+    width: 100px;
     float: left;
     margin-left: 20px;
     font-size: 12px;
@@ -424,7 +424,7 @@
     padding-left: 22%;
     padding-right: 22% ;
     color: #ffffff;
-    height: 200px;
+    height: 250px;
   }
 
   .el-aside {

@@ -77,7 +77,7 @@
               <el-col :span="5" :offset="1" v-for="(item,index) in addressList " >
                 <el-card
                   @click.native="checkAddress(index,item)"
-                  style="margin-top: 20px;width: 247px;height: 276px"
+                  style="margin-top: 20px;width: 197px;height: 250px"
                   :class="{'checked':index == checked}">
                   <h4>{{item.province}}{{item.city}}({{item.receiverName}}）收</h4>
                   <el-divider></el-divider>

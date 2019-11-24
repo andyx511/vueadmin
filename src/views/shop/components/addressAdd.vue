@@ -60,10 +60,6 @@
     },
     methods:{
       onSubmit(){
-        this.$message({
-          message:this.form,
-          type:'success'
-        })
         addAddress(this.form).then(res=>{
           this.$message({
             message:'添加成功',

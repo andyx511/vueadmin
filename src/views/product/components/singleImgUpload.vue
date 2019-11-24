@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     uploadUrl() {
-      return "http://localhost:8888/cos/upload";
+      return "http://114.55.94.250:8888/cos/upload";
     },
     imageUrl() {
       return this.value;
