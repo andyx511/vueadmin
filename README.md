@@ -30,4 +30,4 @@
   * 进入项目目录，命令行运行 npm install ，下载相关依赖
   * 命令行运行 npm run dev ，启动项目
   * 访问地址 http://127.0.0.1:8889 ，查看项目是否启动成功
-  * 后端传送门： https://github.com/andyx511/cmall.git 
+  * 后端传送门： https://github.com/andyx511/cmall1.git 
