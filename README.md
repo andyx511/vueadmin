@@ -25,8 +25,8 @@
   * git clone  https://github.com/andyx511/vueadmin.git 
   * 下载node并安装，本人版本10.16.0
   * 本项目为前后端分离项目，访问本地接口需要对应后端服务
-    * 如果本地后台服务已启动，修改/src/utils/request.js中的 baseURL: 'http://127.0.0.1:8888'
-    * 无本地后台服务，修改/src/utils/request.js中的 baseURL: 'http://114.55.94.250:8888'
+    * 如果本地后端服务已启动，修改/src/utils/request.js中的 baseURL: 'http://127.0.0.1:8888'
+    * 无本地后端服务，修改/src/utils/request.js中的 baseURL: 'http://114.55.94.250:8888'
   * 进入项目目录，命令行运行 npm install ，下载相关依赖
   * 命令行运行 npm run dev ，启动项目
   * 访问地址 http://127.0.0.1:8889 ，查看项目是否启动成功
