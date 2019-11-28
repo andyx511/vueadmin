@@ -57,7 +57,7 @@
         </el-header>
       </sticky>
       <el-main style="padding: 20px 200px">
-        <el-row>
+        <el-row style="margin: 0px auto; width: 1100px;">
           <el-col :span="8">
             <el-image
             style="width: 350px;height: 350px;float:left;;"
@@ -108,7 +108,7 @@
           </el-col>
         </el-row>
 
-        <el-row style="padding: 20px 100px;width: 900px;">
+        <el-row style="margin: 0px auto; width: 1100px;">
           <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane label="商品详情" name="first">
               <el-image

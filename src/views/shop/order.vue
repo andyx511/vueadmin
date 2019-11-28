@@ -69,9 +69,9 @@
                 </el-image>
                 <h5>admin</h5>
                 <ul class="la">
-                  <li class="check">我的订单</li>
-                  <li>账号资料</li>
-                  <li>收货地址</li>
+                  <router-link to="/order"><li class="check">我的订单</li></router-link>
+                  <router-link to="/user"><li > 账号资料</li></router-link>
+                  <router-link to="/addressList"><li>收货地址</li></router-link>
                 </ul>
               </el-card>
             </div>

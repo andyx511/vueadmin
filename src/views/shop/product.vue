@@ -57,9 +57,9 @@
           </el-row>
         </el-header>
       </sticky>
-      <el-main style="padding: 20px 200px">
-        <div class="searchBar">
-          <el-card class="filter-container" shadow="never" style="width: 1097px;height: 231px;">
+      <el-main style="padding: 20px 18%">
+        <div >
+          <el-card class="filter-container" shadow="never" style=" margin: 0px auto; width: 1099px;height: 231px;">
             <div>
               <i class="el-icon-search" style="float:left;" />
               <span style="float:left;">筛选搜索</span>
@@ -122,7 +122,7 @@
           </el-card>
 
         </div>
-        <div class="product" style="width: 1099px;height: 634px;">
+        <div class="product" style="margin: 0px auto;width: 1099px;height: 634px;">
           <el-row>
             <div v-if="productList.length==0">
               暂时还找不到你所希望的产品
@@ -145,17 +145,18 @@
               </a>
             </el-col>
           </el-row>
+          <div class="page">
+            <el-pagination
+              style="float:right;"
+              :page-size="8"
+              layout="prev, pager, next"
+              :total=total
+              :current-page.sync="query.pageNum"
+              @current-change="handleCurrentChange">
+            </el-pagination>
+          </div>
         </div>
-        <div class="page">
-          <el-pagination
-            style="float:right;"
-            :page-size="8"
-            layout="prev, pager, next"
-            :total=total
-            :current-page.sync="query.pageNum"
-            @current-change="handleCurrentChange">
-          </el-pagination>
-        </div>
+
       </el-main>
       <el-footer>
 

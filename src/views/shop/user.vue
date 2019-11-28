@@ -21,12 +21,12 @@
               <el-button style="margin-left: -1%;width: 20%;" icon="el-icon-search" type="danger"></el-button>
             </el-col>
             <el-col :span="2" style="padding-top: 25px; font-size: 28px;">
-              <el-link :underline="false" style="padding-right: 10%" @click="toProduct">全部商品</el-link>|
+              <el-link :underline="false" style="padding-right: 10%"  @click="toProduct">全部商品</el-link>|
 
             </el-col>
             <el-col :span="4" style="padding-top: 35px">
 
-             <el-badge :value="count" class="item" >
+              <el-badge :value="count" class="item" >
                 <el-link type="info" :underline="false" style="margin-left: 45px;" @click="toCart">
                   <i class="el-icon-shopping-cart-1" style="font-size: 30px"></i>
                 </el-link>
@@ -57,9 +57,10 @@
           </el-row>
         </el-header>
       </sticky>
-      <el-main style="padding: 20px 200px;min-height:800px ">
+
+      <el-main>
         <el-row>
-          <el-col :span="6" :offset="2">
+          <el-col :span="4" :offset="2">
             <div style="width: 80%;border-radius: 6px ;display: block" >
               <el-card :body-style="{ padding: '0px' }">
                 <el-image
@@ -68,9 +69,9 @@
                 </el-image>
                 <h5>admin</h5>
                 <ul class="la">
-                  <a  @click="toUser"><li class="check">我的订单</li></a>
-                  <a ><li @click="toUser"> 账号资料</li></a>
-                  <a ><li>收货地址</li></a>
+                  <router-link to="/order"><li >我的订单</li></router-link>
+                  <router-link to="/user"><li class="check"> 账号资料</li></router-link>
+                  <router-link to="/addressList"><li>收货地址</li></router-link>
                 </ul>
               </el-card>
             </div>
@@ -87,7 +88,7 @@
               <el-row>
                 <el-col :span="2">昵称</el-col>
                 <el-col :span="8" >{{userInfo.nickname}}</el-col>
-               <!-- <el-col :span="4"><el-button icon="el-icon-edit" size="mini">编辑资料</el-button></el-col>-->
+                <!-- <el-col :span="4"><el-button icon="el-icon-edit" size="mini">编辑资料</el-button></el-col>-->
               </el-row>
               <el-row style="margin-top: 20px;">
                 <el-col :span="2">头像</el-col>
@@ -144,26 +145,36 @@
                 <el-col :span="4" >
                   {{userInfo.money}}
                 </el-col>
-                <el-col :span="4">
+                <el-col :span="8">
+                  <el-radio-group v-model="money" size="mini">
+                    <el-radio-button label="100"></el-radio-button>
+                    <el-radio-button label="500"></el-radio-button>
+                    <el-radio-button label="1000"></el-radio-button>
+                    <el-radio-button label="5000"></el-radio-button>
+                  </el-radio-group>
                   <el-button type="mini" @click="getMoney">充值</el-button>
                 </el-col>
               </el-row>
             </el-row>
           </el-col>
         </el-row>
+        </el-row>
       </el-main>
-      <el-footer style="">
-
+      <el-footer>
       </el-footer>
     </el-container>
 
+
   </div>
+
 </template>
+
 
 <script>
   import {getMemberInfo} from "../../api/user";
   import Sticky from '@/components/Sticky'
   import {getCount} from "../../api/cart";  import {mapGetters} from "vuex";
+  import {chong} from "../../api/member"
   export default {
     name: "user",
     components: { Sticky },
@@ -171,7 +182,8 @@
       return{
         userInfo:null,
         user:{},
-        count:null
+        count:null,
+        money:100
       }
     },
     computed: {
@@ -188,9 +200,12 @@
     },
     methods:{
       getMoney(){
-        this.$message({
-          message:"哪来的钱？",
-          type: 'warning'
+        chong({money:this.money}).then(res=>{
+          this.$message({
+            message: '充值成功',
+            type: 'success'
+          })
+          this.getInfo()
         })
       },
       toProduct(){
@@ -233,12 +248,84 @@
   }
 </script>
 
-<style scoped>
-  .el-header, .el-footer {
+<style>
+  .check{
+    background-color: #5edaff;
+  }
+  .la li:hover{
+    background-color: #5edaff;
+  }
+  .time {
+    font-size: 13px;
+    color: #999;
+  }
+
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+  }
+
+  .el-header{
     background-color: #000000;
     color: #333;
-
     line-height: 60px;
+  }
+  .el-footer {
+    background-color: #000000;
+    color: #333;
+    min-height: 50px;
+    line-height: 60px;
+    margin-top: 300px;
+  }
+
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    line-height: 200px;
+  }
+
+  .el-main {
+
+    text-align: center;
+  }
+
+  body > .el-container {
+    margin-bottom: 40px;
+  }
+
+  .el-container:nth-child(5) .el-aside,
+  .el-container:nth-child(6) .el-aside {
+    line-height: 260px;
+  }
+
+  .el-container:nth-child(7) .el-aside {
+    line-height: 320px;
+  }
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 18px;
+    opacity: 0.75;
+    line-height: 300px;
+    margin: 0;
+  }
+
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
   }
   .la li{
     position: relative;
@@ -251,26 +338,5 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
-  .el-main {
-
-    text-align: center;
-  }
-  .title{
-    position: relative;
-    z-index: 1;
-    line-height: 38px;
-    height: 38px;
-    font-size: 16px;
-    background: #eee;
-    border-bottom: 1px solid #dbdbdb;
-    border-bottom-color: rgba(0,0,0,.08);
-  }
-  .row{
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 115px;
-    text-align: center;
   }
 </style>

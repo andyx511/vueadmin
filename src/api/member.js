@@ -26,3 +26,10 @@ export function info() {
     method: 'get'
   })
 }
+export function chong(params) {
+  return request({
+    url: 'member/chong',
+    method: 'get',
+    params:params
+  })
+}

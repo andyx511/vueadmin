@@ -98,6 +98,19 @@
         </el-table-column>
       </el-table>
     </div>
+    <div class="pagination-container">
+      <el-pagination
+        style="float: right"
+        background
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        layout="total, sizes,prev, pager, next,jumper"
+        :page-size="query.pageSize"
+        :page-sizes="[5,10]"
+        :current-page.sync="query.pageNum"
+        :total="total">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -147,7 +160,7 @@
         query: Object.assign({},defaultQuery),
         list:[],
         total:null,
-        date:'',
+        date:[],
         pickerOptions: {
           shortcuts: [{
             text: '最近一周',
@@ -189,7 +202,25 @@
       },
       detail(id){
         this.$router.push({path: 'returnDetail',query:{id:id}})
-      }
+      },
+      search(){
+        if(this.query != ''){
+          this.query.startDt = this.date[0]
+          this.query.endDt = this.date[1]
+        }
+        this.getList()
+      },
+      // 改变页面
+      handleCurrentChange() {
+        this.listLoading = true;
+        this.getList();
+      },
+      // 改变页面大小
+      handleSizeChange(val) {
+        this.query.pageNum = 1;
+        this.query.pageSize = val;
+        this.getList();
+      },
     }
   }
 </script>

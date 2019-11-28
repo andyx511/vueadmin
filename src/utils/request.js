@@ -5,8 +5,8 @@ import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://114.55.94.250:8888', // url = base url + request url
-  //baseURL: 'http://127.0.0.1:8888',
+  //baseURL: 'http://114.55.94.250:8888', // url = base url + request url
+  baseURL: 'http://127.0.0.1:8888',
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })
@@ -47,6 +47,17 @@ service.interceptors.response.use(
     const res = response.data
 
     // if the custom code is not 20000, it is judged as an error.
+    if (res.code ===500){
+      MessageBox.confirm('用户登录失效，请重新登录', '用户登录失效', {
+        confirmButtonText: 'Re-Login',
+        cancelButtonText: 'Cancel',
+        type: 'warning'
+      }).then(() => {
+        store.dispatch('user/resetToken').then(() => {
+          location.reload()
+        })
+      })
+    }else
     if (res.code !== 200) {
       Message({
         message: res.message || 'Error',
@@ -55,9 +66,9 @@ service.interceptors.response.use(
       })
 
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
-      if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
+      if (res.code === 500 || res.code === 50012 || res.code === 50014) {
         // to re-login
-        MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or log in again', 'Confirm logout', {
+        MessageBox.confirm('用户登录失效，请重新登录', '用户登录失效', {
           confirmButtonText: 'Re-Login',
           cancelButtonText: 'Cancel',
           type: 'warning'
