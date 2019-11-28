@@ -125,7 +125,6 @@
         </el-row>
       </el-main>
       <el-footer>
-        foot
       </el-footer>
     </el-container>
   </div>
@@ -317,11 +316,16 @@
     display: block;
   }
 
-  .el-header, .el-footer {
+  .el-header{
     background-color: #000000;
     color: #333;
-
     line-height: 60px;
+  }
+  .el-footer {
+    background-color: #000000;
+    color: #333;
+    line-height: 60px;
+    margin-top: 100px;
   }
 
   .el-aside {
