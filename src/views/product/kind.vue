@@ -52,7 +52,7 @@
             <el-button @click="edit( scope.row)" >
               编辑
             </el-button>
-            <el-button type="danger" @click="deleteBrand(scope.row)">
+            <el-button type="danger" @click="deleteBrand(scope.row)" v-permission="['admin']">
               删除
             </el-button>
           </template>
@@ -119,6 +119,8 @@
 
 <script>
   import { getKindList, add, detail, update, deleteBrand} from '../../api/kind'
+  import checkPermission from '@/utils/permission' // 权限判断函数
+  import permission from '@/directive/permission/index.js' // 权限判断指令
   const query = {
     name: null,
     pageNum: 1,
@@ -132,6 +134,7 @@
   }
   export default {
     name: "kind",
+    directives: { permission },
     data(){
       return{
         listQuery: Object.assign({}, query),

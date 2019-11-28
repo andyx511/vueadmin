@@ -79,7 +79,9 @@
     <div class="pagination-container">
       <el-button
         @click="deleteBatch"
-        type="danger">
+        type="danger"
+        v-permission="['admin']"
+      >
         批量删除
       </el-button>
       <el-pagination
@@ -161,6 +163,8 @@
 <script>
   import singleImgUpload from './components/singleImgUpload'
   import { getList, add, detail, update, deletes, updateShow} from '../../api/brand'
+  import checkPermission from '@/utils/permission' // 权限判断函数
+  import permission from '@/directive/permission/index.js' // 权限判断指令
 
   const query = {
     brandName: null,
@@ -181,6 +185,7 @@
   }
   export default {
     name: 'Brand',
+    directives: { permission },
     components:{singleImgUpload},
     data() {
       return {

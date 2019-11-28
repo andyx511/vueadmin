@@ -208,6 +208,12 @@
             <div v-if="scope.row.status==2">
               <el-tag type="danger"  >审核未通过</el-tag>
             </div>
+            <div v-if="scope.row.status==3">
+              <el-tag type="danger"  >修改待审核</el-tag>
+              <br>
+              <el-button icon="el-icon-close" style="margin-top: 5px;" type="danger" size="mini" @click="refuseStatus(scope.row)" v-permission="['admin']"></el-button>
+              <el-button icon="el-icon-check" type="success" size="mini" @click="passStatus(scope.row)" style="margin-top: 1px;margin-left: -1px;" v-permission="['admin']"></el-button>
+            </div>
           </template>
         </el-table-column>
         <el-table-column label="操作" align="center">
@@ -220,7 +226,8 @@
     <div class="pagination-container">
       <el-button
         @click="deleteBatch"
-        type="danger">
+        type="danger"
+        v-permission="['admin']">
         批量删除
       </el-button>
       <el-pagination
@@ -554,5 +561,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .el-table th.gutter{
+    display: table-cell!important;
+  }
 </style>
