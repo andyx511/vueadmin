@@ -120,10 +120,7 @@
                   <el-button type="danger" @click="toAddress" :disabled="multipleSelection.length==0">立即结算</el-button>
                 </el-col>
               </el-row>
-
-
             </el-card>
-
           </el-col>
         </el-row>
       </el-main>
