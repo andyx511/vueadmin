@@ -20,7 +20,7 @@
         >
           重置
         </el-button>
-        <a href="http://114.55.94.250:8888/product/export">
+        <a href="http://127.0.0.1:8888/product/export">
           <el-button
             style="float: right;margin-right: 10px"
             size="small"

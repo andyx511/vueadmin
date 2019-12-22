@@ -107,8 +107,8 @@
             </el-row>
           </el-col>
         </el-row>
-
-        <el-row style="margin: 0px auto; width: 1099px;">
+        <el-col :span="16" :offset="3">
+        <el-row style="">
           <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane label="商品详情" name="first">
               <el-image
@@ -176,6 +176,7 @@
             </el-tab-pane>
           </el-tabs>
         </el-row>
+        </el-col>
       </el-main>
       <el-footer style="height: 160px;">
 

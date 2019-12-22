@@ -48,7 +48,7 @@ service.interceptors.response.use(
 
     if (res.code !== 200) {
       Message({
-        message: res.message || 'Error',
+        message: '用户登录失效，请重新登录' || 'Error',
         type: 'error',
         duration: 5 * 1000
       })

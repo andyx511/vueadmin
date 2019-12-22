@@ -6,10 +6,10 @@
 
     <el-row style="margin-bottom:32px;" :gutter="8">
       <!--<line-chart :chart-data="lineChartData" />-->
-      <el-col :xs="24" :sm="24" :lg="6">
+      <el-col :xs="24" :sm="24" :lg="8">
         <lala />
       </el-col>
-      <el-col  :xs="24" :sm="24" :lg="18">
+      <el-col  :xs="24" :sm="24" :lg="16">
         <OrderReport />
       </el-col>
 
@@ -34,17 +34,17 @@
     </el-row>-->
 
     <el-row :gutter="8">
-      <el-col :xs="24" :sm="24" :lg="12">
+      <el-col :xs="24" :sm="24" :lg="10">
         <div style="padding: 10px">
           <VisitChart />
         </div>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="6">
+      <el-col :xs="24" :sm="24" :lg="7">
         <div style="padding: 10px">
         <KindReport />
         </div>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="6">
+      <el-col :xs="24" :sm="24" :lg="7">
         <div style="padding: 10px">
         <BrandReport />
         </div>

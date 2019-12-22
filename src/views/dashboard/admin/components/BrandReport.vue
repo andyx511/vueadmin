@@ -1,7 +1,7 @@
 <template>
   <div style="background:#ffffff;">
-    <div style="color: #9aaabf;padding: 330px 100px;position: absolute">品牌占比</div>
-    <ve-pie :data="chartData" :settings="chartSettings" :extend="extend"></ve-pie>
+    <div style="color: #9aaabf;padding: 330px 100px;position: absolute;">品牌占比</div>
+    <ve-pie :data="chartData" :settings="chartSettings" :extend="extend" ></ve-pie>
   </div>
 </template>
 
